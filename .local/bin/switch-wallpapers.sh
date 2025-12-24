@@ -25,7 +25,7 @@ wave_settings=("20,20" "30,15" "25,25" "40,10")
 
 style="${styles[$RANDOM % ${#styles[@]}]}"
 position="${positions[$RANDOM % ${#positions[@]}]}"
-wave="${wave_settings[$RANDOM % ${#wave_settings[@]}]}"
+wave="${waves[$RANDOM % ${#waves[@]}]}"
 duration="1.5"
 fps="60"
 angle=$(( RANDOM % 360 ))
