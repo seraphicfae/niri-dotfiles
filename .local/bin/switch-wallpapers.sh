@@ -23,21 +23,21 @@ styles=("grow" "outer" "wipe" "wave")
 positions=("center" "top" "bottom" "left" "right" "top-left" "top-right" "bottom-left" "bottom-right")
 wave_settings=("20,20" "30,15" "25,25" "40,10")
 
-chosen_style="${styles[random % ${#styles[@]}]}"
-chosen_position="${positions[random % ${#positions[@]}]}"
-chosen_wave="${wave_settings[random % ${#wave_settings[@]}]}"
+style="${styles[$RANDOM % ${#styles[@]}]}"
+position="${positions[$RANDOM % ${#positions[@]}]}"
+wave="${wave_settings[$RANDOM % ${#wave_settings[@]}]}"
 duration="1.5"
-frames_per_second="60"
-angle=$((random % 360))
+fps="60"
+angle=$(( RANDOM % 360 ))
 
 cp "${wallpaper_list[$next_index]}" "$active_wallpaper"
 matugen image "$active_wallpaper"
 printf '%d' "$next_index" > "$index_tracker"
 
 swww img "$active_wallpaper" \
-    --transition-type "$chosen_style" \
-    --transition-pos "$chosen_position" \
-    --transition-wave "$chosen_wave" \
+    --transition-type "$style" \
+    --transition-pos "$position" \
+    --transition-wave "$wave" \
     --transition-duration "$duration" \
-    --transition-fps "$frames_per_second" \
+    --transition-fps "$fps" \
     --transition-angle "$angle"
