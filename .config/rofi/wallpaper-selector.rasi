@@ -1,0 +1,172 @@
+/**
+ *
+ * Base     : Aditya Shakya (adi1090x)
+ * Modified : Faye
+ *
+ **/
+
+/* ──────────[ Config ]────────── */
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    drun-display-format:        "{name}";
+}
+
+/* ──────────[ Global Settings ]────────── */
+* {
+    font:                        "JetBrains Mono Nerd Font 12";
+    background:                  #1c1c1c;        /* dark gray background */
+    background-alt:              #2b2b2b;        /* slightly lighter dark gray */
+    foreground:                  #F8F8F2;        /* off-white text */
+    selected:                    #FFD1DC;        /* soft pink highlight */
+    active:                      #BD93F9;        /* purple-ish for active */
+    urgent:                      #FF5555;        /* red-pink for urgent */
+}
+
+/* ──────────[ Window ]────────── */
+window {
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       700px;
+    height:                      600px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    enabled:                     true;
+    border-radius:               8px;
+    cursor:                      "default";
+    margin:                      0px;
+    padding:                     2px;
+    background-color:            @selected;
+}
+
+/* ──────────[ Mainbox ]────────── */
+mainbox {
+    enabled:                     true;
+    spacing:                     8px;
+    margin:                      0px;
+    padding:                     8px;
+    background-color:            @background;
+    border-radius:               8px;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+/* ──────────[ Inputbar ]────────── */
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+entry {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "  Search Wallpaper...";
+    placeholder-color:           inherit;
+}
+
+/* ──────────[ Listbox ]────────── */
+listbox {
+    spacing:                     20px;
+    padding:                     10px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+/* ──────────[ Listview ]────────── */
+listview {
+    enabled:                     true;
+    columns:                     2;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/* ──────────[ Elements ]────────── */
+element {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     8px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  @foreground;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  #1E1E28;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  #1E1E28;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  #1E1E28;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        100px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/* ──────────[ Message and Error ]────────── */
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     10px;
+    border-radius:               20px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}

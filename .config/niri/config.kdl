@@ -1,0 +1,323 @@
+// ────────────────[ Input and Output ]────────────────
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    touchpad {
+        off
+    }
+    focus-follows-mouse
+}
+
+output "DP-1" {
+    mode "1920x1080"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    mode "2560x1440"
+    scale 1.5
+    transform "normal"
+    position x=0 y=0
+}
+
+// ────────────────[ Binds ]────────────────
+binds {
+    // Applications
+    Mod+W           { spawn-sh "$HOME/.local/bin/wallpaper-selector.sh"; }
+    Mod+Shift+W     { spawn-sh "$HOME/.local/bin/switch-wallpapers.sh"; }
+    Mod+D           { spawn-sh "$HOME/.local/bin/launcher.sh"; }
+    Mod+Escape      { spawn-sh "$HOME/.local/bin/powermenu.sh"; }
+    Mod+Slash       { spawn-sh "killall waybar && waybar"; }
+    Mod+Return      { spawn "kitty"; }
+    Mod+Shift+F     { spawn "nautilus"; }
+    Mod+B           { spawn "chromium"; }
+    Mod+E           { spawn "zeditor"; }
+    Mod+V           { spawn "vesktop"; }
+    Mod+M           { spawn "g4music"; }
+
+    // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
+    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-" ; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause        allow-when-locked=true { spawn-sh "playerctl pause"; }
+    XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
+
+    // Windows and Columns
+    Mod+Q            { close-window; }
+    Mod+R            { switch-preset-column-width; }
+    Mod+C            { center-column; }
+    Mod+Space        { toggle-window-floating; }
+    Mod+F            { fullscreen-window; }
+    Mod+Left         { focus-column-left; }
+    Mod+Right        { focus-column-right; }
+    Mod+Down         { focus-window-down; }
+    Mod+Up           { focus-window-up; }
+    Mod+Shift+Left   { move-column-left; }
+    Mod+Shift+Right  { move-column-right; }
+    Mod+Shift+Down   { move-window-down; }
+    Mod+Shift+Up     { move-window-up; }
+    Mod+Ctrl+Left    { set-column-width "-10%"; }
+    Mod+Ctrl+Right   { set-column-width "+10%"; }
+    Mod+Ctrl+Up      { set-window-height "-10%"; }
+    Mod+Ctrl+Down    { set-window-height "+10%"; }
+    Mod+Home         { focus-column-first; }
+    Mod+End          { focus-column-last; }
+    Mod+Shift+Home   { move-column-to-first; }
+    Mod+Shift+End    { move-column-to-last; }
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    // Workspaces
+    Mod+WheelScrollDown       { focus-workspace-down; }
+    Mod+WheelScrollUp         { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   { move-column-to-workspace-up; }
+    Mod+1                     { focus-workspace 1; }
+    Mod+2                     { focus-workspace 2; }
+    Mod+3                     { focus-workspace 3; }
+    Mod+4                     { focus-workspace 4; }
+    Mod+5                     { focus-workspace 5; }
+    Mod+6                     { focus-workspace 6; }
+    Mod+7                     { focus-workspace 7; }
+    Mod+8                     { focus-workspace 8; }
+    Mod+9                     { focus-workspace 9; }
+    Mod+0                     { focus-workspace 0; }
+    Mod+Shift+1               { move-column-to-workspace 1; }
+    Mod+Shift+2               { move-column-to-workspace 2; }
+    Mod+Shift+3               { move-column-to-workspace 3; }
+    Mod+Shift+4               { move-column-to-workspace 4; }
+    Mod+Shift+5               { move-column-to-workspace 5; }
+    Mod+Shift+6               { move-column-to-workspace 6; }
+    Mod+Shift+7               { move-column-to-workspace 7; }
+    Mod+Shift+8               { move-column-to-workspace 8; }
+    Mod+Shift+9               { move-column-to-workspace 9; }
+    Mod+Shift+0               { move-column-to-workspace 10; }
+    Mod+A                     { toggle-overview; }
+
+    // Screenshots
+    Print           { screenshot-screen; }
+    Mod+Print       { screenshot; }
+    Mod+Shift+Print { screenshot-window; }
+}
+
+// ────────────────[ Layout ]────────────────
+layout {
+    gaps 8
+    center-focused-column "never"
+    background-color "transparent"
+
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.67
+        proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+    preset-window-heights {
+        proportion 0.5
+        proportion 0.67
+        proportion 1.0
+    }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        on
+        width 2.5
+        active-color "#e5b9c6"
+        inactive-color "#3b3b3b"
+    }
+
+    shadow {
+        off
+    //  softness 10
+    //  spread 2.5
+    //  offset x=0 y=5
+    //  color "#00000099"
+    }
+
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+}
+
+// ────────────────[ Misc ]────────────────
+// Background services & daemons
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "img" "~/.local/state/current_wallpaper"
+spawn-at-startup "mako"
+spawn-at-startup "/usr/lib/pantheon-polkit-agent"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
+
+// Tray apps & panel
+spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+
+// Autostart apps
+spawn-at-startup "chromium"
+spawn-at-startup "vesktop"
+spawn-at-startup "steam"
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
+
+cursor {
+    xcursor-theme "BreezeX-RosePine-Linux"
+    xcursor-size 24
+}
+
+overview {
+    workspace-shadow {
+        on
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+workspace "1"
+workspace "2"
+workspace "3"
+
+// ────────────────[ Window Rules ]────────────────
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"org\.gtk\.FileChooserDialog"#
+    match app-id=r#"blueman-manager"#
+    match app-id=r#"nm-connection-editor"#
+    match app-id="viewnior"
+    match title="Volume Control"
+    match title="Mission Center"
+    match title="Picture in picture"
+
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="dev.zed.Zed"
+    open-maximized true
+    open-on-workspace "2"
+}
+
+window-rule {
+    match app-id="steam"
+    open-maximized true
+    open-on-workspace "3"
+}
+
+window-rule {
+    match app-id="com.github.neithern.g4music"
+    open-on-workspace "3"
+}
+
+window-rule {
+    match app-id="org.keepassxc.KeePassXC"
+    block-out-from "screen-capture"
+}
+
+// ────────────────[ Layer Rules ]────────────────
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+// ────────────────[ Gestures ]────────────────
+gestures {
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+
+    hot-corners {
+        top-right
+    }
+}
+
+// ────────────────[ Recent Windows ]────────────────
+recent-windows {
+    debounce-ms 750
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+    }
+}
+
+// ────────────────[ Environment Variables ]────────────────
+environment {
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    OZONE_PLATFORM "wayland"
+
+    // Wayland Platform Settings
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+
+    // GTK Settings
+    GDK_BACKEND "wayland,x11"
+
+    // Firefox Wayland
+    MOZ_ENABLE_WAYLAND "1"
+    MOZ_DBUS_REMOTE "1"
+
+    // Java Applications
+    _JAVA_AWT_WM_NONREPARENTING "1"
+
+    // SDL Applications
+    SDL_VIDEODRIVER "wayland,x11"
+}

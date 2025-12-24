@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+## Author : Aditya Shakya (adi1090x)
+
+uptime=$(uptime -p | sed 's/up //')
+theme="$HOME/.config/rofi/powermenu.rasi"
+
+lock=''
+suspend=''
+logout='󰍃'
+reboot=''
+shutdown=' '
+yes=''
+no=''
+
+rofi_cmd() {
+	rofi -dmenu -p "Uptime: $uptime" -theme "$theme"
+}
+
+confirm_cmd() {
+	rofi -dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
+		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 1;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-theme "$theme"
+}
+
+confirm_exit() {
+	echo -e "$yes\n$no" | confirm_cmd
+}
+
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+}
+
+run_cmd() {
+	[[ $(confirm_exit) == "$yes" ]] || exit 0
+	case "$1" in
+		--shutdown) systemctl poweroff ;;
+		--reboot) systemctl reboot ;;
+		--suspend)
+			mpc -q pause
+			amixer set Master mute
+			systemctl suspend
+			;;
+		--logout) niri msg action quit --skip-confirmation ;;
+	esac
+}
+
+case "$(run_rofi)" in
+	$shutdown)
+	run_cmd --shutdown
+	;;
+	$reboot)
+	run_cmd --reboot
+	;;
+	$lock)
+		playerctl pause
+		hyprlock
+		;;
+	$suspend)
+	run_cmd --suspend
+	;;
+	$logout)
+	run_cmd --logout
+	;;
+esac

@@ -1,0 +1,12 @@
+[config]
+backend = "oklab"
+
+[templates.kitty]
+input_path= "~/.config/matugen/templates/kitty-colors"
+output_path = "~/.config/kitty/colors"
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako-colors'
+output_path = '~/.config/mako/colors'
+post_hook = 'makoctl reload'
