@@ -21,7 +21,7 @@ next_index=$(( (current_index + 1) % ${#wallpaper_list[@]} ))
 
 styles=("grow" "outer" "wipe" "wave")
 positions=("center" "top" "bottom" "left" "right" "top-left" "top-right" "bottom-left" "bottom-right")
-wave_settings=("20,20" "30,15" "25,25" "40,10")
+waves=("20,20" "30,15" "25,25" "40,10")
 
 style="${styles[$RANDOM % ${#styles[@]}]}"
 position="${positions[$RANDOM % ${#positions[@]}]}"
