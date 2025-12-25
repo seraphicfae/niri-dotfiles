@@ -95,11 +95,11 @@ cat << "EOF"
 EOF
 
 required_packages=(
-    blueman bluez-utils cava catppuccin-sddm-theme-mocha fastfetch ffmpegthumbnailer gvfs-mtp niri hyprlock
-    pantheon-polkit-agent kitty kvantum mako matugen-bin mission-center mpv nautilus network-manager-applet
-    noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme pavucontrol qt5-wayland qt6-wayland
-    qt6ct rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clipboard
-    wl-clip-persist xdg-desktop-portal-gtk xdg-desktop-portal-gnome xwayland-satellite zed zsh
+    blueman bluez-utils catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock kitty
+    mako matugen-bin mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji
+    noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pavucontrol qt5-wayland qt6-wayland qt6ct-kde
+    rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
 )
 
 optional_packages=(
