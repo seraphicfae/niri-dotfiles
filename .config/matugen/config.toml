@@ -10,3 +10,8 @@ post_hook = 'pkill -SIGUSR1 kitty'
 input_path = '~/.config/matugen/templates/mako-colors'
 output_path = '~/.config/mako/colors'
 post_hook = 'makoctl reload'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors'
+output_path = '~/.config/cava/themes/colors'
+post_hook = "pkill -USR1 cava"

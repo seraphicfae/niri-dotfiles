@@ -1,35 +1,35 @@
 {
   "modules-left": [
-      "niri/workspaces",
-      "custom/separator",
-      "cpu",
-      "memory",
-      "temperature"
-    ],
-    "modules-center": ["custom/cava", "mpris"],
-    "modules-right": [
-      "tray",
-      "backlight",
-      "battery",
-      "pulseaudio#output",
-      "custom/separator",
-      "pulseaudio#input",
-      "clock"
-    ],
-    "niri/workspaces": {
-      "format": "{index}",
-    },
+    "niri/workspaces",
+    "custom/separator",
+    "cpu",
+    "memory",
+    "temperature",
+  ],
+  "modules-center": ["custom/cava", "mpris"],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "battery",
+    "wireplumber",
+    "custom/separator",
+    "wireplumber#source",
+    "clock",
+  ],
+  "niri/workspaces": {
+    "format": "{index}",
+  },
   "cpu": {
     "format": " {usage}%",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter"
+    "on-click": "missioncenter",
   },
   "memory": {
     "format": " {used}/{total} GiB",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter"
+    "on-click": "missioncenter",
   },
   "temperature": {
     "thermal-zone": 2,
@@ -39,83 +39,79 @@
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false,
-    "on-click": "missioncenter"
+    "on-click": "missioncenter",
   },
   "custom/cava": {
     "exec": "$HOME/.local/bin/cava.sh",
     "on-click": "kitty -e cava",
     "format": "{}",
     "tooltip": false,
-    "layer": "below",
-    "output": "all"
   },
   "mpris": {
     "format": "{status_icon} {dynamic}",
-    "format-empty": "test",
-    "tooltip": false,
-    "interval": 1,
-    "max-length": 40,
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format-empty": "  No Media",
     "status-icons": {
       "paused": "",
       "playing": "",
       "stopped": "",
-      "default": ""
     },
-    "dynamic-order": ["title", "artist"]
+    "dynamic-order": ["title", "artist"],
+    "max-length": 40,
   },
   "tray": {
     "icon-size": 20,
-    "spacing": 7
+    "spacing": 7,
   },
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{icon}  {capacity}%",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["", "", "", "", ""],
   },
-  "pulseaudio#output": {
-      "format": "{icon} {volume}%",
-      "format-muted": "󰝟 muted",
-      "format-icons": {
-          "default": ["", "", ""]
-      },
-      "on-click": "pavucontrol",
-      "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-      "scroll-step": 5,
-      "tooltip": true
+  "wireplumber": {
+    "node-type": "Audio/Sink",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": {
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "scroll-step": 5,
+    "tooltip": true,
   },
-
-  "pulseaudio#input": {
-      "format": "{format_source}",
-      "format-source": " {volume}%",
-      "format-source-muted": " muted",
-      "on-click": "pavucontrol",
-      "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-      "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-      "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
-      "scroll-step": 5
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "scroll-step": 5,
   },
   "clock": {
     "interval": 1,
     "format": " {:%H:%M:%S}",
     "tooltip": false,
     "format-alt": "  {:%A, %B %d}",
-    "on-click-right": "kitty"
+    "on-click-right": "kitty",
   },
   "custom/separator": {
     "format": " • ",
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }

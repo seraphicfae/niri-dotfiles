@@ -136,13 +136,13 @@ window#waybar {
     border-radius: 5px;
 }
 
-#pulseaudio.output.muted {
+#wireplumber.sink-muted {
     background: transparent;
     color: rgba(30, 30, 46, 0.5);
     margin-left: 0px;
 }
 
-#pulseaudio.input.source-muted {
+#wireplumber.source.source-muted {
     background: transparent;
     color: rgba(30, 30, 46, 0.5);
     margin-left: 0px;
