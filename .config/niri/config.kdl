@@ -32,7 +32,7 @@ binds {
     Mod+Shift+W     { spawn-sh "$HOME/.local/bin/switch-wallpapers.sh"; }
     Mod+D           { spawn-sh "$HOME/.local/bin/launcher.sh"; }
     Mod+Escape      { spawn-sh "$HOME/.local/bin/powermenu.sh"; }
-    Mod+Slash       { spawn-sh "killall waybar && waybar"; }
+    Mod+Slash       { spawn-sh "killall waybar cava; waybar"; }
     Mod+Return      { spawn "kitty"; }
     Mod+Shift+F     { spawn "nautilus"; }
     Mod+B           { spawn "chromium"; }
