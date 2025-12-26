@@ -1,4 +1,6 @@
 -- Basic Settings
+---@diagnostic disable-next-line: undefined-global
+local vim = vim
 vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.mouse = 'a'
