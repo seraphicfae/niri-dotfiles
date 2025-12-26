@@ -16,28 +16,36 @@ window#waybar {
     background: #282828;
     margin: 5px;
     padding: 0px 5px;
-    border-radius: 15px;
-    border: solid 0px #f4d9e1;
-    font-weight: normal;
-    font-style: normal;
+    border-radius: 16px;
 }
 
 #workspaces button {
-    padding: 5px;
-    border-radius: 5px;
-    color: #928374;
+    min-width: 18px;
+    min-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 6px 4px;
+    background-color: #504945;
+    color: transparent;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button.active {
-    color: #f4d9e1;
-    background-color: transparent;
+    min-width: 38px;
+    background-color: pink;
     border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button:hover {
     background-color: #e6b9c6;
-    color: black;
-    border-radius: 15px;
+}
+
+#workspaces button.urgent {
+    background-color: #cc241d;
 }
 
 /* ──────────[ Left Modules ]────────── */
