@@ -101,10 +101,10 @@ required_packages=(
     rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
     xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
 )
-
+ 
 optional_packages=(
-    docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes gst-libav jdk21-openjdk keepassxc
-    kid3 obs-studio python-pipx qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
+    docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes gst-libav keepassxc kid3 obs-studio
+    python-pipx qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
 )
 
 required_missing_packages=($(for pkg in "${required_packages[@]}"; do
