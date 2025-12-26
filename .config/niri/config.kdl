@@ -28,17 +28,17 @@ output "HDMI-A-1" {
 // ────────────────[ Binds ]────────────────
 binds {
     // Applications
-    Mod+W           { spawn-sh "$HOME/.local/bin/wallpaper-selector.sh"; }
-    Mod+Shift+W     { spawn-sh "$HOME/.local/bin/switch-wallpapers.sh"; }
-    Mod+D           { spawn-sh "$HOME/.local/bin/launcher.sh"; }
-    Mod+Escape      { spawn-sh "$HOME/.local/bin/powermenu.sh"; }
-    Mod+Slash       { spawn-sh "killall waybar cava; waybar"; }
-    Mod+Return      { spawn "kitty"; }
-    Mod+Shift+F     { spawn "nautilus"; }
-    Mod+B           { spawn "chromium"; }
-    Mod+E           { spawn "zeditor"; }
-    Mod+V           { spawn "vesktop"; }
-    Mod+M           { spawn "g4music"; }
+    Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-selector.sh"; }
+    Mod+Shift+W { spawn-sh "$HOME/.local/bin/switch-wallpapers.sh"; }
+    Mod+D       { spawn-sh "$HOME/.local/bin/launcher.sh"; }
+    Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu.sh"; }
+    Mod+Slash   { spawn-sh "killall waybar cava; waybar"; }
+    Mod+Return  { spawn "kitty"; }
+    Mod+Shift+F { spawn "nautilus"; }
+    Mod+B       { spawn "chromium"; }
+    Mod+E       { spawn "zeditor"; }
+    Mod+V       { spawn "vesktop"; }
+    Mod+M       { spawn "g4music"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%" ; }
@@ -69,10 +69,10 @@ binds {
     Mod+Ctrl+Right   { set-column-width "+10%"; }
     Mod+Ctrl+Up      { set-window-height "-10%"; }
     Mod+Ctrl+Down    { set-window-height "+10%"; }
-    Mod+Home         { focus-column-first; }
-    Mod+End          { focus-column-last; }
-    Mod+Shift+Home   { move-column-to-first; }
-    Mod+Shift+End    { move-column-to-last; }
+    Mod+Comma        { focus-column-first; }
+    Mod+Period       { focus-column-last; }
+    Mod+Shift+Comma  { move-column-to-first; }
+    Mod+Shift+Period { move-column-to-last; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
