@@ -158,7 +158,7 @@ layout {
 // ────────────────[ Misc ]────────────────
 // Background services & daemons
 spawn-at-startup "swww-daemon"
-spawn-at-startup "swww" "img" "~/.local/state/current_wallpaper"
+spawn-at-startup "swww img ~/.local/state/current_wallpaper"
 spawn-at-startup "mako"
 spawn-at-startup "/usr/lib/pantheon-polkit-agent"
 spawn-at-startup "xwayland-satellite"
