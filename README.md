@@ -12,7 +12,8 @@ https://github.com/user-attachments/assets/c7f45470-5c41-46e4-88f0-6dd9a8296cc3
 ---
 
 ## Quick Install:
-> **Don't run random scripts blindly**
+> [!WARNING]
+> Don't run random scripts blindly
 
 ```bash
 git clone https://github.com/seraphicfae/niri-dotfiles
@@ -39,12 +40,12 @@ xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
 ```bash
 cd niri-dotfiles
 
-cp -rb .config/* "$HOME/.config/"
-cp -rb .local/{bin,share} "$HOME/.local/"
-```
+cp -r .config/* "$HOME/.config/"
 
-### QoL/Extra (Recommended, but not need)
-```bash
+cp -r .local/bin/* "$HOME"/.local/bin/
+
+cp -r .local/share/* "$HOME"/.local/share/
+
 cp -r $HOME/.local/share/wallpapers/wallpaper_01.png $HOME/.local/state/current_wallpaper
 ```
 
@@ -66,11 +67,11 @@ reboot
 ---
 
 ## FAQ / Common Issues
-**My temperature module doesn’t appear in the waybar?** \
-Look in waybar and set it to your correct thermal zone.
+**My temperature module doesn’t appear in waybar?** \
+Look in `config.jsonc` and set it to your correct thermal zone.
 
 **MPRIS module is empty** \
 It only shows when media is playing.
 
 **My icons look weird/dont show** \
-With your package manager, download JetBrainsMono Nerd Font.
+Download JetBrainsMono Nerd Font with pacman.
