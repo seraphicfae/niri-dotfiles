@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
+
+if [[ -z "$1" ]]; then
+    echo "Usage: avatar <path-to-image>"
+    exit 1
+fi
+
+input_image="$1"
+target_file="$HOME/.local/share/icons/face.png"
+
+mkdir -p "$XDG_DATA_HOME/icons"
+
+magick "${input_image:a}" \
+  -gravity center -extent 1:1 \
+  -resize 512x512 \
+  \( -size 512x512 xc:black -fill white -draw "circle 256,256 256,1" \) \
+  -alpha off -compose copy_opacity -composite \
+  "$target_file"
+
+if [[ $? -eq 0 ]]; then
+    echo "Successfully updated profile picture at $target_file"
+    notify-send "Profile Updated" "Your new avatar is ready." -i "$target_file"
+else
+    echo "Error: ImageMagick failed to process the image."
+    exit 1
+fi

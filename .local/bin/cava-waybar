@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
-cava -p "$HOME/.config/cava/config-waybar" | awk -F';' '{
+cava -p "$XDG_CONFIG_HOME/cava/config-waybar" | awk -F';' '{
     bars = ""
     for (i = 1; i <= NF; i++) {
         if ($i == 0) bars = bars "▁"

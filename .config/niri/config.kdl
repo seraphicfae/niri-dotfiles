@@ -28,11 +28,11 @@ output "HDMI-A-1" {
 // ────────────────[ Binds ]────────────────
 binds {
     // Applications
-    Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-selector.sh"; }
-    Mod+Shift+W { spawn-sh "$HOME/.local/bin/switch-wallpapers.sh"; }
-    Mod+D       { spawn-sh "$HOME/.local/bin/launcher.sh"; }
-    Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu.sh"; }
-    Mod+Slash   { spawn-sh "killall waybar cava; waybar"; }
+    Mod+Slash   { spawn-sh "killall waybar cava; waybar & disown"; }
+    Mod+Shift+W { spawn-sh "waypaper --random"; }
+    Mod+D       { spawn "launcher"; }
+    Mod+Escape  { spawn "powermenu"; }
+    Mod+W       { spawn "waypaper"; }
     Mod+Return  { spawn "kitty"; }
     Mod+Shift+F { spawn "nautilus"; }
     Mod+B       { spawn "chromium"; }
@@ -211,6 +211,7 @@ window-rule {
     match app-id=r#"blueman-manager"#
     match app-id=r#"nm-connection-editor"#
     match app-id="viewnior"
+    match app-id="waypaper"
     match title="Volume Control"
     match title="Mission Center"
     match title="Picture in picture"

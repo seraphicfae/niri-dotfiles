@@ -42,7 +42,7 @@
     "on-click": "missioncenter",
   },
   "custom/cava": {
-    "exec": "$HOME/.local/bin/cava.sh",
+    "exec": "~/.local/bin/cava-waybar",
     "on-click": "kitty -e cava",
     "format": "{}",
     "tooltip": false,

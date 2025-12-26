@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
+
+rofi -show drun -theme "$XDG_CONFIG_HOME/rofi/launcher.rasi"

@@ -99,9 +99,9 @@ required_packages=(
     kitty mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji
     noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland qt6ct-kde
     rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite waypaper zed zsh
 )
- 
+
 optional_packages=(
     docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes gst-libav keepassxc kid3 obs-studio
     python-pipx qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
