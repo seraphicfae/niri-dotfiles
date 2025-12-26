@@ -29,10 +29,11 @@ output "HDMI-A-1" {
 binds {
     // Applications
     Mod+Slash   { spawn-sh "killall waybar cava; waybar & disown"; }
-    Mod+Shift+W { spawn-sh "waypaper --random"; }
+    Mod+W       { spawn "wallpaper-selector"; }
+    Mod+Shift+W { spawn "switch-wallpapers"; }
+    Mod+Shift+A { spawn "avatar"; }
     Mod+D       { spawn "launcher"; }
     Mod+Escape  { spawn "powermenu"; }
-    Mod+W       { spawn "waypaper"; }
     Mod+Return  { spawn "kitty"; }
     Mod+Shift+F { spawn "nautilus"; }
     Mod+B       { spawn "chromium"; }

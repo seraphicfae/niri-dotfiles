@@ -1,24 +1,27 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
-if [[ -z "$1" ]]; then
-    echo "Usage: avatar <path-to-image>"
-    exit 1
+target_file="$HOME/.local/share/icons/face.png"
+input_image="$1"
+
+if [[ -z "$input_image" ]]; then
+    input_image=$(zenity --file-selection --title="Select Profile Picture" --file-filter="Images | *.png *.jpg *.jpeg *.webp *.gif")
+
+    if [[ -z "$input_image" ]]; then
+        echo "No file selected. Exiting."
+        exit 0
+    fi
 fi
 
-input_image="$1"
-target_file="$HOME/.local/share/icons/face.png"
+absolute_file_path=$(realpath "$input_image")
 
-mkdir -p "$XDG_DATA_HOME/icons"
-
-magick "${input_image:a}" \
+if magick "$absolute_file_path" \
   -gravity center -extent 1:1 \
   -resize 512x512 \
   \( -size 512x512 xc:black -fill white -draw "circle 256,256 256,1" \) \
   -alpha off -compose copy_opacity -composite \
-  "$target_file"
+  "$target_file"; then
 
-if [[ $? -eq 0 ]]; then
     echo "Successfully updated profile picture at $target_file"
     notify-send "Profile Updated" "Your new avatar is ready." -i "$target_file"
 else

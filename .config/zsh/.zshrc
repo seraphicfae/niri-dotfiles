@@ -1,4 +1,5 @@
 # ────────────────[ Paths ]────────────────
+export PATH="$HOME/.local/bin:$PATH"
 export npm_config_cache="$HOME/.local/share/npm"
 export BUN_INSTALL="$HOME/.local/share/bun"
 export CARGO_INSTALL_ROOT="$HOME/.local"

@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 ## Author : Aditya Shakya (adi1090x)
 
 uptime=$(uptime -p | sed 's/up //')
-theme="$XDG_CONFIG_HOME/rofi/powermenu.rasi"
+theme="$HOME/.config/rofi/powermenu.rasi"
 
 lock=''
 suspend=''
