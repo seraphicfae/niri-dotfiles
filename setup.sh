@@ -24,7 +24,7 @@ note()  { echo -e "${BOLD}${WHITE}[ NOTE ]${RESET} $1"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
-wallpaper_directory="$HOME/.local/share/wallpapers"
+wallpaper_directory="$HOME/Pictures/wallpapers"
 
 # ────────────────[ Arch and SystemD Check ]────────────────
 if [ -f /etc/arch-release ] || grep -qi "arch" /etc/os-release; then
@@ -177,6 +177,7 @@ EOF
 declare -a dotfile_paths=(
     ".config"
     ".local"
+    "Pictures"
 )
 
 while true; do
