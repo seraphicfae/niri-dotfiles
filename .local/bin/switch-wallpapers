@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
-wallpaper_folder="$HOME/.local/share/wallpapers"
+wallpaper_folder="$HOME/Pictures/wallpapers"
 index_tracker="$HOME/.local/state/wallpaper_index"
 active_wallpaper="$HOME/.local/state/current_wallpaper"
 

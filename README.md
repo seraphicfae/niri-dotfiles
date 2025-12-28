@@ -46,7 +46,9 @@ cp -r .local/bin/* "$HOME"/.local/bin/
 
 cp -r .local/share/* "$HOME"/.local/share/
 
-cp -r $HOME/.local/share/wallpapers/wallpaper_01.png $HOME/.local/state/current_wallpaper
+cp -r Pictures/wallpapers/wallpaper_01.png "$HOME"/.local/state/current_wallpaper
+
+cp -r Pictures/ "$HOME"/Pictures
 ```
 
 #### Finalizing
@@ -60,7 +62,6 @@ git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.config/zsh/a
 chsh -s /usr/bin/zsh
 
 export ZDOTDIR="$HOME/.config/zsh"
-export PATH="$HOME/.local/bin:$PATH"
 
 reboot
 ```
