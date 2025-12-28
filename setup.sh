@@ -186,10 +186,15 @@ while true; do
     input="${input:-n}"
 
     if [[ "$input" =~ ^[Yy]$ ]]; then
-        info "Downloading wallpapers into $wallpaper_directory ..."
-        mkdir -p "$wallpaper_directory"
-        git clone --depth 1 "$wallpaper_repository" "$wallpaper_directory"
-        okay "Wallpapers downloaded."
+        if [ -d "$wallpaper_directory/.git" ]; then
+            info "Wallpapers already exist. Pulling updates..."
+            git -C "$wallpaper_directory" pull
+        else
+            info "Downloading wallpapers into $wallpaper_directory..."
+            mkdir -p "$wallpaper_directory"
+            git clone --depth 1 "$wallpaper_repository" "$wallpaper_directory"
+        fi
+        okay "Wallpapers ready."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
         info "Skipping wallpaper download."
@@ -200,7 +205,7 @@ while true; do
 done
 
 while true; do
-    read -n 1 -r -p "$(ask "Copy dotfiles to your config directory? [Y/n] ")" input
+    read -n 1 -r -p "$(ask "Copy dotfiles to your directories? [Y/n] ")" input
     echo
     input="${input:-y}"
 
@@ -211,20 +216,19 @@ while true; do
 
             if [ -d "$source" ]; then
                 mkdir -p "$destination"
-                info "Copying contents of $folder..."
-                cp -rf "$source/"* "$destination/"
-                okay "Successfully copied to $destination"
-
-                info "Symlinking the theme to home folder"
-                ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
-                okay "Done"
+                info "Syncing $folder..."
+                cp -rfu "$source/." "$destination/"
             else
                 warn "Source folder $source does not exist, skipping."
             fi
         done
+
+        info "Setting up GTK-4.0 theme symlink..."
+        ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0/
+        okay "Theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
-        warn "Skipping dotfile copy. No files were copied."
+        warn "Skipping dotfile copy."
         break
     else
         warn "Please enter either [Y] or [N]."
