@@ -15,29 +15,25 @@ window#waybar {
 #workspaces {
     background: #282828;
     margin: 5px;
-    padding: 0px 5px;
-    border-radius: 24px;
+    padding: 0px 4px;
+    border-radius: 100px;
 }
 
 #workspaces button {
-    min-width: 18px;
-    min-height: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 4px 4px;
+    min-width: 25px;
+    padding: 0;
+    margin: 8px 4px;
     background-color: #504945;
     color: transparent;
-    border-radius: 24px;
+    border-radius: 100px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: none;
 }
 
 #workspaces button.active {
-    min-width: 32px;
+    min-width: 50px;
     background-color: pink;
-    border-radius: 24px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 100px;
 }
 
 #workspaces button:hover {
@@ -49,67 +45,62 @@ window#waybar {
 }
 
 /* ──────────[ Left Modules ]────────── */
-#cpu,
-#memory,
-#temperature {
+#system-info {
     background: #282828;
     margin: 5px 0;
-    padding: 0 5px;
-    border: solid 0px #f4d9e1;
-    font-weight: normal;
-    font-style: normal;
+    padding: 0 10px;
+    border-radius: 100px;
 }
 
-#cpu {
-    border-radius: 15px 0px 0px 15px;
+#system-info > label,
+#system-info > widget > label {
+    margin: 0 5px;
 }
 
-#temperature {
-    border-radius: 0px 15px 15px 0px;
+#system-info > :first-child {
+    margin-left: 0;
+}
+
+#system-info > :last-child {
+    margin-right: 0;
 }
 
 /* ──────────[ Center Modules ]────────── */
-#custom-cava,
-#mpris {
+#media {
     margin: 5px 0;
-    padding: 0px 15px 0px 15px;
-    background: rgb(255, 182, 193);
-    background: radial-gradient(
-        circle,
-        rgba(255, 182, 193, 120) 0%,
-        rgba(255, 174, 189, 120) 6%,
-        rgba(255, 192, 203, 1) 14%,
-        rgba(255, 160, 170, 1) 14%,
-        rgba(255, 120, 145, 1) 18%,
-        rgba(255, 209, 220, 1) 28%,
-        rgba(255, 145, 175, 1) 28%,
-        rgba(255, 115, 135, 1) 58%,
-        rgba(255, 105, 125, 1) 69%,
-        rgba(255, 165, 190, 1) 69%,
-        rgba(255, 130, 160, 1) 72%,
-        rgba(255, 200, 210, 1) 73%,
-        rgba(255, 140, 150, 1) 78%,
-        rgba(255, 120, 140, 1) 100%
-    );
-    background-size: 400% 400%;
-    animation: gradient_f 9s cubic-bezier(0.72, 0.39, 0.21, 1) infinite;
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-    font-weight: bold;
+    padding: 3px 8px 3px 12px;
+    border-radius: 100px;
+    background: #282828;
 }
 
-#mpris {
-    border-radius: 0px 15px 15px 0px;
+#custom-play-pause {
+    background: pink;
+    color: black;
+    border-radius: 50%;
+    margin: 0px 2px;
+    padding: 0;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+#custom-previous, #custom-next {
+    padding: 0 5px;
+}
+
+#custom-mpris-scroll {
+    font-weight: bold;
+    margin-right: 8px;
 }
 
 #custom-cava {
-    border-radius: 15px 0px 0px 15px;
+    color: pink;
+    margin-right: 10px;
 }
-
 /* ──────────[ Right Modules ]────────── */
 #tray {
     background: #282828;
     margin: 5px 10px;
-    border-radius: 15px;
+    border-radius: 100px;
     padding: 0 10px;
 }
 

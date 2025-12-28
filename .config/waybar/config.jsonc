@@ -1,12 +1,6 @@
 {
-  "modules-left": [
-    "niri/workspaces",
-    "custom/separator",
-    "cpu",
-    "memory",
-    "temperature",
-  ],
-  "modules-center": ["custom/cava", "mpris"],
+  "modules-left": ["niri/workspaces", "custom/separator", "group/system-info"],
+  "modules-center": ["group/media"],
   "modules-right": [
     "tray",
     "backlight",
@@ -16,6 +10,23 @@
     "wireplumber#source",
     "clock",
   ],
+  "group/system-info": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "temperature"],
+  },
+  "group/media": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/cava",
+      "custom/mpris-scroll",
+      "custom/previous",
+      "custom/play-pause",
+      "custom/next",
+    ],
+  },
+  "group/media-controls": {
+    "modules": ["custom/previous", "custom/play-pause", "custom/next"],
+  },
   "niri/workspaces": {
     "format": "{index}",
   },
@@ -26,7 +37,7 @@
     "on-click": "missioncenter",
   },
   "memory": {
-    "format": " {used}/{total} GiB",
+    "format": " {used}/{total}GiB",
     "interval": 1,
     "tooltip": false,
     "on-click": "missioncenter",
@@ -42,22 +53,32 @@
     "on-click": "missioncenter",
   },
   "custom/cava": {
-    "exec": "~/.local/bin/cava-waybar",
+    "exec": "cava -p ~/.config/cava/config-waybar | sed -u 's/;//g;s/0/ /g;s/1/▂/g;s/2/▃/g;s/3/▄/g;s/4/▅/g;s/5/▆/g;s/6/▇/g;s/7/█/g'",
     "on-click": "kitty -e cava",
     "format": "{}",
     "tooltip": false,
   },
-  "mpris": {
-    "format": "{status_icon} {dynamic}",
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
-    "format-empty": "  No Media",
-    "status-icons": {
-      "paused": "",
-      "playing": "",
-      "stopped": "",
+  "custom/mpris-scroll": {
+    "exec": "~/.local/bin/waybar-scroll",
+    "format": "{}",
+  },
+  "custom/previous": {
+    "format": " 󰒮 ",
+    "on-click": "playerctl previous",
+  },
+  "custom/play-pause": {
+    "format": "{icon}",
+    "return-type": "json",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{status}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --follow",
+    "format-icons": {
+      "Playing": "󰏤",
+      "Paused": "󰐊",
     },
-    "dynamic-order": ["title", "artist"],
-    "max-length": 40,
+    "on-click": "playerctl play-pause",
+  },
+  "custom/next": {
+    "format": " 󰒭 ",
+    "on-click": "playerctl next",
   },
   "tray": {
     "icon-size": 20,
@@ -107,7 +128,7 @@
     "interval": 1,
     "format": " {:%H:%M:%S}",
     "tooltip": false,
-    "format-alt": "  {:%A, %B %d}",
+    "format-alt": " {:%A, %B %d}",
     "on-click-right": "kitty",
   },
   "custom/separator": {
