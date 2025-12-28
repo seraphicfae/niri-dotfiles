@@ -1,5 +1,4 @@
 {
-  "layer": "top",
   "modules-left": [
     "niri/workspaces",
     "custom/separator",
