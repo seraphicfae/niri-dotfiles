@@ -214,6 +214,10 @@ while true; do
                 info "Copying contents of $folder..."
                 cp -rf "$source/"* "$destination/"
                 okay "Successfully copied to $destination"
+
+                info "Symlinking the theme to home folder"
+                ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
+                okay "Done"
             else
                 warn "Source folder $source does not exist, skipping."
             fi

@@ -49,6 +49,8 @@ cp -r .local/share/* "$HOME"/.local/share/
 cp -r Pictures/wallpapers/wallpaper_01.png "$HOME"/.local/state/current_wallpaper
 
 cp -r Pictures/ "$HOME"/Pictures
+
+ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
 ```
 
 #### Finalizing
