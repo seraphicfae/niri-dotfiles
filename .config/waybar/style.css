@@ -1,7 +1,7 @@
 /* ──────────[ Global Settings ]────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo";
-    font-size: 16px;
+    font-size: 15px;
     font-style: normal;
     min-height: 0px;
 }
@@ -74,6 +74,10 @@ window#waybar {
     padding: 3px 8px 3px 12px;
     border-radius: 100px;
     background: #282828;
+}
+
+#custom-cava {
+    color: pink;
 }
 
 /* ──────────[ Right Modules ]────────── */
