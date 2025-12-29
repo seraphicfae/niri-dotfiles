@@ -29,11 +29,12 @@ cd niri-dotfiles
 
 ```bash
 paru -S --needed --noconfirm \
-blueman bluez-utils breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imagemagick kitty libnotify \
-mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji \
-noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland qt6ct-kde \
-rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard \
-xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
+blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock \
+imagemagick kitty libnotify mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk \
+noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland \
+qt6ct-kde rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard \
+xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autocomplete zsh-autosuggestions \
+zsh-syntax-highlighting
 ```
 
 #### Steps
@@ -42,15 +43,15 @@ cd niri-dotfiles
 
 cp -r .config/* "$HOME/.config/"
 
-cp -r .local/bin/* "$HOME"/.local/bin/
+cp -r .local/bin/* "$HOME/.local/bin/"
 
-cp -r .local/share/* "$HOME"/.local/share/
+cp -r .local/share/* "$HOME/.local/share/"
 
-cp -r Pictures/wallpapers/wallpaper_01.png "$HOME"/.local/state/current_wallpaper
+cp -r Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper"
 
-cp -r Pictures/ "$HOME"/Pictures
+cp -r Pictures/ "$HOME/Pictures"
 
-ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
+ln -s "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/*" "$HOME/.config/gtk-4.0"
 ```
 
 #### Finalizing
@@ -58,8 +59,6 @@ ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
 sudo systemctl enable NetworkManager bluetooth sddm
 
 echo -e "[Theme]\nCurrent=catppuccin-mocha-pink" | sudo tee /etc/sddm.conf
-
-git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.config/zsh/antidote"
 
 chsh -s /usr/bin/zsh
 

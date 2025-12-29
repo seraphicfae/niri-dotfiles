@@ -96,15 +96,16 @@ EOF
 
 required_packages=(
     blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock
-    kitty mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji
-    noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland qt6ct-kde
-    rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh imagemagick libnotify
+    imagemagick kitty libnotify mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk
+    noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland
+    qt6ct-kde rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autocomplete zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 optional_packages=(
-    docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes gst-libav keepassxc kid3 obs-studio
-    python-pipx qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
+    docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes keepassxc kid3 obs-studio python-pipx
+    qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
 )
 
 required_missing_packages=($(for pkg in "${required_packages[@]}"; do
@@ -298,12 +299,6 @@ while true; do
             fi
 
             echo 'export ZDOTDIR="$HOME/.config/zsh"' > "$HOME/.zshenv"
-
-            if [[ ! -d "$HOME/.config/zsh/antidote" ]]; then
-                info "Installing Antidote plugin manager..."
-                git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.config/zsh/antidote"
-                okay "Antidote installed."
-            fi
         else
             warn "Zsh not found. Skipping shell configuration."
         fi

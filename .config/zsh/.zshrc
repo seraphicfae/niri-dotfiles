@@ -6,9 +6,10 @@ export CARGO_INSTALL_ROOT="$HOME/.local"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 
-# ────────────────[ Plugin Manager ]────────────────
-source "$HOME/.config/zsh/antidote/antidote.zsh"
-antidote load "$HOME/.config/zsh/.zsh_plugins.txt"
+# ────────────────[ Plugins ]────────────────
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ────────────────[ Zsh Options ]────────────────
 autoload -Uz compinit && compinit
@@ -29,7 +30,7 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
 
-# ────────────────[ Evals ]────────────────
+# ────────────────[ Prompt ]────────────────
 eval "$(starship init zsh)"
 
 # ────────────────[ Aliases ]────────────────
