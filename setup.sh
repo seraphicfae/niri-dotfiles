@@ -95,11 +95,11 @@ cat << "EOF"
 EOF
 
 required_packages=(
-    blueman bluez-utils breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imagemagick kitty libnotify
-    mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji
+    blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock
+    kitty mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji
     noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland qt6ct-kde
     rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh imagemagick libnotify
 )
 
 optional_packages=(
@@ -250,6 +250,7 @@ EOF
 
 services=(
     NetworkManager
+    sddm
     bluetooth
 )
 
@@ -272,6 +273,14 @@ while true; do
             fi
         done
 
+        if ! grep -q "Current=catppuccin-mocha-pink" /etc/sddm.conf 2>/dev/null; then
+            info "Setting SDDM theme to Catppuccin Mocha (pink)..."
+            echo -e "[Theme]\nCurrent=catppuccin-mocha-pink" | sudo tee /etc/sddm.conf > /dev/null
+            okay "SDDM theme set."
+        else
+            info "SDDM theme already set. Skipping."
+        fi
+
         info "Setting wallpaper..."
         if cp -r "$HOME/.local/share/wallpapers/wallpaper_01.png" "$HOME/.local/state/current_wallpaper" 2>/dev/null; then
             okay "Wallpaper set."
@@ -289,7 +298,6 @@ while true; do
             fi
 
             echo 'export ZDOTDIR="$HOME/.config/zsh"' > "$HOME/.zshenv"
-            mkdir -p "$HOME/.config/zsh"
 
             if [[ ! -d "$HOME/.config/zsh/antidote" ]]; then
                 info "Installing Antidote plugin manager..."

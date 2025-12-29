@@ -57,7 +57,7 @@ ln -s ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0
 ```bash
 sudo systemctl enable NetworkManager bluetooth sddm
 
-echo -e "[Theme]\nCurrent=catppuccin-mocha-mauve" | sudo tee /etc/sddm.conf
+echo -e "[Theme]\nCurrent=catppuccin-mocha-pink" | sudo tee /etc/sddm.conf
 
 git clone --depth=1 https://github.com/mattmc3/antidote.git "$HOME/.config/zsh/antidote"
 
