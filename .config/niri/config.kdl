@@ -140,6 +140,12 @@ layout {
         inactive-color "#3b3b3b"
     }
 
+    //blur {
+    //    on
+    //    passes 4
+    //    radius 1.0
+    //    noise 0.05
+    //}
     shadow {
         off
     //  softness 10
@@ -304,7 +310,7 @@ gestures {
     }
 
     hot-corners {
-        top-right
+        off
     }
 }
 

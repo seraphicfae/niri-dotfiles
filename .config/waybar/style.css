@@ -1,7 +1,7 @@
 /* ──────────[ Global Settings ]────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo";
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     min-height: 0px;
 }
@@ -11,29 +11,33 @@ window#waybar {
     color: #f4d9e1;
 }
 
-/* ──────────[ Workspaces ]────────── */
+/* ──────────[ Left Modules ]────────── */
 #workspaces {
     background: #282828;
     margin: 5px;
-    padding: 0px 4px;
-    border-radius: 100px;
+    padding: 0px 5px;
+    border-radius: 24px;
 }
 
 #workspaces button {
-    min-width: 25px;
-    padding: 0;
-    margin: 8px 4px;
+    min-width: 18px;
+    min-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 4px 4px;
     background-color: #504945;
     color: transparent;
-    border-radius: 100px;
+    border-radius: 24px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: none;
 }
 
 #workspaces button.active {
-    min-width: 50px;
+    min-width: 32px;
     background-color: pink;
-    border-radius: 100px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button:hover {
@@ -44,7 +48,6 @@ window#waybar {
     background-color: #cc241d;
 }
 
-/* ──────────[ Left Modules ]────────── */
 #system-info {
     background: #282828;
     margin: 5px 0;
@@ -73,34 +76,11 @@ window#waybar {
     background: #282828;
 }
 
-#custom-play-pause {
-    background: pink;
-    color: black;
-    border-radius: 50%;
-    margin: 0px 2px;
-    padding: 0;
-    min-width: 32px;
-    min-height: 32px;
-}
-
-#custom-previous, #custom-next {
-    padding: 0 5px;
-}
-
-#custom-mpris-scroll {
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-#custom-cava {
-    color: pink;
-    margin-right: 10px;
-}
 /* ──────────[ Right Modules ]────────── */
 #tray {
     background: #282828;
     margin: 5px 10px;
-    border-radius: 100px;
+    border-radius: 15px;
     padding: 0 10px;
 }
 
