@@ -105,7 +105,7 @@ required_packages=(
 
 optional_packages=(
     docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes keepassxc kid3 obs-studio python-pipx
-    qbittorrent rsync ryujinx-bin ungoogled-chromium-bin vesktop-bin neovim
+    qbittorrent rsync ryujinx-bin helium-browser-bin vesktop-bin neovim
 )
 
 required_missing_packages=($(for pkg in "${required_packages[@]}"; do
