@@ -32,7 +32,7 @@ paru -S --needed --noconfirm \
 blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock \
 imagemagick kitty libnotify mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk \
 noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland \
-qt6ct-kde rofi rose-pine-cursor starship swww ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard \
+qt6ct-kde rofi rose-pine-cursor starship awww-git ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard \
 xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autocomplete zsh-autosuggestions \
 zsh-syntax-highlighting
 ```

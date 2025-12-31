@@ -9,6 +9,7 @@ input {
         off
     }
     focus-follows-mouse
+    mod-key "Super"
 }
 
 output "DP-1" {

@@ -46,7 +46,7 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 			;;
-		--logout) niri msg action quit --skip-confirmation ;;
+		--logout) loginctl terminate-user $USER ;;
 	esac
 }
 

@@ -43,7 +43,7 @@ if [ -n "$selected_path" ]; then
     matugen image "$active_wallpaper"
     printf '%d' "$selected_index" > "$index_tracker"
 
-    swww img "$active_wallpaper" \
+    awww img "$active_wallpaper" \
         --transition-type "$style" \
         --transition-pos "$position" \
         --transition-wave "$wave" \
