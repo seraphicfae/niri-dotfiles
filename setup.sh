@@ -27,17 +27,17 @@ wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
 wallpaper_directory="$HOME/Pictures/wallpapers"
 
 # ────────────────[ Arch and SystemD Check ]────────────────
-if [ -f /etc/arch-release ] || grep -qi "arch" /etc/os-release; then
+if [ -f /etc/arch-release ] || grep -qE "^(ID|ID_LIKE)=.*arch.*" /etc/os-release; then
     okay "Arch-based distribution detected."
 else
-    fail "This is not an Arch-based distribution. Exiting..."
+    fail "This is not an Arch-based distribution. This script is made for Arch-like systems. Exiting..."
     exit 1
 fi
 
 if [ -d /run/systemd/system ]; then
-    okay "SystemD is running."
+    okay "Systemd is running."
 else
-    fail "SystemD is not found. This script requires SystemD. Exiting..."
+    fail "Systemd was not detected. This script requires systemd components. Exiting..."
     exit 1
 fi
 
