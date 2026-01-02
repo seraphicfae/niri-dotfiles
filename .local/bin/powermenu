@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-## Author : Aditya Shakya (adi1090x)
 
 uptime=$(uptime -p | sed 's/up //')
 theme="$HOME/.config/rofi/powermenu.rasi"
 
-lock=''
+lock=''
 suspend=''
 logout='󰍃'
 reboot=''
-shutdown=' '
+shutdown='󰐥'
 yes=''
 no=''
 

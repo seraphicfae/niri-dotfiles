@@ -1,4 +1,4 @@
-// ────────────────[ Input and Output ]────────────────
+// ────────────────[ Input and Output ]──────────────── \\
 input {
     keyboard {
         xkb {
@@ -28,7 +28,7 @@ output "HDMI-A-1" {
     variable-refresh-rate
 }
 
-// ────────────────[ Binds ]────────────────
+// ────────────────[ Binds ]──────────────── \\
 binds {
     // Applications
     Mod+Slash   { spawn-sh "killall waybar cava; waybar & disown"; }
@@ -113,7 +113,7 @@ binds {
     Mod+Shift+Print { screenshot-window; }
 }
 
-// ────────────────[ Layout ]────────────────
+// ────────────────[ Layout ]──────────────── \\
 layout {
     gaps 8
     center-focused-column "never"
@@ -159,7 +159,7 @@ layout {
     }
 }
 
-// ────────────────[ Misc ]────────────────
+// ────────────────[ Miscellaneous ]──────────────── \\
 // Background services & daemons
 spawn-at-startup "awww-daemon"
 spawn-at-startup "awww img ~/.local/state/current_wallpaper"
@@ -167,8 +167,6 @@ spawn-at-startup "mako"
 spawn-at-startup "/usr/lib/pantheon-polkit-agent"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
-
-// Tray apps & panel
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
@@ -204,7 +202,7 @@ workspace "1"
 workspace "2"
 workspace "3"
 
-// ────────────────[ Window Rules ]────────────────
+// ────────────────[ Window Rules ]──────────────── \\
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
@@ -231,6 +229,7 @@ window-rule {
 
 window-rule {
     match app-id="dev.zed.Zed"
+    match app-id="org.kde.kid3"
     open-maximized true
     open-on-workspace "2"
 }
@@ -251,13 +250,13 @@ window-rule {
     block-out-from "screen-capture"
 }
 
-// ────────────────[ Layer Rules ]────────────────
+// ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
     match namespace="^awww-daemon$"
     place-within-backdrop true
 }
 
-// ────────────────[ Animations ]────────────────
+// ────────────────[ Animations ]──────────────── \\
 animations {
     workspace-switch {
         spring damping-ratio=1.0 stiffness=1100 epsilon=0.0001
@@ -299,7 +298,7 @@ animations {
     }
 }
 
-// ────────────────[ Gestures ]────────────────
+// ────────────────[ Gestures ]──────────────── \\
 gestures {
     dnd-edge-view-scroll {
         trigger-width 30
@@ -318,7 +317,7 @@ gestures {
     }
 }
 
-// ────────────────[ Recent Windows ]────────────────
+// ────────────────[ Recent Windows ]──────────────── \\
 recent-windows {
     debounce-ms 750
     open-delay-ms 150
@@ -341,7 +340,7 @@ recent-windows {
     }
 }
 
-// ────────────────[ Environment Variables ]────────────────
+// ────────────────[ Environment Variables ]──────────────── \\
 environment {
     XDG_SESSION_TYPE "wayland"
     XDG_CURRENT_DESKTOP "niri"

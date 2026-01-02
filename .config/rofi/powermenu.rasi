@@ -1,24 +1,9 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- *
- **/
-
 /* ──────────[ Config ]────────── */
+@import "~/.config/rofi/colors"
+
 configuration {
     show-icons:                 false;
-}
-
-/* ──────────[ Global Settings ]────────── */
-* {
-    font:                        "JetBrainsMono Nerd Font Propo 12";
-    background:                  #1c1c1c;        /* dark gray background */
-    background-alt:              #2b2b2b;        /* slightly lighter dark gray */
-    foreground:                  #F8F8F2;        /* off-white text */
-    selected:                    #FFD1DC;        /* soft pink highlight */
-    active:                      #BD93F9;        /* purple-ish for active */
-    urgent:                      #FF5555;        /* red-pink for urgent */
+    font:                       "JetBrainsMono Nerd Font Propo 12";
 }
 
 /* ──────────[ Window ]────────── */

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
 target_file="$HOME/.local/share/icons/face.png"
 input_image="$1"

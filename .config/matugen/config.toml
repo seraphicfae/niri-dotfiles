@@ -15,3 +15,7 @@ post_hook = 'makoctl reload'
 input_path = '~/.config/matugen/templates/cava-colors'
 output_path = '~/.config/cava/themes/colors'
 post_hook = "pkill -USR1 cava"
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors'
+output_path = '~/.config/rofi/colors'

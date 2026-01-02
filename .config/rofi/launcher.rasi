@@ -1,26 +1,11 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- *
- **/
-
 /* ──────────[ Config ]────────── */
+@import "~/.config/rofi/colors"
+
 configuration {
     modi:                       "drun";
     show-icons:                 true;
     drun-display-format:        "{name}";
-}
-
-/* ──────────[ Global Settings ]────────── */
-* {
-    font:                        "JetBrainsMono Nerd Font Propo 12";
-    background:                  #1c1c1c;        /* dark gray background */
-    background-alt:              #2b2b2b;        /* slightly lighter dark gray */
-    foreground:                  #F8F8F2;        /* off-white text */
-    selected:                    #FFD1DC;        /* soft pink highlight */
-    active:                      #BD93F9;        /* purple-ish for active */
-    urgent:                      #FF5555;        /* red-pink for urgent */
+    font:                       "JetBrainsMono Nerd Font Propo 12";
 }
 
 /* ──────────[ Window ]────────── */
@@ -29,7 +14,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       800px;
-    height:                      400px;
+    height:                      410px;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
@@ -56,7 +41,7 @@ mainbox {
 imagebox {
     padding:                     12px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/splash-img.png", height);
+    background-image:            url("~/.config/rofi/splash-image.jpg", height);
     orientation:                 vertical;
     children:                    [ "inputbar", "dummy" ];
     border-radius:               12px;

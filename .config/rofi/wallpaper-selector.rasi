@@ -1,26 +1,11 @@
-/**
- *
- * Base     : Aditya Shakya (adi1090x)
- * Modified : Faye
- *
- **/
-
 /* ──────────[ Config ]────────── */
+@import "~/.config/rofi/colors"
+
 configuration {
     modi:                       "drun";
     show-icons:                 true;
     drun-display-format:        "{name}";
-}
-
-/* ──────────[ Global Settings ]────────── */
-* {
-    font:                        "JetBrains Mono Nerd Font 12";
-    background:                  #1c1c1c;        /* dark gray background */
-    background-alt:              #2b2b2b;        /* slightly lighter dark gray */
-    foreground:                  #F8F8F2;        /* off-white text */
-    selected:                    #FFD1DC;        /* soft pink highlight */
-    active:                      #BD93F9;        /* purple-ish for active */
-    urgent:                      #FF5555;        /* red-pink for urgent */
+    font:                       "JetBrainsMono Nerd Font Propo 12";
 }
 
 /* ──────────[ Window ]────────── */

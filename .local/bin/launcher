@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
 rofi -show drun -theme "$HOME/.config/rofi/launcher.rasi"

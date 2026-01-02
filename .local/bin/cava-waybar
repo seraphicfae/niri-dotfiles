@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
 
 cava -p "$HOME/.config/cava/config-waybar" | awk -F';' '{
     bars = ""
