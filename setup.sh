@@ -13,12 +13,12 @@ BLUE="\e[34m"
 MAGENTA="\e[35m"
 CYAN="\e[36m"
 
-fail()  { echo -e "${BOLD}${RED}[ FAIL ]${RESET} $1"; }
-okay()  { echo -e "${BOLD}${GREEN}[ OK ]${RESET} $1"; }
-warn()  { echo -e "${BOLD}${YELLOW}[ ! ]${RESET} $1"; }
-info()  { echo -e "${BOLD}${BLUE}[ .. ]${RESET} $1"; }
-ask()   { echo -e "${BOLD}${MAGENTA}[ ? ]${RESET} $1"; }
-note()  { echo -e "${BOLD}${CYAN}[ NOTE ]${RESET} $1"; }
+timestamp() { date +%H:%M:%S; }
+fail() { printf "[ %s ] ${BOLD}${RED}[ FAIL ]${RESET} %s\n" "$(timestamp)" "$1"; }
+okay() { printf "[ %s ] ${BOLD}${GREEN}[  OK  ]${RESET} %s\n" "$(timestamp)" "$1"; }
+warn() { printf "[ %s ] ${BOLD}${YELLOW}[  !!  ]${RESET} %s\n" "$(timestamp)" "$1"; }
+info() { printf "[ %s ] ${BOLD}${BLUE}[ INFO ]${RESET} %s\n" "$(timestamp)" "$1"; }
+ask()  { printf "[ %s ] ${BOLD}${MAGENTA}[  ??  ]${RESET} %s" "$(timestamp)" "$1"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
@@ -143,7 +143,7 @@ declare -a required_packages=(
 declare -a optional_packages=(
     docker
     docker-compose
-    prismlauncher-bin
+    elyprismlauncher-bin
     gapless
     gimp
     gnome-boxes
@@ -188,7 +188,7 @@ fi
 mapfile -t missing < <(pacman -T "${optional_packages[@]}")
 
 if (( ${#missing[@]} )); then
-    note "The following optional packages are missing:"
+    info "The following optional packages are missing:"
     echo "${missing[*]}" | fold -s -w 80
 
     while true; do
@@ -298,7 +298,7 @@ cat << "EOF"
 ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
 EOF
 
-services=(
+declare -a services=(
     NetworkManager
     sddm
     bluetooth
