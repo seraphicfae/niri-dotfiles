@@ -4,23 +4,21 @@
 # idiot proof install script. Feel free to adapt for your dotfiles
 
 # ────────────────[ Themes and Functions ]────────────────
+RESET="\e[0m"
+BOLD="\e[1m"
+RED="\e[31m"
 GREEN="\e[32m"
 YELLOW="\e[33m"
-RED="\e[31m"
 BLUE="\e[34m"
 MAGENTA="\e[35m"
 CYAN="\e[36m"
-WHITE="\e[37m"
-BOLD="\e[1m"
-RESET="\e[0m"
 
+fail()  { echo -e "${BOLD}${RED}[ FAIL ]${RESET} $1"; }
 okay()  { echo -e "${BOLD}${GREEN}[ OK ]${RESET} $1"; }
+warn()  { echo -e "${BOLD}${YELLOW}[ ! ]${RESET} $1"; }
 info()  { echo -e "${BOLD}${BLUE}[ .. ]${RESET} $1"; }
 ask()   { echo -e "${BOLD}${MAGENTA}[ ? ]${RESET} $1"; }
-warn()  { echo -e "${BOLD}${YELLOW}[ ! ]${RESET} $1"; }
-fail()  { echo -e "${BOLD}${RED}[ FAIL ]${RESET} $1"; }
-debug() { echo -e "${BOLD}${CYAN}[ DEBUG ]${RESET} $1"; }
-note()  { echo -e "${BOLD}${WHITE}[ NOTE ]${RESET} $1"; }
+note()  { echo -e "${BOLD}${CYAN}[ NOTE ]${RESET} $1"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
