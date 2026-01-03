@@ -94,27 +94,78 @@ cat << "EOF"
 ╚═╝     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝
 EOF
 
-required_packages=(
-    blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock
-    imagemagick kitty libnotify mako matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk
-    noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pwvucontrol qt5-wayland qt6-wayland
-    qt6ct-kde rofi rose-pine-cursor starship awww-git ttf-jetbrains-mono-nerd viewnior waybar wl-clip-persist wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autocomplete zsh-autosuggestions
+declare -a required_packages=(
+    blueman
+    bluez-utils
+    breeze
+    catppuccin-sddm-theme-mocha
+    cava
+    fastfetch
+    ffmpegthumbnailer
+    gvfs-mtp
+    hyprlock
+    imagemagick
+    kitty
+    libnotify
+    mako
+    matugen
+    mission-center
+    mpv
+    nautilus
+    network-manager-applet
+    niri
+    noto-fonts-cjk
+    noto-fonts-emoji
+    noto-fonts-extra
+    pantheon-polkit-agent
+    papirus-icon-theme
+    pwvucontrol
+    qt5-wayland
+    qt6-wayland
+    qt6ct-kde
+    rofi
+    rose-pine-cursor
+    starship
+    awww-git
+    ttf-jetbrains-mono-nerd
+    viewnior
+    waybar
+    wl-clip-persist
+    wl-clipboard
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+    xwayland-satellite
+    zed
+    zsh
+    zsh-autocomplete
+    zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
-optional_packages=(
-    docker docker-compose elyprismlauncher-bin gapless gimp gnome-boxes keepassxc kid3 obs-studio python-pipx
-    qbittorrent rsync ryujinx-bin helium-browser-bin vesktop-bin neovim
+declare -a optional_packages=(
+    docker
+    docker-compose
+    prismlauncher-bin
+    gapless
+    gimp
+    gnome-boxes
+    keepassxc
+    kid3
+    obs-studio
+    python-pipx
+    qbittorrent
+    rsync
+    ryujinx-bin
+    helium-browser-bin
+    vesktop-bin
+    neovim
 )
 
-required_missing_packages=($(for pkg in "${required_packages[@]}"; do
-    pacman -Qq "$pkg" &>/dev/null || echo "$pkg"
-done))
+mapfile -t missing < <(pacman -T "${required_packages[@]}")
 
-if (( ${#required_missing_packages[@]} > 0 )); then
+if (( ${#missing[@]} )); then
     warn "The following required packages are missing:"
-    printf "%s\n" "${required_missing_packages[@]}" | paste -sd " " - | fold -s -w 80
+    echo "${missing[*]}" | fold -s -w 80
 
     while true; do
         read -n 1 -r -p "$(ask "Install required missing packages? [Y/n] ")" input
@@ -122,7 +173,7 @@ if (( ${#required_missing_packages[@]} > 0 )); then
         input="${input:-y}"
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
-            paru -S "${required_missing_packages[@]}"
+            paru -S "${missing[@]}"
             okay "Required packages installed."
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
@@ -132,23 +183,23 @@ if (( ${#required_missing_packages[@]} > 0 )); then
             warn "Please enter either [Y] or [N]."
         fi
     done
+else
+    okay "No required packages to install."
 fi
 
-optional_missing_packages=($(for pkg in "${optional_packages[@]}"; do
-    pacman -Qq "$pkg" &>/dev/null || echo "$pkg"
-done))
+mapfile -t missing < <(pacman -T "${optional_packages[@]}")
 
-if (( ${#optional_missing_packages[@]} > 0 )); then
+if (( ${#missing[@]} )); then
     note "The following optional packages are missing:"
-    printf "%s\n" "${optional_missing_packages[@]}" | paste -sd " " - | fold -s -w 80
+    echo "${missing[*]}" | fold -s -w 80
 
     while true; do
-        read -n 1 -r -p "$(ask "You should skip installing these optional packages. [y/N] ")" input
+        read -n 1 -r -p "$(ask "You should skip installing these. [y/N] ")" input
         echo
         input="${input:-n}"
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
-            paru -S "${optional_missing_packages[@]}"
+            paru -S "${missing[@]}"
             okay "Optional packages installed."
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
