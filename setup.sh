@@ -135,7 +135,6 @@ declare -a required_packages=(
     xwayland-satellite
     zed
     zsh
-    zsh-autocomplete
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
