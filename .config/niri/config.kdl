@@ -212,6 +212,7 @@ window-rule {
     match app-id=r#"blueman-manager"#
     match app-id=r#"nm-connection-editor"#
     match app-id="viewnior"
+    match app-id="com.gabm.satty"
     match title="Volume Control"
     match title="Mission Center"
     match title="Picture in picture"

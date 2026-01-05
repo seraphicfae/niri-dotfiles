@@ -144,7 +144,6 @@ declare -a optional_packages=(
     docker-compose
     elyprismlauncher-bin
     gapless
-    gimp
     gnome-boxes
     keepassxc
     kid3
@@ -153,6 +152,7 @@ declare -a optional_packages=(
     qbittorrent
     rsync
     ryujinx-bin
+    satty
     helium-browser-bin
     vesktop-bin
     neovim
