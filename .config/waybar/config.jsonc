@@ -4,7 +4,7 @@
     "custom/separator",
     "group/system-info"
   ],
-  "modules-center": ["group/media"],
+  "modules-center": ["mpris"],
   "modules-right": [
     "tray",
     "backlight",
@@ -17,13 +17,6 @@
   "group/system-info": {
     "orientation": "horizontal",
     "modules": ["cpu", "memory", "temperature"],
-  },
-  "group/media": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/cava",
-      "mpris",
-    ],
   },
   "niri/workspaces": {
     "format": "{index}",
@@ -49,12 +42,6 @@
     "format-icons": ["", "", "", "", ""],
     "tooltip": false,
     "on-click": "missioncenter",
-  },
-  "custom/cava": {
-    "exec": "~/.local/bin/cava-waybar",
-    "on-click": "kitty -e cava",
-    "format": "{}",
-    "tooltip": false,
   },
   "mpris": {
     "format": "{status_icon} {dynamic}",

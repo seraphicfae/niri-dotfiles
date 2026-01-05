@@ -69,16 +69,7 @@ window#waybar {
 }
 
 /* ──────────[ Center Modules ]────────── */
-#media {
-    margin: 5px 0;
-    padding: 3px 8px 3px 12px;
-    border-radius: 100px;
-    background: #282828;
-}
 
-#custom-cava {
-    color: pink;
-}
 
 /* ──────────[ Right Modules ]────────── */
 #tray {
