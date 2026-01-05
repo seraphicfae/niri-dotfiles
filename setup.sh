@@ -143,6 +143,7 @@ declare -a optional_packages=(
     docker
     docker-compose
     elyprismlauncher-bin
+    gamescope
     gapless
     gnome-boxes
     keepassxc
