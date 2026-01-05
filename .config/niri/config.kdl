@@ -165,7 +165,6 @@ spawn-at-startup "awww-daemon"
 spawn-at-startup "awww img ~/.local/state/current_wallpaper"
 spawn-at-startup "mako"
 spawn-at-startup "/usr/lib/pantheon-polkit-agent"
-spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
@@ -189,8 +188,8 @@ overview {
         on
         softness 40
         spread 10
-        offset x=0 y=10
-        color "#00000050"
+        offset x=0 y=0
+        color "#00000099"
     }
 }
 
@@ -247,6 +246,7 @@ window-rule {
 
 window-rule {
     match app-id="org.keepassxc.KeePassXC"
+    match title="Pictures"
     block-out-from "screen-capture"
 }
 
@@ -323,14 +323,14 @@ recent-windows {
     open-delay-ms 150
 
     highlight {
-        active-color "#999999ff"
+        active-color "#ffc0cb"
         urgent-color "#ff9999ff"
         padding 30
-        corner-radius 0
+        corner-radius 10
     }
 
     previews {
-        max-height 480
+        max-height 500
         max-scale 0.5
     }
 
