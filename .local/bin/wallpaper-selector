@@ -38,7 +38,7 @@ fps="60"
 angle=$((RANDOM % 360))
 
 if [ -n "$selected_path" ]; then
-    cp "$selected_path" "$active_wallpaper"
+    ln -sf "$selected_path" "$active_wallpaper"
     matugen image "$active_wallpaper"
     printf '%d' "$selected_index" > "$index_tracker"
 

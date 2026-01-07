@@ -29,7 +29,7 @@ duration="1.5"
 fps="60"
 angle=$(( RANDOM % 360 ))
 
-cp "${wallpaper_list[$next_index]}" "$active_wallpaper"
+ln -sf "${wallpaper_list[$next_index]}" "$active_wallpaper"
 matugen image "$active_wallpaper"
 printf '%d' "$next_index" > "$index_tracker"
 
