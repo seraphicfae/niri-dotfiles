@@ -47,11 +47,11 @@ cp -r .local/bin/* "$HOME/.local/bin/"
 
 cp -r .local/share/* "$HOME/.local/share/"
 
-cp -r Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper"
-
 cp -r Pictures/ "$HOME/Pictures"
 
-ln -s "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/*" "$HOME/.config/gtk-4.0"
+ln -sf Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper"
+
+ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 ```
 
 #### Finalizing

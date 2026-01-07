@@ -332,7 +332,7 @@ while true; do
         fi
 
         info "Setting wallpaper..."
-        if cp -r "$HOME/.local/share/wallpapers/wallpaper_01.png" "$HOME/.local/state/current_wallpaper" 2>/dev/null; then
+        if ln -sf Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper" 2>/dev/null; then
             okay "Wallpaper set."
         else
             warn "Wallpaper not found. Skipping."
