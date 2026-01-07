@@ -21,7 +21,7 @@ setopt share_history
 setopt menucomplete
 
 # ────────────────[ History ]────────────────
-HISTFILE="$HOME/.config/zsh/zsh_history"
+HISTFILE="$HOME/.local/state/zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_dups
