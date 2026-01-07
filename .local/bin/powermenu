@@ -11,12 +11,12 @@ shutdown='󰐥'
 yes=''
 no=''
 
-rofi_cmd() {
-	rofi -dmenu -p "Uptime: $uptime" -theme "$theme"
-}
+selected=$(echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi -dmenu -p "Uptime: $uptime" -theme "$theme")
 
-confirm_cmd() {
-	rofi -dmenu \
+[[ -z "$selected" ]] && exit 0
+
+confirm() {
+	echo -e "$yes\n$no" | rofi -dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
 		-theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
@@ -27,43 +27,25 @@ confirm_cmd() {
 		-theme "$theme"
 }
 
-confirm_exit() {
-	echo -e "$yes\n$no" | confirm_cmd
-}
-
-run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
-}
-
-run_cmd() {
-	[[ $(confirm_exit) == "$yes" ]] || exit 0
-	case "$1" in
-		--shutdown) systemctl poweroff ;;
-		--reboot) systemctl reboot ;;
-		--suspend)
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
-			;;
-		--logout) niri msg action quit --skip-confirmation ;;
-	esac
-}
-
-case "$(run_rofi)" in
-	$shutdown)
-	run_cmd --shutdown
-	;;
-	$reboot)
-	run_cmd --reboot
-	;;
+case "$selected" in
 	$lock)
 		playerctl pause
 		hyprlock
 		;;
 	$suspend)
-	run_cmd --suspend
-	;;
+		[[ $(confirm) == "$yes" ]] && {
+			playerctl pause
+			wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+			systemctl suspend
+		}
+		;;
 	$logout)
-	run_cmd --logout
-	;;
+		[[ $(confirm) == "$yes" ]] && niri msg action quit --skip-confirmation
+		;;
+	$reboot)
+		[[ $(confirm) == "$yes" ]] && systemctl reboot
+		;;
+	$shutdown)
+		[[ $(confirm) == "$yes" ]] && systemctl poweroff
+		;;
 esac
