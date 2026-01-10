@@ -208,28 +208,15 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"org\.gtk\.FileChooserDialog"#
-    match app-id=r#"blueman-manager"#
-    match app-id=r#"nm-connection-editor"#
-    match app-id="imv"
-    match app-id="com.gabm.satty"
-    match title="Volume Control"
-    match title="Mission Center"
-    match title="Picture in picture"
-
+    match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager|nm-connection-editor|viewnior"#
+    match title="Volume Control|Mission Center|Picture in picture"
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 600; }
 }
 
 window-rule {
-    match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
-    open-floating true
-}
-
-window-rule {
-    match app-id="dev.zed.Zed"
-    match app-id="org.kde.kid3"
+    match app-id="dev.zed.Zed|org.kde.kid3"
     open-maximized true
     open-on-workspace "2"
 }

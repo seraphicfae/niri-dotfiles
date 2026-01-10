@@ -1,11 +1,11 @@
 [Default Applications]
 inode/directory=org.gnome.Nautilus.desktop
-image/jpeg=imv-dir.desktop
-image/png=imv-dir.desktop
-image/gif=imv-dir.desktop
-image/webp=imv-dir.desktop
-image/bmp=imv-dir.desktop
-image/svg+xml=imv-dir.desktop
+image/jpeg=viewnior.desktop
+image/png=viewnior.desktop
+image/gif=viewnior.desktop
+image/webp=viewnior.desktop
+image/bmp=viewnior.desktop
+image/svg+xml=viewnior.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 video/webm=mpv.desktop
@@ -32,10 +32,10 @@ application/toml=dev.zed.Zed.desktop
 x-scheme-handler/discord=vesktop.desktop
 
 [Added Associations]
-image/jpeg=imv-dir.desktop;
-image/png=imv-dir.desktop;
-image/gif=imv-dir.desktop;
-image/webp=imv-dir.desktop;
+image/jpeg=viewnior.desktop;
+image/png=viewnior.desktop;
+image/gif=viewnior.desktop;
+image/webp=viewnior.desktop;
 text/plain=dev.zed.Zed.desktop;
 text/x-csrc=dev.zed.Zed.desktop;
 application/x-shellscript=dev.zed.Zed.desktop;

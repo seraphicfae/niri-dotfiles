@@ -103,7 +103,6 @@ declare -a required_packages=(
     gvfs-mtp
     hyprlock
     imagemagick
-    imv
     kitty
     libnotify
     mako
@@ -127,6 +126,7 @@ declare -a required_packages=(
     starship
     awww-git
     ttf-jetbrains-mono-nerd
+    viewnior
     waybar
     wl-clip-persist
     wl-clipboard
