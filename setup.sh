@@ -117,7 +117,7 @@ declare -a required_packages=(
     noto-fonts-extra
     pantheon-polkit-agent
     papirus-icon-theme
-    pwvucontrol
+    pavucontrol
     qt5-wayland
     qt6-wayland
     qt6ct-kde
