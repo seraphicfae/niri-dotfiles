@@ -73,8 +73,8 @@ binds {
     Mod+Ctrl+Right   { set-column-width "+10%"; }
     Mod+Ctrl+Up      { set-window-height "-10%"; }
     Mod+Ctrl+Down    { set-window-height "+10%"; }
-    Mod+Comma        { focus-column-first; }
-    Mod+Period       { focus-column-last; }
+    Mod+MouseBack    { focus-column-first; }
+    Mod+MouseForward { focus-column-last; }
     Mod+Shift+Comma  { move-column-to-first; }
     Mod+Shift+Period { move-column-to-last; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
@@ -126,11 +126,6 @@ layout {
     }
 
     default-column-width { proportion 0.5; }
-    preset-window-heights {
-        proportion 0.5
-        proportion 0.67
-        proportion 1.0
-    }
 
     focus-ring {
         off
