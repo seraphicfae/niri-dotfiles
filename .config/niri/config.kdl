@@ -204,7 +204,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager|nm-connection-editor|viewnior"#
-    match title="Volume Control|Mission Center|Picture in picture"
+    match title="Volume Control|Mission Center|Picture in picture|imv"
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 600; }
