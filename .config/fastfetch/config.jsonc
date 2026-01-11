@@ -20,17 +20,17 @@
       "format": "┌────────────── Hardware Information ──────────────┐"
     },
     {
-      "key": "  󰌢  Machine  ",
+      "key": "    Machine  ",
       "keyColor": "cyan",
       "type": "host"
     },
     {
-      "key": "  󰻠  CPU      ",
+      "key": "    CPU      ",
       "keyColor": "green",
       "type": "cpu"
     },
     {
-      "key": "  󰍛  GPU      ",
+      "key": "  󰢮  GPU      ",
       "keyColor": "cyan",
       "type": "gpu"
     },
@@ -40,12 +40,12 @@
       "type": "memory"
     },
     {
-      "key": "    Disk     ",
+      "key": "  󰋊  Disk     ",
       "keyColor": "green",
       "type": "disk"
     },
     {
-      "key": "    Monitor  ",
+      "key": "  󰍹  Monitor  ",
       "keyColor": "green",
       "type": "monitor"
     },
@@ -54,7 +54,7 @@
       "format": "├────────────── Software Information ──────────────┤"
     },
     {
-      "key": "    OS       ",
+      "key": "    OS       ",
       "keyColor": "green",
       "type": "os"
     },
@@ -69,12 +69,12 @@
       "type": "uptime"
     },
     {
-      "key": "    Packages ",
+      "key": "  󰏖  Packages ",
       "keyColor": "cyan",
       "type": "packages"
     },
     {
-      "key": "    WM       ",
+      "key": "    WM       ",
       "keyColor": "blue",
       "type": "wm"
     },
