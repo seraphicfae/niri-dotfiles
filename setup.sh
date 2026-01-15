@@ -27,14 +27,14 @@ wallpaper_directory="$HOME/Pictures/wallpapers"
 if [ -f /etc/arch-release ] || grep -qE "^(ID|ID_LIKE)=.*arch.*" /etc/os-release; then
     okay "Arch-based distribution detected."
 else
-    fail "This is not an Arch-based distribution. This script is made for Arch-like systems. Exiting..."
+    fail "This script is made for Arch based systems. Exiting..."
     exit 1
 fi
 
 if [ -d /run/systemd/system ]; then
-    okay "Systemd is running."
+    okay "Systemd is active."
 else
-    fail "Systemd was not detected. This script requires systemd components. Exiting..."
+    fail "This script requires systemd. Exiting..."
     exit 1
 fi
 
@@ -140,27 +140,27 @@ declare -a required_packages=(
 mapfile -t missing < <(pacman -T "${required_packages[@]}")
 
 if (( ${#missing[@]} )); then
-    warn "The following required packages are missing:"
+    warn "The following packages are missing:"
     echo "${missing[*]}" | fold -s -w 80
 
     while true; do
-        read -n 1 -r -p "$(ask "Install required missing packages? [Y/n]")" input
+        read -n 1 -r -p "$(ask "Install missing packages? [Y/n]")" input
         echo
         input="${input:-y}"
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
             paru -S "${missing[@]}"
-            okay "Required packages installed."
+            okay "Packages installed."
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
-            warn "Skipped installation. Your system will not work correctly."
+            warn "Skipped installing packages. Your system will not work correctly."
             break
         else
             warn "Please enter either [Y] or [N]."
         fi
     done
 else
-    okay "No required packages to install."
+    okay "No packages to install."
 fi
 
 # ────────────────[ Dotfile Installation ]────────────────
@@ -230,7 +230,7 @@ while true; do
         okay "Theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
-        warn "Skipping dotfile copy."
+        warn "Skipping dotfile copy. Your configuration will not be set."
         break
     else
         warn "Please enter either [Y] or [N]."
