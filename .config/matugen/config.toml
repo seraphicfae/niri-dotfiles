@@ -1,0 +1,21 @@
+[config]
+backend = "oklab"
+
+[templates.kitty]
+input_path= "~/.config/matugen/templates/kitty-colors"
+output_path = "~/.config/kitty/colors"
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako-colors'
+output_path = '~/.config/mako/colors'
+post_hook = 'makoctl reload'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors'
+output_path = '~/.config/cava/themes/colors'
+post_hook = "pkill -USR1 cava"
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors'
+output_path = '~/.config/rofi/colors'

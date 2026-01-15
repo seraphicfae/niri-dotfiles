@@ -1,0 +1,32 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "title_bar": {
+    "show_sign_in": false
+  },
+  "disable_ai": true,
+  "format_on_save": "off",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 10000
+    }
+  },
+  "buffer_font_size": 14,
+  "ui_font_size": 16,
+  "icon_theme": "Catppuccin Mocha",
+  "restore_on_startup": "last_session",
+  "soft_wrap": "none",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": true
+  },
+  "theme": "Catppuccin Mocha"
+}
