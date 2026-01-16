@@ -329,6 +329,7 @@ cat << "EOF"
 EOF
 
 declare -a optional_packages=(
+    bun
     docker
     docker-compose
     elyprismlauncher-bin
