@@ -251,7 +251,6 @@ EOF
 
 declare -a services=(
     NetworkManager
-    sddm
     bluetooth
     ly@tty2.service
 )
