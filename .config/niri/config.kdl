@@ -174,7 +174,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
 
 cursor {
-    xcursor-theme "BreezeX-RosePine-Linux"
+    xcursor-theme "breeze_cursors"
     xcursor-size 24
 }
 

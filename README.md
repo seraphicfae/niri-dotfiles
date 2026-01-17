@@ -32,8 +32,8 @@ paru -S --needed --noconfirm \
 blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock \
 imv inter-font kitty mako matugen mission-center mpv nautilus network-manager-applet  niri noto-fonts-cjk \
 noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pavucontrol qt5-wayland qt6-wayland \
-qt6ct-kde rofi rose-pine-cursor starship awww-git ttf-jetbrains-mono-nerd waybar wl-clip-persist wl-clipboard \
-xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
+qt6ct-kde rofi starship awww-git ttf-jetbrains-mono-nerd waybar wl-clip-persist wl-clipboard xdg-desktop-portal-gnome \
+xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 #### Steps

@@ -121,7 +121,6 @@ declare -a required_packages=(
     qt6-wayland
     qt6ct-kde
     rofi
-    rose-pine-cursor
     starship
     awww-git
     ttf-jetbrains-mono-nerd
