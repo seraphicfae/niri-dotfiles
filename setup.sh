@@ -95,7 +95,6 @@ declare -a required_packages=(
     blueman
     bluez-utils
     breeze
-    catppuccin-sddm-theme-mocha
     cava
     fastfetch
     ffmpegthumbnailer
@@ -104,6 +103,7 @@ declare -a required_packages=(
     imv
     inter-font
     kitty
+    ly
     mako
     matugen
     mission-center
@@ -253,6 +253,7 @@ declare -a services=(
     NetworkManager
     sddm
     bluetooth
+    ly@tty2.service
 )
 
 while true; do
@@ -273,14 +274,6 @@ while true; do
                 warn "${service}.service not found. Is it installed?"
             fi
         done
-
-        if ! grep -q "Current=catppuccin-mocha-pink" /etc/sddm.conf 2>/dev/null; then
-            info "Setting SDDM theme to Catppuccin Mocha (pink)..."
-            echo -e "[Theme]\nCurrent=catppuccin-mocha-pink" | sudo tee /etc/sddm.conf > /dev/null
-            okay "SDDM theme set."
-        else
-            info "SDDM theme already set. Skipping."
-        fi
 
         info "Setting wallpaper..."
         if ln -sf Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper" 2>/dev/null; then

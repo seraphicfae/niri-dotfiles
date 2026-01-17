@@ -29,11 +29,11 @@ cd niri-dotfiles
 
 ```bash
 paru -S --needed --noconfirm \
-blueman bluez-utils breeze catppuccin-sddm-theme-mocha cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock \
-imv inter-font kitty mako matugen mission-center mpv nautilus network-manager-applet  niri noto-fonts-cjk \
-noto-fonts-emoji noto-fonts-extra pantheon-polkit-agent papirus-icon-theme pavucontrol qt5-wayland qt6-wayland \
-qt6ct-kde rofi starship awww-git ttf-jetbrains-mono-nerd waybar wl-clip-persist wl-clipboard xdg-desktop-portal-gnome \
-xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
+blueman bluez-utils breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imv inter-font kitty ly mako \
+matugen mission-center mpv nautilus network-manager-applet niri noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
+pantheon-polkit-agent papirus-icon-theme pavucontrol qt5-wayland qt6-wayland qt6ct-kde rofi starship awww-git \
+ttf-jetbrains-mono-nerd waybar wl-clip-persist wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
+xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 #### Steps
@@ -55,9 +55,7 @@ ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 
 #### Finalizing
 ```bash
-sudo systemctl enable NetworkManager bluetooth sddm
-
-echo -e "[Theme]\nCurrent=catppuccin-mocha-pink" | sudo tee /etc/sddm.conf
+sudo systemctl enable NetworkManager bluetooth sddm ly@tty2.service
 
 chsh -s /usr/bin/zsh
 
