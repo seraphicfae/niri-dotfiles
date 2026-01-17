@@ -55,7 +55,7 @@ ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 
 #### Finalizing
 ```bash
-sudo systemctl enable NetworkManager bluetooth sddm ly@tty2.service
+sudo systemctl enable NetworkManager bluetooth ly@tty2.service
 
 chsh -s /usr/bin/zsh
 
