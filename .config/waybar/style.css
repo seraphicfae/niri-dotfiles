@@ -1,0 +1,145 @@
+/* ──────────[ Global Settings ]────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 15px;
+    font-style: normal;
+    min-height: 0px;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.5);
+    color: #f4d9e1;
+}
+
+/* ──────────[ Left Modules ]────────── */
+#workspaces {
+    background: #282828;
+    margin: 5px;
+    padding: 0px 5px;
+    border-radius: 24px;
+}
+
+#workspaces button {
+    min-width: 18px;
+    min-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 4px 4px;
+    background-color: #504945;
+    color: transparent;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#workspaces button.active {
+    min-width: 32px;
+    background-color: pink;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#workspaces button:hover {
+    background-color: #e6b9c6;
+}
+
+#workspaces button.urgent {
+    background-color: #cc241d;
+}
+
+#system-info {
+    background: #282828;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 100px;
+}
+
+#system-info > label,
+#system-info > widget > label {
+    margin: 0 5px;
+}
+
+#system-info > :first-child {
+    margin-left: 0;
+}
+
+#system-info > :last-child {
+    margin-right: 0;
+}
+
+/* ──────────[ Center Modules ]────────── */
+
+
+/* ──────────[ Right Modules ]────────── */
+#tray {
+    background: #282828;
+    margin: 5px 10px;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+#backlight,
+#battery {
+    background: #282828;
+    margin: 5px 0;
+    padding: 0 10px;
+    color: #f4d9e1;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#backlight {
+    border-radius: 15px 0px 0px 15px;
+    margin-left: 8px;
+}
+
+#battery {
+    border-radius: 0px 15px 15px 0px;
+    margin-right: 15px;
+    color: #9ece6a;
+}
+
+#battery.charging {
+    color: #00ff00;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #f7768e;
+    color: #24283b;
+    border-radius: 5px;
+}
+
+#wireplumber.sink-muted {
+    background: transparent;
+    color: rgba(30, 30, 46, 0.5);
+    margin-left: 0px;
+}
+
+#wireplumber.source.source-muted {
+    background: transparent;
+    color: rgba(30, 30, 46, 0.5);
+    margin-left: 0px;
+}
+
+#clock {
+    color: #e6b9c6;
+    background-color: #282828;
+    border-radius: 0px 0px 0px 24px;
+    padding: 0px 8px 0px 13px;
+    margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+/* ──────────[ Misc ]────────── */
+tooltip {
+    color: white;
+    background: #282828;
+    border: 2px solid pink;
+}
+
+#custom-separator {
+    color: #999;
+}

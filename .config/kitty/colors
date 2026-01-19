@@ -1,0 +1,42 @@
+foreground            #eddfe4
+background            #181115
+selection_foreground  #fbd9ea
+selection_background  #57404d
+url_color             #f9b1db
+cursor                #eddfe4
+cursor_text_color     #181115
+
+# Tabs
+active_tab_foreground   #ffd8ec
+active_tab_background   #6a3457
+inactive_tab_foreground #d3c2c9
+inactive_tab_background #211a1d
+
+# Windows
+active_border_color     #f9b1db
+inactive_border_color   #9c8d93
+
+# Terminal Colors (0-15)
+color0  #181115
+color8  #3f373b
+
+color1  #ffb4ab
+color9  #93000a
+
+color2  #f9b1db
+color10 #6a3457
+
+color3  #debece
+color11 #57404d
+
+color4  #f4ba9e
+color12 #653d28
+
+color5  #854b70
+color13 #854b70
+
+color6  #9c8d93
+color14 #4f4349
+
+color7  #eddfe4
+color15 #d3c2c9
