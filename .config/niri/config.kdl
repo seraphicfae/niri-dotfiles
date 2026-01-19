@@ -164,6 +164,9 @@ spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
+spawn-at-startup "musicpresence"
+spawn-at-startup "rescrobble"
+
 
 // Autostart apps
 spawn-at-startup "helium-browser"
