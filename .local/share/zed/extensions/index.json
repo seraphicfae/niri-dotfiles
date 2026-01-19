@@ -1,0 +1,179 @@
+{
+  "extensions": {
+    "catppuccin": {
+      "manifest": {
+        "id": "catppuccin",
+        "name": "Catppuccin",
+        "version": "0.2.24",
+        "schema_version": 1,
+        "description": "🦀 Soothing pastel theme for Zed",
+        "repository": "https://github.com/catppuccin/zed",
+        "authors": [
+          "Catppuccin <releases@catppuccin.com>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [
+          "themes/catppuccin-mauve.json",
+          "themes/catppuccin-no-italics-mauve.json"
+        ],
+        "icon_themes": [],
+        "languages": [],
+        "grammars": {},
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "catppuccin-icons": {
+      "manifest": {
+        "id": "catppuccin-icons",
+        "name": "Catppuccin Icons",
+        "version": "1.23.1",
+        "schema_version": 1,
+        "description": "🦊 Soothing pastel icons for Zed",
+        "repository": "https://github.com/catppuccin/zed-icons",
+        "authors": [
+          "Catppuccin <releases@catppuccin.com>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "icon_themes": [
+          "icon_themes/catppuccin-icons.json"
+        ],
+        "languages": [],
+        "grammars": {},
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "html": {
+      "manifest": {
+        "id": "html",
+        "name": "HTML",
+        "version": "0.3.0",
+        "schema_version": 1,
+        "description": "HTML support.",
+        "repository": "https://github.com/zed-industries/zed",
+        "authors": [
+          "Isaac Clayton <slightknack@gmail.com>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.7.0"
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/html"
+        ],
+        "grammars": {
+          "html": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-html",
+            "rev": "bfa075d83c6b97cd48440b3829ab8d24a2319809",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "vscode-html-language-server": {
+            "language": "HTML",
+            "languages": [],
+            "language_ids": {
+              "CSS": "css",
+              "HTML": "html"
+            },
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    }
+  },
+  "themes": {
+    "Catppuccin Frappé": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-mauve.json"
+    },
+    "Catppuccin Frappé - No Italics": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-no-italics-mauve.json"
+    },
+    "Catppuccin Latte": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-mauve.json"
+    },
+    "Catppuccin Latte - No Italics": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-no-italics-mauve.json"
+    },
+    "Catppuccin Macchiato": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-mauve.json"
+    },
+    "Catppuccin Macchiato - No Italics": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-no-italics-mauve.json"
+    },
+    "Catppuccin Mocha": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-mauve.json"
+    },
+    "Catppuccin Mocha - No Italics": {
+      "extension": "catppuccin",
+      "path": "themes/catppuccin-no-italics-mauve.json"
+    }
+  },
+  "icon_themes": {
+    "Catppuccin Frappé": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Latte": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Macchiato": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Mocha": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    }
+  },
+  "languages": {
+    "HTML": {
+      "extension": "html",
+      "path": "languages/html",
+      "matcher": {
+        "path_suffixes": [
+          "html",
+          "htm",
+          "shtml"
+        ],
+        "first_line_pattern": null
+      },
+      "hidden": false,
+      "grammar": "html"
+    }
+  }
+}

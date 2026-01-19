@@ -1,0 +1,113 @@
+{
+  "modules-left": [
+    "niri/workspaces",
+    "custom/separator",
+    "group/system-info"
+  ],
+  "modules-center": ["mpris"],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "battery",
+    "wireplumber",
+    "custom/separator",
+    "wireplumber#source",
+    "clock",
+  ],
+  "group/system-info": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "temperature"],
+  },
+  "niri/workspaces": {
+    "format": "{index}",
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 1,
+    "tooltip": false,
+    "on-click": "missioncenter",
+  },
+  "memory": {
+    "format": " {used}/{total} GiB",
+    "interval": 1,
+    "tooltip": false,
+    "on-click": "missioncenter",
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "interval": 1,
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false,
+    "on-click": "missioncenter",
+  },
+  "mpris": {
+    "format": "{status_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-empty": "  No Media",
+    "status-icons": {
+      "paused": "",
+      "playing": "",
+      "stopped": "",
+    },
+    "dynamic-order": ["title", "artist"],
+    "max-length": 40,
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 7,
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "wireplumber": {
+    "node-type": "Audio/Sink",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": {
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "scroll-step": 5,
+    "tooltip": true,
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "scroll-step": 5,
+  },
+  "clock": {
+    "interval": 1,
+    "format": " {:%H:%M:%S}",
+    "tooltip": false,
+    "format-alt": "  {:%A, %B %d}",
+    "on-click-right": "kitty",
+  },
+  "custom/separator": {
+    "format": " • ",
+    "tooltip": false,
+  },
+}
