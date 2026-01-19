@@ -1,11 +1,11 @@
-font=JetBrainsMono Nerd Font 12
-border-radius=8
+font=Inter Regular 12
+border-radius=6
+border-size=2
 default-timeout=5000
-markup=1
-actions=1
-format=<b>%s</b>\n%b
-padding=24
-margin=4
+format=<b>%a</b>\n%s\n%b
+padding=12
+margin=2
+max-icon-size=96
 width=400
 height=150
 
