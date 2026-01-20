@@ -165,7 +165,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "musicpresence"
-spawn-at-startup "rescrobble"
+spawn-at-startup "rescrobbled"
 
 
 // Autostart apps
