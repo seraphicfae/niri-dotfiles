@@ -330,7 +330,6 @@ declare -a optional_packages=(
     keepassxc
     kid3
     neovim
-    musicpresence
     obs-studio
     opus-tools
     pacman-contrib
@@ -338,7 +337,6 @@ declare -a optional_packages=(
     python-pipx
     qbittorrent
     reflector
-    rescrobble-git
     rsync
     ryujinx-bin
     satty
