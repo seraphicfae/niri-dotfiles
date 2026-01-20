@@ -39,7 +39,7 @@ binds {
     Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu"; }
     Mod+Return  { spawn "kitty"; }
     Mod+Shift+F { spawn "nautilus"; }
-    Mod+B       { spawn "helium-browser"; }
+    Mod+B       { spawn "chromium"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
     Mod+M       { spawn "g4music"; }

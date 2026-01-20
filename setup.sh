@@ -326,7 +326,6 @@ declare -a optional_packages=(
     elyprismlauncher-bin
     gamescope
     gapless
-    helium-browser-bin
     keepassxc
     kid3
     neovim
@@ -342,6 +341,7 @@ declare -a optional_packages=(
     satty
     snap-pac
     steam
+    ungoogled-chromium-bin
     vesktop-bin
 )
 
