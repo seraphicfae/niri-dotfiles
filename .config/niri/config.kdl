@@ -164,8 +164,6 @@ spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "musicpresence"
-spawn-at-startup "rescrobbled"
 
 
 // Autostart apps
@@ -206,7 +204,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager|nm-connection-editor|viewnior"#
+    match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager|nm-connection-editor"#
     match title="Volume Control|Mission Center|Picture in picture|imv"
     open-floating true
     default-column-width { fixed 1000; }
