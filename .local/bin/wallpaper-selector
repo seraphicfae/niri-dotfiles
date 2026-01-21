@@ -4,11 +4,11 @@ wallpaper_folder="$HOME/Pictures/wallpapers"
 index_tracker="$HOME/.local/state/wallpaper_index"
 active_wallpaper="$HOME/.local/state/current_wallpaper"
 
-mapfile -t wallpaper_list < <(find "$wallpaper_folder" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
+mapfile -t wallpaper_list < <(find "$wallpaper_folder" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
 
 selected_index=$(
   for path in "${wallpaper_list[@]}"; do
-    printf '%s\x00icon\x1fthumbnail://%s\n' "$(basename "$path")" "$path"
+    printf '%s\x00icon\x1fthumbnail://%s\n' "${path##*/}" "$path"
   done | rofi -dmenu -p "Select Wallpaper" -format i -theme "$HOME/.config/rofi/wallpaper-selector.rasi"
 )
 
@@ -16,10 +16,11 @@ selected_index=$(
 
 selected_path="${wallpaper_list[$selected_index]}"
 
-if [ -f "$selected_path" ]; then
+if [[ -f "$selected_path" ]]; then
     ln -sf "$selected_path" "$active_wallpaper"
-    matugen image "$active_wallpaper"
     echo "$selected_index" > "$index_tracker"
+
+    matugen image "$selected_path" &
 
     styles=("grow" "outer" "wipe" "wave")
     positions=("center" "top" "bottom" "left" "right" "top-left" "top-right" "bottom-left" "bottom-right")

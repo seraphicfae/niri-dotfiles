@@ -4,21 +4,23 @@ wallpaper_folder="$HOME/Pictures/wallpapers"
 index_tracker="$HOME/.local/state/wallpaper_index"
 active_wallpaper="$HOME/.local/state/current_wallpaper"
 
-mapfile -t wallpaper_list < <(find "$wallpaper_folder" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
+mapfile -t wallpaper_list < <(find "$wallpaper_folder" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
 [[ ${#wallpaper_list[@]} -eq 0 ]] && exit 1
 
-current_index=$(cat "$index_tracker" 2>/dev/null)
+current_index=$(<"$index_tracker")
 [[ ! "$current_index" =~ ^[0-9]+$ ]] && current_index=0
 
 next_index=$(( (current_index + 1) % ${#wallpaper_list[@]} ))
+next_wallpaper="${wallpaper_list[$next_index]}"
+
+ln -sf "$next_wallpaper" "$active_wallpaper"
+echo "$next_index" > "$index_tracker"
+
+matugen image "$next_wallpaper" &
 
 styles=("grow" "outer" "wipe" "wave")
 positions=("center" "top" "bottom" "left" "right" "top-left" "top-right" "bottom-left" "bottom-right")
 waves=("20,20" "30,15" "25,25" "40,10")
-
-ln -sf "${wallpaper_list[$next_index]}" "$active_wallpaper"
-matugen image "$active_wallpaper"
-echo "$next_index" > "$index_tracker"
 
 awww img "$active_wallpaper" \
     --transition-type "${styles[$RANDOM % ${#styles[@]}]}" \
