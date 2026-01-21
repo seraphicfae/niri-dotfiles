@@ -39,7 +39,7 @@ binds {
     Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu"; }
     Mod+Return  { spawn "kitty"; }
     Mod+Shift+F { spawn "nautilus"; }
-    Mod+B       { spawn "chromium"; }
+    Mod+B       { spawn "helium-browser"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
     Mod+M       { spawn "g4music"; }
@@ -167,7 +167,7 @@ spawn-at-startup "blueman-applet"
 
 
 // Autostart apps
-spawn-at-startup "chromium"
+spawn-at-startup "helium-browser"
 spawn-at-startup "vesktop"
 spawn-at-startup "steam"
 
@@ -204,8 +204,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager|nm-connection-editor"#
-    match title="Volume Control|Mission Center|Picture in picture|imv"
+    match app-id=r#"org\.gtk\.FileChooserDialog|nm-connection-editor"#
+    match title="Volume Control|Mission Center|Picture in picture|imv|overskride"
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 600; }
