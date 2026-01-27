@@ -330,12 +330,12 @@ declare -a optional_packages=(
     keepassxc
     kid3
     neovim
+    motrix-bin
     obs-studio
     opus-tools
     pacman-contrib
     plymouth
     python-pipx
-    qbittorrent
     reflector
     rsync
     ryujinx-bin
