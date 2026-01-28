@@ -157,9 +157,9 @@ layout {
 // ────────────────[ Miscellaneous ]──────────────── \\
 // Background services & daemons
 spawn-at-startup "awww-daemon"
-spawn-at-startup "awww img ~/.local/state/current_wallpaper"
+spawn-at-startup "awww" "img" "~/.local/state/current_wallpaper"
 spawn-at-startup "mako"
-spawn-at-startup "/usr/lib/pantheon-polkit-agent"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-at-startup "wl-clip-persist" "--clipboard" "regular"
 spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
