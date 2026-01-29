@@ -3,51 +3,48 @@
   "logo": {
     "type": "kitty",
     "source": "$HOME/.config/fastfetch/fetch.jpg",
-    "width": 38,
+    "width": 45,
     "position": "left",
     "preserveAspectRatio": true
   },
   "display": {
-    "separator": " ➜ "
+    "separator": " ➜ ",
+    "color": {
+        "separator": "red"
+    }
   },
   "modules": [
-    {
-      "type": "title",
-      "format": "{6}{7}{8}"
-    },
     {
       "type": "custom",
       "format": "┌────────────── Hardware Information ──────────────┐"
     },
     {
-      "key": "    Machine  ",
-      "keyColor": "cyan",
-      "type": "host"
-    },
-    {
       "key": "    CPU      ",
-      "keyColor": "green",
+      "keyColor": "red",
       "type": "cpu"
     },
     {
       "key": "  󰢮  GPU      ",
-      "keyColor": "cyan",
+      "keyColor": "green",
       "type": "gpu"
     },
     {
       "key": "    Memory   ",
       "keyColor": "blue",
-      "type": "memory"
+      "type": "memory",
+      "format": "{1} / {2}"
     },
     {
       "key": "  󰋊  Disk     ",
-      "keyColor": "green",
-      "type": "disk"
+      "keyColor": "yellow",
+      "type": "disk",
+      "format": "{1} / {2}"
     },
     {
       "key": "  󰍹  Monitor  ",
-      "keyColor": "green",
-      "type": "monitor"
+      "keyColor": "cyan",
+      "type": "display",
+      "format": "{1}x{2} @ {3}hz"
     },
     {
       "type": "custom",
@@ -55,38 +52,72 @@
     },
     {
       "key": "    OS       ",
-      "keyColor": "green",
+      "keyColor": "red",
       "type": "os"
     },
     {
       "key": "    Kernel   ",
-      "keyColor": "blue",
+      "keyColor": "green",
       "type": "kernel"
     },
     {
-      "key": "  󰅐  Uptime   ",
-      "keyColor": "green",
-      "type": "uptime"
-    },
-    {
       "key": "  󰏖  Packages ",
-      "keyColor": "cyan",
+      "keyColor": "blue",
       "type": "packages"
     },
     {
       "key": "    WM       ",
-      "keyColor": "blue",
+      "keyColor": "yellow",
       "type": "wm"
     },
     {
       "key": "    Shell    ",
-      "keyColor": "green",
+      "keyColor": "cyan",
       "type": "shell"
     },
     {
       "key": "    Terminal ",
-      "keyColor": "cyan",
+      "keyColor": "white",
       "type": "terminal"
+    },
+    {
+      "type": "custom",
+      "format": "├──────────── Theming & User Interface ────────────┤"
+    },
+    {
+      "key": "  󰉼  Qt theme ",
+      "keyColor": "red",
+      "type": "theme",
+      "format": "{1}"
+    },
+    {
+      "key": "  󰉼  GTK theme",
+      "keyColor": "green",
+      "type": "theme",
+      "format": "{2}"
+    },
+    {
+      "key": "    Qt icons ",
+      "keyColor": "blue",
+      "type": "icons",
+      "format": "{1}"
+    },
+    {
+      "key": "    GTK icons",
+      "keyColor": "yellow",
+      "type": "icons",
+      "format": "{2}"
+    },
+    {
+      "key": "    font     ",
+      "keyColor": "cyan",
+      "type": "font",
+      "format": "{1}"
+    },
+    {
+      "key": "  󰆿  Cursor   ",
+      "keyColor": "white",
+      "type": "cursor"
     },
     {
       "type": "custom",
