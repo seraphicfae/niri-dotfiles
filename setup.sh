@@ -381,8 +381,7 @@ if (( ${#missing[@]} )); then
 
             info "Configuring Plymouth splash screen..."
             sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
-            sudo cp -r cross_hud /usr/share/plymouth/themes/
-            sudo plymouth-set-default-theme -R cross_hud
+            sudo plymouth-set-default-theme -R bgrt
 
             okay "Done!"
             break
