@@ -2,12 +2,12 @@
 
 Thanks to:
 - <u>[Catppuccin](https://github.com/catppuccin)</u> for the amazing themes
-- <u>[Adi1090x](https://github.com/adi1090x/rofi/)</u> for the incredible Rofi setup
+- <u>[Adi1090x](https://github.com/adi1090x/rofi/)</u> for the base rofi config
 
 ---
 
 ## Showcase
-https://github.com/user-attachments/assets/c7f45470-5c41-46e4-88f0-6dd9a8296cc3
+
 
 ---
 
