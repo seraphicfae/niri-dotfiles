@@ -94,7 +94,6 @@ EOF
 declare -a required_packages=(
     awww-git
     blueman
-    bluez-utils
     breeze
     cava
     fastfetch
@@ -110,7 +109,6 @@ declare -a required_packages=(
     mission-center
     mpv
     nautilus
-    network-manager-applet
     niri
     noto-fonts-cjk
     noto-fonts-emoji
@@ -250,9 +248,7 @@ cat << "EOF"
 EOF
 
 declare -a services=(
-    NetworkManager
-    bluetooth
-    ly@tty2.service
+    ly@tty1.service
 )
 
 while true; do
@@ -325,7 +321,6 @@ declare -a optional_packages=(
     docker
     docker-compose
     elyprismlauncher-bin
-    gamescope
     gapless
     helium-browser-bin
     keepassxc
