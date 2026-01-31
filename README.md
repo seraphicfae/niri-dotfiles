@@ -48,8 +48,6 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-ln -sf Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper"
-
 ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 ```
 
@@ -73,3 +71,6 @@ Look in `config.jsonc` and set it to your correct thermal zone.
 **My fonts/icons look weird/don't show** \
 Ensure you have: `inter-font ttf-jetbrains-mono-nerd`
 These are required fonts you will need.
+
+**How to setup my wallpaper?** \
+`Super + W` and choose which image you want.

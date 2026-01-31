@@ -269,13 +269,6 @@ while true; do
             fi
         done
 
-        info "Setting wallpaper..."
-        if ln -sf Pictures/wallpapers/wallpaper_01.png "$HOME/.local/state/current_wallpaper" 2>/dev/null; then
-            okay "Wallpaper set."
-        else
-            warn "Wallpaper not found. Skipping."
-        fi
-
         if command -v zsh &> /dev/null; then
             if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
                 info "Setting Zsh as the default shell..."
