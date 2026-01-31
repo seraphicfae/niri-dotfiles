@@ -221,7 +221,7 @@ while true; do
         done
 
         info "Setting up GTK-4.0 theme symlink..."
-        ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* ~/.config/gtk-4.0/
+        ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
         okay "Theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
@@ -246,7 +246,7 @@ cat << "EOF"
 EOF
 
 declare -a services=(
-    ly@tty1.service
+    ly@tty1
 )
 
 while true; do
@@ -355,7 +355,6 @@ if (( ${#missing[@]} )); then
         if [[ "$input" =~ ^[Yy]$ ]]; then
             info "Configuring /etc/pacman.conf..."
             sudo sed -i 's/^#Color/Color\nILoveCandy/' /etc/pacman.conf
-            sudo sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
             sudo pacman -Sy
 
             info "Installing packages and starting services.."
@@ -368,6 +367,7 @@ if (( ${#missing[@]} )); then
 
             info "Configuring Plymouth splash screen..."
             sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
+            sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
             okay "Done!"
