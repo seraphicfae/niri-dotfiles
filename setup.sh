@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Creator : Faye | https://github.com/seraphicfae/niri-dotfiles
+# Creator : Mei Mei | https://github.com/seraphicfae/niri-dotfiles
 # idiot proof install script. Feel free to adapt for your dotfiles
 
 # ────────────────[ Themes and Functions ]────────────────
@@ -394,7 +394,7 @@ if (( ${#missing[@]} )); then
         fi
     done
 else
-    warn "Hi, MeiMei!"
+    fail "Hi, Mei Mei!"
 fi
 
 # ────────────────[ Completion ]────────────────
