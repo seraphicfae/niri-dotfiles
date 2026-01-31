@@ -110,7 +110,9 @@ declare -a required_packages=(
     mpv
     nautilus
     niri
+    noto-fonts-cjk
     noto-fonts-emoji
+    noto-fonts-extra
     papirus-icon-theme
     pavucontrol
     polkit-kde-agent
