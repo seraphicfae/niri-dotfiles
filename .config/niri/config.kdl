@@ -42,7 +42,7 @@ binds {
     Mod+B       { spawn "helium-browser"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "g4music"; }
+    Mod+M       { spawn "amberol"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
@@ -217,7 +217,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="com.github.neithern.g4music"
+    match app-id="io.bassi.Amberol"
     open-on-workspace "3"
 }
 
