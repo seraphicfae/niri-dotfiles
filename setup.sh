@@ -123,7 +123,6 @@ declare -a required_packages=(
     starship
     ttf-jetbrains-mono-nerd
     waybar
-    wl-clip-persist
     wl-clipboard
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
