@@ -8,6 +8,7 @@ Thanks to:
 
 ## Showcase
 https://github.com/user-attachments/assets/25b80fc7-52d7-4830-9999-8a66079345f3
+
 ---
 
 ## Quick Install:
