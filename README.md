@@ -29,12 +29,11 @@ cd niri-dotfiles
 
 ```bash
 paru -S --needed --noconfirm \
-awww-git blueman bluez-utils breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imv \
-inter-font kitty ly mako matugen mission-center mpv nautilus network-manager-applet niri \
-noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme pavucontrol polkit-kde-agent \
-qt5-wayland qt6-wayland qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar wl-clip-persist \
-wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autosuggestions \
-zsh-syntax-highlighting
+awww-git blueman breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imv inter-font kitty \
+ly mako matugen mission-center mpv nautilus niri noto-fonts-cjk noto-fonts-emoji noto-fonts-extra \
+papirus-icon-theme pavucontrol polkit-kde-agent qt5-wayland qt6-wayland qt6ct-kde rofi starship \
+ttf-jetbrains-mono-nerd waybar wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
+xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 #### Steps
@@ -56,7 +55,7 @@ ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 
 #### Finalizing
 ```bash
-sudo systemctl enable NetworkManager bluetooth ly@tty2.service
+sudo systemctl enable ly@tty1.service
 
 chsh -s /usr/bin/zsh
 
@@ -72,5 +71,5 @@ reboot
 Look in `config.jsonc` and set it to your correct thermal zone.
 
 **My fonts/icons look weird/don't show** \
-Ensure you have: `inter-font noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd`
+Ensure you have: `inter-font ttf-jetbrains-mono-nerd`
 These are required fonts you will need.
