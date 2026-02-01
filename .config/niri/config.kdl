@@ -42,7 +42,7 @@ binds {
     Mod+B       { spawn "helium-browser"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "gapless"; }
+    Mod+M       { spawn "g4music"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
