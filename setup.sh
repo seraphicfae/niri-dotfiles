@@ -307,12 +307,12 @@ cat << "EOF"
 EOF
 
 declare -a optional_packages=(
-    amberol
     btrfs-assistant
     bun
     docker
     docker-compose
     elyprismlauncher-bin
+    gapless
     helium-browser-bin
     keepassxc
     kid3
