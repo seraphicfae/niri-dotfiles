@@ -103,6 +103,7 @@ declare -a required_packages=(
     imv
     inter-font
     kitty
+    libnotify
     ly
     mako
     matugen
