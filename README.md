@@ -57,7 +57,7 @@ sudo systemctl enable ly@tty1.service
 
 chsh -s /usr/bin/zsh
 
-export ZDOTDIR="$HOME/.config/zsh"
+echo 'export ZDOTDIR="$HOME/.config/zsh"' > "$HOME/.zshenv"
 
 reboot
 ```
