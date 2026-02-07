@@ -95,6 +95,7 @@ declare -a required_packages=(
     awww-git
     blueman
     breeze
+    btop
     cava
     fastfetch
     ffmpegthumbnailer
@@ -107,7 +108,6 @@ declare -a required_packages=(
     ly
     mako
     matugen
-    mission-center
     mpv
     nautilus
     niri

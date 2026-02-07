@@ -26,13 +26,13 @@
     "format": " {usage}%",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "kitty -e btop",
   },
   "memory": {
     "format": " {used}/{total} GiB",
     "interval": 1,
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "kitty -e btop",
   },
   "temperature": {
     "thermal-zone": 2,
@@ -42,7 +42,7 @@
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", "", "", ""],
     "tooltip": false,
-    "on-click": "missioncenter",
+    "on-click": "kitty -e btop",
   },
   "mpris": {
     "format": "{status_icon} {dynamic}",
