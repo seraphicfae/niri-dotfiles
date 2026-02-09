@@ -222,7 +222,7 @@ while true; do
         done
 
         info "Setting up GTK-4.0 theme symlink..."
-        ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
+        ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
         okay "Theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
