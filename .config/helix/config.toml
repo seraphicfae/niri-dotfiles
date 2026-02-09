@@ -1,0 +1,36 @@
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+gutters = ["line-numbers", "diff"]
+cursorline = true
+color-modes = true
+true-color = true
+auto-save = true
+idle-timeout = 50
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "underline"
+select = "block"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "read-only-indicator"]
+center = ["diagnostics"]
+right = ["version-control", "position", "position-percentage", "file-encoding"]
+separator = "│"
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = "↪ "
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+";" = "command_mode"
+
+[keys.normal.space]
+c = ":clipboard-yank"
+v = ":clipboard-paste-after"
+x = [":clipboard-yank", "delete_selection"]
