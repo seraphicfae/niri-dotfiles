@@ -53,7 +53,7 @@ ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 
 #### Finalizing
 ```bash
-sudo systemctl enable ly@tty1.service
+sudo systemctl enable ly@tty2.service
 
 chsh -s /usr/bin/zsh
 
