@@ -247,7 +247,7 @@ cat << "EOF"
 EOF
 
 declare -a services=(
-    ly@tty1
+    ly@tty2
 )
 
 while true; do
