@@ -92,7 +92,7 @@ cat << "EOF"
 EOF
 
 declare -a required_packages=(
-    awww-git
+    awww-bin
     blueman
     breeze
     btop
