@@ -315,9 +315,9 @@ declare -a optional_packages=(
     elyprismlauncher-bin
     gapless
     helium-browser-bin
+    helix
     keepassxc
     kid3
-    neovim
     obs-studio
     opus-tools
     pacman-contrib
