@@ -48,7 +48,7 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-ln -sf .local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
+ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0"
 ```
 
 #### Finalizing
