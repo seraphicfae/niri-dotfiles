@@ -31,6 +31,4 @@ hidden = false
 ";" = "command_mode"
 
 [keys.normal.space]
-c = ":clipboard-yank"
-v = ":clipboard-paste-after"
 x = [":clipboard-yank", "delete_selection"]
