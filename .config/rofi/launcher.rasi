@@ -2,24 +2,17 @@
 @import "~/.config/rofi/colors"
 
 configuration {
-    modi:                       "drun";
-    show-icons:                 true;
-    drun-display-format:        "{name}";
-    font:                       "JetBrainsMono Nerd Font Propo 12";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+    font:                        "Inter Font 12";
+    me-select-entry:             "";
+    me-accept-entry:             "MousePrimary";
 }
 
 /* ──────────[ Window ]────────── */
 window {
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  false;
-    width:                       800px;
-    height:                      410px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-    enabled:                     true;
-    border-radius:               50px;
-    cursor:                      "default";
+    width:                       700px;
+    height:                      400px;
     margin:                      0px;
     padding:                     2px;
     background-color:            @selected;
@@ -28,23 +21,11 @@ window {
 
 /* ──────────[ Mainbox ]────────── */
 mainbox {
-    enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
     padding:                     8px;
     background-color:            @background;
     border-radius:               12px;
-    orientation:                 horizontal;
-    children:                    [ "imagebox", "listbox" ];
-}
-
-imagebox {
-    padding:                     12px;
-    background-color:            transparent;
-    background-image:            url("~/.config/rofi/splash-image.jpg", height);
     orientation:                 vertical;
-    children:                    [ "inputbar", "dummy" ];
-    border-radius:               12px;
+    children:                    ["inputbar", "listbox"];
 }
 
 listbox {
@@ -52,50 +33,30 @@ listbox {
     padding:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "message", "listview" ];
-}
-
-dummy {
-    background-color:            transparent;
+    children:                    ["listview"];
 }
 
 /* ──────────[ Inputbar ]────────── */
 inputbar {
-    enabled:                     true;
     spacing:                     10px;
     padding:                     15px;
     border-radius:               10px;
     background-color:            @background-alt;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    children:                    ["entry"];
 }
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    background-color:            inherit;
-    text-color:                  inherit;
-}
+
 entry {
-    enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 " 󰍉 Search";
-    placeholder-color:           inherit;
 }
 
 /* ──────────[ Listview ]────────── */
 listview {
-    enabled:                     true;
-    columns:                     1;
+    columns:                     2;
     lines:                       8;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
     spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -104,7 +65,6 @@ listview {
 
 /* ──────────[ Elements ]────────── */
 element {
-    enabled:                     true;
     spacing:                     15px;
     padding:                     8px;
     border-radius:               10px;
@@ -112,36 +72,18 @@ element {
     text-color:                  @foreground;
     cursor:                      pointer;
 }
-element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
-}
-element normal.urgent {
-    background-color:            @urgent;
-    text-color:                  @foreground;
-}
-element normal.active {
-    background-color:            @active;
-    text-color:                  @foreground;
-}
+
 element selected.normal {
     background-color:            @selected;
-    text-color:                  #1E1E28;
+    text-color:                  #121212;
 }
-element selected.urgent {
-    background-color:            @urgent;
-    text-color:                  #1E1E28;
-}
-element selected.active {
-    background-color:            @urgent;
-    text-color:                  #1E1E28;
-}
+
 element-icon {
     background-color:            transparent;
-    text-color:                  inherit;
     size:                        32px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -150,21 +92,21 @@ element-text {
     horizontal-align:            0.0;
 }
 
-/* ──────────[ Message and Error ]────────── */
-message {
-    background-color:            transparent;
-}
+/* ──────────[ Error ]────────── */
 textbox {
-    padding:                     10px;
-    border-radius:               10px;
-    background-color:            @background-alt;
+    padding:                     12px;
+    font:                        "Inter Font 20";
+    background-color:            @background;
     text-color:                  @foreground;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.5;
 }
+
 error-message {
-    padding:                     10px;
-    border-radius:               20px;
+    padding:                     15px;
+    border:                      0.5px solid;
+    border-color:                @selected;
+    border-radius:               12px;
     background-color:            @background;
     text-color:                  @foreground;
 }
