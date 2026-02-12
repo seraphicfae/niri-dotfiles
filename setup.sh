@@ -371,6 +371,9 @@ if (( ${#missing[@]} )); then
             sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
+            info "Creating Helix config for root..."
+            sudo mkdir -p /root/.config/helix
+            sudo ln -s "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
             okay "Done!"
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
