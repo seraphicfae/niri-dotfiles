@@ -5,8 +5,6 @@ configuration {
     show-icons:                  true;
     drun-display-format:         "{name}";
     font:                        "Inter Font 12";
-    me-select-entry:             "";
-    me-accept-entry:             "MousePrimary";
 }
 
 /* ──────────[ Window ]────────── */

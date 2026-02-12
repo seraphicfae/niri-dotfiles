@@ -3,8 +3,6 @@
 
 configuration {
     font:                        "Inter Font 12";
-    me-select-entry:             "";
-    me-accept-entry:             "MousePrimary";
 }
 
 /* ──────────[ Window ]────────── */
