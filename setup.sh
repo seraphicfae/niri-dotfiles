@@ -101,6 +101,7 @@ declare -a required_packages=(
     ffmpegthumbnailer
     gvfs-mtp
     hyprlock
+    imagemagick
     imv
     inter-font
     kitty
