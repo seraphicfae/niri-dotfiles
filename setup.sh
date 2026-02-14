@@ -313,6 +313,7 @@ declare -a optional_packages=(
     bun
     docker
     docker-compose
+    eden-nightly-bin
     elyprismlauncher-bin
     gapless
     helium-browser-bin
@@ -327,7 +328,6 @@ declare -a optional_packages=(
     qbittorrent
     reflector
     rsync
-    ryujinx-bin
     satty
     snap-pac
     steam
