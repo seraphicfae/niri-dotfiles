@@ -163,7 +163,7 @@ spawn-at-startup "helium-browser"
 spawn-at-startup "vesktop"
 spawn-at-startup "steam"
 
-spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.wav"
+spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.oga"
 
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
