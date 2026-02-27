@@ -28,7 +28,7 @@ output "HDMI-A-1" {
     variable-refresh-rate
 }
 
-// ────────────────[ Binds ]──────────────── \\
+// ────────────────[ Key Bindings ]──────────────── \\
 binds {
     // Applications
     Mod+Slash   { spawn-sh "killall waybar; waybar & disown"; }
@@ -256,9 +256,10 @@ window-rule {
 
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
-    match namespace="^awww-daemon|waybar$"
+    match namespace="^awww|waybar$"
     place-within-backdrop true
     background-effect {
+        xray false
         blur true
     }
 }
