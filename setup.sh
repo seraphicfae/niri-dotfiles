@@ -111,7 +111,7 @@ declare -a required_packages=(
     matugen
     mpv
     nautilus
-    niri
+    niri-wip-git
     noto-fonts-cjk
     noto-fonts-emoji
     papirus-icon-theme

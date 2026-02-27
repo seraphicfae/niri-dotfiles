@@ -135,15 +135,15 @@ layout {
         on
         width 2.5
         active-color "#e5b9c6"
-        inactive-color "#3b3b3b"
+        inactive-color "#2b2b2b"
     }
 
     shadow {
-        off
-    //  softness 10
-    //  spread 2.5
-    //  offset x=0 y=5
-    //  color "#00000099"
+        on
+        softness 10
+        spread 2
+        offset x=0 y=5
+        color "#00000099"
     }
 
     struts {
@@ -155,18 +155,30 @@ layout {
 }
 
 // ────────────────[ Miscellaneous ]──────────────── \\
-spawn-at-startup "awww-daemon"
-spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-at-startup "waybar"
-
+spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.wav"
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+spawn-sh-at-startup "awww-daemon"
+spawn-sh-at-startup "waybar"
+spawn-sh-at-startup "mako"
 spawn-at-startup "helium-browser"
 spawn-at-startup "vesktop"
 spawn-at-startup "steam"
 
-spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.oga"
-
 prefer-no-csd
+
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
+
+environment {
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    OZONE_PLATFORM "wayland"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    GDK_BACKEND "wayland,x11"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    SDL_VIDEODRIVER "wayland,x11"
+}
 
 cursor {
     xcursor-theme "breeze_cursors"
@@ -187,6 +199,13 @@ hotkey-overlay {
     skip-at-startup
 }
 
+blur {
+    passes 4
+    offset 2.0
+    noise 0.03
+    saturation 1.2
+}
+
 workspace "1"
 workspace "2"
 workspace "3"
@@ -195,6 +214,13 @@ workspace "3"
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
+}
+
+window-rule {
+    background-effect {
+        xray false
+        blur true
+    }
 }
 
 window-rule {
@@ -230,8 +256,11 @@ window-rule {
 
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
-    match namespace="^awww-daemon$"
+    match namespace="^awww-daemon|waybar$"
     place-within-backdrop true
+    background-effect {
+        blur true
+    }
 }
 
 // ────────────────[ Animations ]──────────────── \\
@@ -316,17 +345,4 @@ recent-windows {
         Alt+Tab         { next-window; }
         Alt+Shift+Tab   { previous-window; }
     }
-}
-
-// ────────────────[ Environment Variables ]──────────────── \\
-environment {
-    XDG_SESSION_TYPE "wayland"
-    XDG_CURRENT_DESKTOP "niri"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    OZONE_PLATFORM "wayland"
-    QT_QPA_PLATFORM "wayland;xcb"
-    QT_QPA_PLATFORMTHEME "qt6ct"
-    GDK_BACKEND "wayland,x11"
-    _JAVA_AWT_WM_NONREPARENTING "1"
-    SDL_VIDEODRIVER "wayland,x11"
 }
