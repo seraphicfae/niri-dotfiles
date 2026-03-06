@@ -75,6 +75,3 @@ These are required fonts you will need.
 
 **How to setup my wallpaper?** \
 `Super + W` and choose which image you want.
-
-**How to get fastfetch to display images; not working** \
-I have no clue, it feels random when it works or not, the git version works better.
