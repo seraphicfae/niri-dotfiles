@@ -251,7 +251,7 @@ window-rule {
 
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
-    match namespace="^awww|waybar$"
+    match namespace="awww"
     place-within-backdrop true
     background-effect {
         xray false
