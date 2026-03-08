@@ -95,7 +95,6 @@ declare -a required_packages=(
     awww-bin
     blueman
     breeze
-    btop
     cava
     fastfetch
     ffmpegthumbnailer
@@ -324,7 +323,6 @@ declare -a optional_packages=(
     opus-tools
     pacman-contrib
     plymouth
-    python-pipx
     qbittorrent
     reflector
     rsync
