@@ -23,21 +23,6 @@ dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
 wallpaper_directory="$HOME/Pictures/wallpapers"
 
-# ────────────────[ Arch and SystemD Check ]────────────────
-if [ -f /etc/arch-release ] || grep -qE "^(ID|ID_LIKE)=.*arch.*" /etc/os-release; then
-    okay "Arch-based distribution detected."
-else
-    fail "This script is made for Arch based systems. Exiting..."
-    exit 1
-fi
-
-if [ -d /run/systemd/system ]; then
-    okay "Systemd is active."
-else
-    fail "This script requires systemd. Exiting..."
-    exit 1
-fi
-
 # ────────────────[ Paru Setup ]────────────────
 sleep 2
 clear
@@ -59,13 +44,9 @@ if ! command -v paru &> /dev/null; then
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
             git clone https://aur.archlinux.org/paru.git
-            cd paru && makepkg -si && cd ..
+            (cd paru && makepkg -si)
             rm -rf paru
-            if ! command -v paru &> /dev/null; then
-                warn "Installation failed. Something went horribly wrong."
-            else
-                okay "Paru installed successfully."
-            fi
+            okay "Paru installed successfully."
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
             fail "Paru is required for this setup. Exiting..."
@@ -182,17 +163,13 @@ while true; do
     read -n 1 -r -p "$(ask "Download extra wallpapers? [y/N]")" input
     echo
     input="${input:-n}"
-
     if [[ "$input" =~ ^[Yy]$ ]]; then
         if [ -d "$wallpaper_directory/.git" ]; then
-            info "Wallpapers already exist. Pulling updates..."
             git -C "$wallpaper_directory" pull
         else
-            info "Downloading wallpapers into $wallpaper_directory..."
             mkdir -p "$wallpaper_directory"
             git clone --depth 1 "$wallpaper_repository" "$wallpaper_directory"
         fi
-        okay "Wallpapers ready."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
         info "Skipping wallpaper download."
@@ -206,12 +183,10 @@ while true; do
     read -n 1 -r -p "$(ask "Copy dotfiles to your directories? [Y/n]")" input
     echo
     input="${input:-y}"
-
     if [[ "$input" =~ ^[Yy]$ ]]; then
         for folder in "${dotfile_paths[@]}"; do
             source="$dotfiles_directory/$folder"
             destination="$HOME/$folder"
-
             if [ -d "$source" ]; then
                 mkdir -p "$destination"
                 info "Syncing $folder..."
@@ -220,13 +195,12 @@ while true; do
                 warn "Source folder $source does not exist, skipping."
             fi
         done
-
         info "Setting up GTK-4.0 theme symlink..."
         ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
         okay "Theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
-        warn "Skipping dotfile copy. Your configuration will not be set."
+        warn "Skipping dotfile copy. Your configuration will not work."
         break
     else
         warn "Please enter either [Y] or [N]."
