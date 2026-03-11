@@ -33,7 +33,7 @@ setopt inc_append_history
 setopt share_history
 
 # ────────────────[ Prompt ]────────────────
-eval "$(starship init zsh)"
+
 
 # ────────────────[ Aliases ]────────────────
 alias ff='clear && fastfetch'
