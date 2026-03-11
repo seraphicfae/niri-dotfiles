@@ -101,7 +101,6 @@ declare -a required_packages=(
     qt6-wayland
     qt6ct-kde
     rofi
-    starship
     ttf-jetbrains-mono-nerd
     waybar
     wl-clipboard
