@@ -33,7 +33,11 @@ setopt inc_append_history
 setopt share_history
 
 # ────────────────[ Prompt ]────────────────
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%F{yellow}[%b]%f'
 
+PROMPT=$'\n%F{cyan}%~%f ${vcs_info_msg_0_}\n❯ '
 
 # ────────────────[ Aliases ]────────────────
 alias ff='clear && fastfetch'
