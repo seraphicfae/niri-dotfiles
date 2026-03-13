@@ -282,7 +282,6 @@ cat << "EOF"
 EOF
 
 declare -a optional_packages=(
-    btrfs-assistant
     bun
     docker
     docker-compose
