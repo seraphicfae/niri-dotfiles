@@ -196,7 +196,7 @@ hotkey-overlay {
 
 blur {
     passes 4
-    offset 2.0
+    offset 2
     noise 0.03
     saturation 1.2
 }
@@ -227,13 +227,18 @@ window-rule {
 }
 
 window-rule {
-    match app-id="dev.zed.Zed|org.kde.kid3"
+    match app-id="helium|vesktop"
+    open-on-workspace "1"
+}
+
+window-rule {
+    match app-id="dev.zed.Zed|org.kde.kid3|qbittorrent"
     open-maximized true
     open-on-workspace "2"
 }
 
 window-rule {
-    match app-id="steam"
+    match app-id="steam|elyprismlauncher"
     open-maximized true
     open-on-workspace "3"
 }
@@ -252,6 +257,11 @@ window-rule {
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
     match namespace="awww"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="waybar"
     place-within-backdrop true
     background-effect {
         xray false
@@ -303,18 +313,6 @@ animations {
 
 // ────────────────[ Gestures ]──────────────── \\
 gestures {
-    dnd-edge-view-scroll {
-        trigger-width 30
-        delay-ms 100
-        max-speed 1500
-    }
-
-    dnd-edge-workspace-switch {
-        trigger-height 50
-        delay-ms 100
-        max-speed 1500
-    }
-
     hot-corners {
         off
     }
@@ -323,7 +321,7 @@ gestures {
 // ────────────────[ Recent Windows ]──────────────── \\
 recent-windows {
     debounce-ms 750
-    open-delay-ms 150
+    open-delay-ms 0
 
     highlight {
         active-color "#ffc0cb"
