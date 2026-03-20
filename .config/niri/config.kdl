@@ -150,7 +150,7 @@ layout {
 }
 
 // ────────────────[ Miscellaneous ]──────────────── \\
-spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.wav"
+spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.ogg"
 spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "waybar"
