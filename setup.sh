@@ -293,7 +293,6 @@ declare -a optional_packages=(
     keepassxc
     kid3
     obs-studio
-    opus-tools
     pacman-contrib
     plymouth
     qbittorrent
