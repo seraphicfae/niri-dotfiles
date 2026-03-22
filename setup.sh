@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Creator : Mei Mei | https://github.com/seraphicfae/niri-dotfiles
-# idiot proof install script. Feel free to adapt for your dotfiles
+# idiot proof install script. Feel free to adapt for your own dotfiles
 
 # ────────────────[ Themes and Functions ]────────────────
 RESET="\e[0m"
@@ -13,11 +13,11 @@ BLUE="\e[34m"
 MAGENTA="\e[35m"
 CYAN="\e[36m"
 
-fail() { printf "${BOLD}${RED}[  NO  ] [ %s ]${RESET} %s\n" "$1"; }
-okay() { printf "${BOLD}${GREEN}[  OK  ] [ %s ]${RESET} %s\n" "$1"; }
-warn() { printf "${BOLD}${YELLOW}[  !!  ] [ %s ]${RESET} %s\n" "$1"; }
-info() { printf "${BOLD}${BLUE}[  ..  ] [ %s ]${RESET} %s\n" "$1"; }
-ask()  { printf "${BOLD}${MAGENTA}[  ??  ] [ %s ]${RESET} %s" "$1"; }
+fail() { printf "${BOLD}${RED}[  NO  ] %s ${RESET}\n" "$@"; }
+okay() { printf "${BOLD}${GREEN}[  OK  ] %s ${RESET}\n" "$@"; }
+warn() { printf "${BOLD}${YELLOW}[  !!  ] %s ${RESET}\n" "$@"; }
+info() { printf "${BOLD}${BLUE}[  ..  ] %s ${RESET}\n" "$@"; }
+ask()  { printf "${BOLD}${MAGENTA}[  ??  ] %s ${RESET} " "$@"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
@@ -52,7 +52,7 @@ if ! command -v paru &> /dev/null; then
             fail "Paru is required for this setup. Exiting..."
             exit 1
         else
-            warn "Please enter either [Y] or [N]."
+            echo "Please enter either [Y] or [N]."
         fi
     done
 else
@@ -117,8 +117,7 @@ declare -a required_packages=(
 mapfile -t missing < <(pacman -T "${required_packages[@]}")
 
 if (( ${#missing[@]} )); then
-    warn "The following packages are missing:"
-    echo "${missing[*]}" | fold -s -w 80
+    echo -e "${BOLD}${YELLOW}Missing packages:${RESET} ${missing[*]}" | fold -s -w 80
 
     while true; do
         read -n 1 -r -p "$(ask "Install missing packages? [Y/n]")" input
@@ -133,7 +132,7 @@ if (( ${#missing[@]} )); then
             warn "Skipped installing packages. Your system will not work correctly."
             break
         else
-            warn "Please enter either [Y] or [N]."
+            echo "Please enter either [Y] or [N]."
         fi
     done
 else
@@ -175,7 +174,7 @@ while true; do
         info "Skipping wallpaper download."
         break
     else
-        warn "Please enter either [Y] or [N]."
+        echo "Please enter either [Y] or [N]."
     fi
 done
 
@@ -203,7 +202,7 @@ while true; do
         warn "Skipping dotfile copy. Your configuration will not work."
         break
     else
-        warn "Please enter either [Y] or [N]."
+        echo "Please enter either [Y] or [N]."
     fi
 done
 
@@ -231,7 +230,7 @@ while true; do
 
     if [[ "$input" =~ ^[Yy]$ ]]; then
         for service in "${services[@]}"; do
-            if systemctl list-unit-files | grep -q "^${service}\.service"; then
+            if systemctl list-unit-files "${service}.service" &>/dev/null; then
                 info "Enabling ${service}..."
                 if sudo systemctl enable "$service" &>/dev/null; then
                     okay "${service} enabled."
@@ -264,11 +263,11 @@ while true; do
         warn "Skipped service and environment configuration. Your system may not work as intended."
         break
     else
-        warn "Please enter either [Y] or [N]."
+        echo "Please enter either [Y] or [N]."
     fi
 done
 
-# ────────────────[ Completion ]────────────────
+# ────────────────[ Skip Me ]────────────────
 sleep 2
 clear
 echo -e "${GREEN}${BOLD}"
@@ -326,7 +325,10 @@ if (( ${#missing[@]} )); then
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
             info "Configuring /etc/pacman.conf..."
-            sudo sed -i 's/^#Color/Color\nILoveCandy/' /etc/pacman.conf
+            grep -q "^Color" /etc/pacman.conf \
+                || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+            grep -q "^ILoveCandy" /etc/pacman.conf \
+                || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
             sudo pacman -Sy
 
             info "Installing packages and starting services.."
@@ -338,27 +340,28 @@ if (( ${#missing[@]} )); then
             xdg-user-dirs-update --force
 
             info "Configuring Plymouth splash screen..."
-            sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
+            grep -q "plymouth" /etc/mkinitcpio.conf \
+                || sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
             sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
             info "Creating Helix config for root..."
             sudo mkdir -p /root/.config/helix
-            sudo ln -s "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
+            sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
             okay "Done!"
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
             okay "Skipping optional tweaks and packages."
             break
         else
-            warn "Please enter either [Y] or [N]."
+            echo "Please enter either [Y] or [N]."
         fi
     done
 else
     fail "Hi, Mei Mei!"
 fi
 
-# ────────────────[ Completion ]────────────────
+# ────────────────[ Reboot ]────────────────
 sleep 2
 clear
 echo -e "${GREEN}${BOLD}"
@@ -384,7 +387,7 @@ while true; do
         okay "Setup complete! I recommend you to reboot before using your new system."
         break
     else
-        warn "Please enter either [Y] or [N]."
+        echo "Please enter either [Y] or [N]."
     fi
 done
 
