@@ -3,30 +3,19 @@
 # Creator : Mei Mei | https://github.com/seraphicfae/niri-dotfiles
 # idiot proof install script. Feel free to adapt for your own dotfiles
 
-# ────────────────[ Themes and Functions ]────────────────
-RESET="\e[0m"
-BOLD="\e[1m"
-RED="\e[31m"
-GREEN="\e[32m"
-YELLOW="\e[33m"
-BLUE="\e[34m"
-MAGENTA="\e[35m"
-CYAN="\e[36m"
+# ────────────────[ Top Level Functions ]────────────────
 
-fail() { printf "${BOLD}${RED}[  NO  ] %s ${RESET}\n" "$@"; }
-okay() { printf "${BOLD}${GREEN}[  OK  ] %s ${RESET}\n" "$@"; }
-warn() { printf "${BOLD}${YELLOW}[  !!  ] %s ${RESET}\n" "$@"; }
-info() { printf "${BOLD}${BLUE}[  ..  ] %s ${RESET}\n" "$@"; }
-ask()  { printf "${BOLD}${MAGENTA}[  ??  ] %s ${RESET} " "$@"; }
+fail() { printf "\e[1;31m[  NO  ] %s \e[0m\n" "$@"; }
+okay() { printf "\e[1;32m[  OK  ] %s \e[0m\n" "$@"; }
+warn() { printf "\e[1;33m[  !!  ] %s \e[0m\n" "$@"; }
+info() { printf "\e[1;34m[  ..  ] %s \e[0m\n" "$@"; }
+ask()  { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-wallpaper_repository="https://github.com/seraphicfae/wallpapers.git"
-wallpaper_directory="$HOME/Pictures/wallpapers"
 
 # ────────────────[ Paru Setup ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ██████╗  █████╗ ██████╗ ██╗   ██╗    ███████╗███████╗████████╗██╗   ██╗██████╗
 ██╔══██╗██╔══██╗██╔══██╗██║   ██║    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
@@ -62,7 +51,6 @@ fi
 # ────────────────[ Package Installation ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ██████╗  █████╗  ██████╗██╗  ██╗ █████╗  ██████╗ ███████╗    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗
 ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔════╝ ██╔════╝    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║
@@ -117,7 +105,7 @@ declare -a required_packages=(
 mapfile -t missing < <(pacman -T "${required_packages[@]}")
 
 if (( ${#missing[@]} )); then
-    echo -e "${BOLD}${YELLOW}Missing packages:${RESET} ${missing[*]}" | fold -s -w 80
+    echo -e "Missing packages: ${missing[*]}" | fold -s -w 80
 
     while true; do
         read -n 1 -r -p "$(ask "Install missing packages? [Y/n]")" input
@@ -142,7 +130,6 @@ fi
 # ────────────────[ Dotfile Installation ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║
@@ -163,11 +150,11 @@ while true; do
     echo
     input="${input:-n}"
     if [[ "$input" =~ ^[Yy]$ ]]; then
-        if [ -d "$wallpaper_directory/.git" ]; then
-            git -C "$wallpaper_directory" pull
+        if [ -d "$HOME/Pictures/wallpapers/.git" ]; then
+            git -C "$HOME/Pictures/wallpapers" pull
         else
-            mkdir -p "$wallpaper_directory"
-            git clone --depth 1 "$wallpaper_repository" "$wallpaper_directory"
+            mkdir -p "$HOME/Pictures/wallpapers"
+            git clone --depth 1 "https://github.com/seraphicfae/wallpapers.git" "$HOME/Pictures/wallpapers"
         fi
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
@@ -194,9 +181,9 @@ while true; do
                 warn "Source folder $source does not exist, skipping."
             fi
         done
-        info "Setting up GTK-4.0 theme symlink..."
-        ln -sf ~/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
-        okay "Theme symlinked."
+        info "Setting up GTK 4.0 theme symlink..."
+        ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/"* "$HOME/.config/gtk-4.0/"
+        okay "GTK 4 theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
         warn "Skipping dotfile copy. Your configuration will not work."
@@ -209,7 +196,6 @@ done
 # ────────────────[ Services and Setup ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗███████╗███████╗
 ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██╔════╝██╔════╝
@@ -230,9 +216,9 @@ while true; do
 
     if [[ "$input" =~ ^[Yy]$ ]]; then
         for service in "${services[@]}"; do
-            if systemctl list-unit-files "${service}.service" &>/dev/null; then
+            if systemctl list-unit-files "${service}.service" 2>/dev/null | grep -q "."; then
                 info "Enabling ${service}..."
-                if sudo systemctl enable "$service" &>/dev/null; then
+                if sudo systemctl enable "$service" 2>/dev/null; then
                     okay "${service} enabled."
                 else
                     warn "Failed to enable ${service}."
@@ -245,7 +231,7 @@ while true; do
         if command -v zsh &> /dev/null; then
             if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
                 info "Setting Zsh as the default shell..."
-                chsh -s /usr/bin/zsh "$(whoami)"
+                chsh -s /usr/bin/zsh "$USER"
                 okay "Default shell changed to Zsh."
             else
                 info "Zsh is already the default shell."
@@ -270,7 +256,6 @@ done
 # ────────────────[ Skip Me ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ███████╗██╗  ██╗██╗██████╗     ███╗   ███╗███████╗
 ██╔════╝██║ ██╔╝██║██╔══██╗    ████╗ ████║██╔════╝
@@ -325,10 +310,8 @@ if (( ${#missing[@]} )); then
 
         if [[ "$input" =~ ^[Yy]$ ]]; then
             info "Configuring /etc/pacman.conf..."
-            grep -q "^Color" /etc/pacman.conf \
-                || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
-            grep -q "^ILoveCandy" /etc/pacman.conf \
-                || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+            sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+            sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
             sudo pacman -Sy
 
             info "Installing packages and starting services.."
@@ -340,8 +323,7 @@ if (( ${#missing[@]} )); then
             xdg-user-dirs-update --force
 
             info "Configuring Plymouth splash screen..."
-            grep -q "plymouth" /etc/mkinitcpio.conf \
-                || sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
+            sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
             sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
@@ -358,13 +340,12 @@ if (( ${#missing[@]} )); then
         fi
     done
 else
-    fail "Hi, Mei Mei!"
+    echo "Hi, Mei Mei!"
 fi
 
 # ────────────────[ Reboot ]────────────────
 sleep 2
 clear
-echo -e "${GREEN}${BOLD}"
 cat << "EOF"
 ██████╗  ██████╗ ███╗   ██╗███████╗██╗
 ██╔══██╗██╔═══██╗████╗  ██║██╔════╝██║
