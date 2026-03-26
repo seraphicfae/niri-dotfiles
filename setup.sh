@@ -317,6 +317,19 @@ if (( ${#missing[@]} )); then
             info "Installing packages and starting services.."
             paru -S --needed "${missing[@]}"
             sudo systemctl enable --now "${optional_services[@]}"
+
+            info "Making audit rules and making user directories..."
+            sudo cp /usr/share/audit-rules/10-base-config.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/11-loginuid.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/12-ignore-error.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/20-dont-audit.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/21-no32bit.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/31-privileged.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/32-power-abuse.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/42-injection.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/43-module-load.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/99-finalize.rules /etc/audit/rules.d/
+            sudo augenrules --load
             xdg-user-dirs-update --force
 
             info "Configuring Plymouth splash screen and AppArmor..."
