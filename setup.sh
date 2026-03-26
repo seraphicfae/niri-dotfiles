@@ -284,6 +284,7 @@ declare -a optional_packages=(
     satty
     snap-pac
     steam
+    ufw
     vesktop-bin
 )
 
@@ -295,6 +296,7 @@ declare -a optional_services=(
     paccache.timer
     snapper-cleanup.timer
     snapper-timeline.timer
+    ufw.service
 )
 
 mapfile -t missing < <(pacman -T "${optional_packages[@]}" 2>/dev/null)
@@ -317,6 +319,11 @@ if (( ${#missing[@]} )); then
             info "Installing packages and starting services.."
             paru -S --needed "${missing[@]}"
             sudo systemctl enable --now "${optional_services[@]}"
+
+            info "Adjusting firewall rules.."
+            sudo ufw default deny incoming
+            sudo ufw default allow outgoing
+            sudo ufw enable
 
             info "Making audit rules and making user directories..."
             sudo cp /usr/share/audit-rules/10-base-config.rules /etc/audit/rules.d/
