@@ -266,6 +266,7 @@ cat << "EOF"
 EOF
 
 declare -a optional_packages=(
+    apparmor
     bun
     docker
     docker-compose
@@ -289,6 +290,7 @@ declare -a optional_packages=(
 )
 
 declare -a optional_services=(
+    apparmor.service
     reflector.timer
     fstrim.timer
     paccache.timer
@@ -322,9 +324,10 @@ if (( ${#missing[@]} )); then
             sudo usermod -aG docker "$USER"
             xdg-user-dirs-update --force
 
-            info "Configuring Plymouth splash screen..."
+            info "Configuring Plymouth splash screen and AppArmor..."
             sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
             sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
+            sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
             info "Creating Helix config for root..."
