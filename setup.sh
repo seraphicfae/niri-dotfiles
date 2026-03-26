@@ -268,8 +268,6 @@ EOF
 declare -a optional_packages=(
     apparmor
     bun
-    docker
-    docker-compose
     eden-nightly-bin
     elyprismlauncher-bin
     gapless
@@ -290,13 +288,13 @@ declare -a optional_packages=(
 )
 
 declare -a optional_services=(
+    auditd.service
     apparmor.service
     reflector.timer
     fstrim.timer
     paccache.timer
     snapper-cleanup.timer
     snapper-timeline.timer
-    docker.service
 )
 
 mapfile -t missing < <(pacman -T "${optional_packages[@]}" 2>/dev/null)
@@ -319,9 +317,6 @@ if (( ${#missing[@]} )); then
             info "Installing packages and starting services.."
             paru -S --needed "${missing[@]}"
             sudo systemctl enable --now "${optional_services[@]}"
-
-            info "Adding user to Docker group and making user directories..."
-            sudo usermod -aG docker "$USER"
             xdg-user-dirs-update --force
 
             info "Configuring Plymouth splash screen and AppArmor..."
