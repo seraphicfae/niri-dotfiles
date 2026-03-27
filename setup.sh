@@ -182,7 +182,7 @@ while true; do
             fi
         done
         info "Setting up GTK 4.0 theme symlink..."
-        ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/"* "$HOME/.config/gtk-4.0/"
+        cp -rs "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
         okay "GTK 4 theme symlinked."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
@@ -326,15 +326,16 @@ if (( ${#missing[@]} )); then
             sudo ufw default allow outgoing
             sudo ufw enable
 
-            info "Making audit rules and making user directories..."
-            sudo cp /usr/share/audit-rules/10-base-config.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/11-loginuid.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/12-ignore-error.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/22-ignore-chrony.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/30-stig.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/32-power-abuse.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/42-injection.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/43-module-load.rules /etc/audit/rules.d/
+            info "Setting up audit rules..."
+            sudo ln -sf \
+                /usr/share/audit-rules/10-base-config.rules \
+                /usr/share/audit-rules/11-loginuid.rules \
+                /usr/share/audit-rules/12-ignore-error.rules \
+                /usr/share/audit-rules/30-stig.rules \
+                /usr/share/audit-rules/32-power-abuse.rules \
+                /usr/share/audit-rules/42-injection.rules \
+                /usr/share/audit-rules/43-module-load.rules \
+                /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/99-finalize.rules /etc/audit/rules.d/
             sudo sed -i 's/^#-e 2/-e 2/' /etc/audit/rules.d/99-finalize.rules
             sudo augenrules --load
