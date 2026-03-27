@@ -297,8 +297,8 @@ declare -a optional_services=(
     paccache.timer
     snapper-cleanup.timer
     snapper-timeline.timer
-    systemd-networkd.service
-    systemd-resolved.service
+   # systemd-networkd.service
+   # systemd-resolved.service
     ufw.service
 )
 
@@ -327,8 +327,8 @@ if (( ${#missing[@]} )); then
             sudo ufw default deny incoming
             sudo ufw default allow outgoing
             sudo ufw enable
-            echo -e "[Match]\nName=enp4s0\n\n[Network]\nDHCP=yes" | sudo tee /etc/systemd/network/20-wired.network
-            sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+           # echo -e "[Match]\nName=enp4s0\n\n[Network]\nDHCP=yes" | sudo tee /etc/systemd/network/20-wired.network
+           # sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
             info "Making audit rules and making user directories..."
             sudo cp /usr/share/audit-rules/10-base-config.rules /etc/audit/rules.d/
