@@ -270,6 +270,7 @@ declare -a optional_packages=(
     bun
     eden-nightly-bin
     elyprismlauncher-bin
+    fwupd
     gapless
     helium-browser-bin
     helix
