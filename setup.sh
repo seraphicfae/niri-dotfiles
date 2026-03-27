@@ -329,13 +329,13 @@ if (( ${#missing[@]} )); then
             sudo cp /usr/share/audit-rules/10-base-config.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/11-loginuid.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/12-ignore-error.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/20-dont-audit.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/21-no32bit.rules /etc/audit/rules.d/
-            sudo cp /usr/share/audit-rules/31-privileged.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/22-ignore-chrony.rules /etc/audit/rules.d/
+            sudo cp /usr/share/audit-rules/30-stig.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/32-power-abuse.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/42-injection.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/43-module-load.rules /etc/audit/rules.d/
             sudo cp /usr/share/audit-rules/99-finalize.rules /etc/audit/rules.d/
+            sudo sed -i 's/^#-e 2/-e 2/' /etc/audit/rules.d/99-finalize.rules
             sudo augenrules --load
             xdg-user-dirs-update --force
 
