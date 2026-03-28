@@ -61,7 +61,7 @@ cat << "EOF"
 EOF
 
 declare -a required_packages=(
-    awww-bin
+    awww
     blueman
     breeze
     cava
