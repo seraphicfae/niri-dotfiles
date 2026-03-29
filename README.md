@@ -48,7 +48,14 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-cp -rs $HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0/* "$HOME/.config/gtk-4.0/"
+ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
+
+gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Pink-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
+gsettings set org.gnome.desktop.interface cursor-size 24
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
 #### Finalizing
