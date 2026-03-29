@@ -279,6 +279,7 @@ declare -a optional_packages=(
     obs-studio
     pacman-contrib
     plymouth
+    power-profiles-daemon
     qbittorrent
     reflector
     rsync
@@ -295,6 +296,7 @@ declare -a optional_services=(
     reflector.timer
     fstrim.timer
     paccache.timer
+    power-profiles-daemon.service
     snapper-cleanup.timer
     snapper-timeline.timer
     ufw.service
@@ -317,11 +319,11 @@ if (( ${#missing[@]} )); then
             sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
             sudo pacman -Sy
 
-            info "Installing packages and starting services.."
+            info "Installing packages and starting services..."
             paru -S --needed "${missing[@]}"
             sudo systemctl enable --now "${optional_services[@]}"
 
-            info "Adjusting firewall rules.."
+            info "Adjusting firewall rules..."
             sudo ufw default deny incoming
             sudo ufw default allow outgoing
             sudo ufw enable
@@ -339,7 +341,7 @@ if (( ${#missing[@]} )); then
             sudo cp /usr/share/audit-rules/99-finalize.rules /etc/audit/rules.d/
             sudo sed -i 's/^#-e 2/-e 2/' /etc/audit/rules.d/99-finalize.rules
             sudo augenrules --load
-            xdg-user-dirs-update --force
+
 
             info "Configuring Plymouth splash screen and AppArmor..."
             sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
@@ -347,9 +349,11 @@ if (( ${#missing[@]} )); then
             sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
             sudo plymouth-set-default-theme -R bgrt
 
-            info "Creating Helix config for root..."
+            info "Finalizing some things..."
             sudo mkdir -p /root/.config/helix
             sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
+            powerprofilesctl set performance
+            xdg-user-dirs-update --force
             okay "Done!"
             break
         elif [[ "$input" =~ ^[Nn]$ ]]; then
