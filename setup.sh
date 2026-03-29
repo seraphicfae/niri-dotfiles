@@ -337,7 +337,6 @@ if (( ${#missing[@]} )); then
             sudo sed -i 's/^#-e 2/-e 2/' /etc/audit/rules.d/99-finalize.rules
             sudo augenrules --load
 
-
             info "Configuring Plymouth splash screen and AppArmor..."
             sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
             sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
@@ -345,6 +344,8 @@ if (( ${#missing[@]} )); then
             sudo plymouth-set-default-theme -R bgrt
 
             info "Finalizing some things..."
+            sudo sed -i 's/--latest 5/--latest 10/' /etc/xdg/reflector/reflector.conf
+            sudo sed -i 's/# --country France,Germany/--country US/' /etc/xdg/reflector/reflector.conf
             sudo mkdir -p /root/.config/helix
             sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
             powerprofilesctl set performance
