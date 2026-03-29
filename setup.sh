@@ -181,9 +181,15 @@ while true; do
                 warn "Source folder $source does not exist, skipping."
             fi
         done
-        info "Setting up GTK 4.0 theme symlink..."
-        cp -rs "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
-        okay "GTK 4 theme symlinked."
+        info "Setting up GTK 4.0 theme..."
+        ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
+        gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Pink-Dark'
+        gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+        gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+        gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
+        gsettings set org.gnome.desktop.interface cursor-size 24
+        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        okay "GTK 4 theme set."
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
         warn "Skipping dotfile copy. Your configuration will not work."
@@ -273,6 +279,7 @@ declare -a optional_packages=(
     firewalld
     fwupd
     gapless
+    gst-plugins-base
     helium-browser-bin
     helix
     keepassxc
@@ -288,6 +295,7 @@ declare -a optional_packages=(
     snap-pac
     steam
     vesktop-bin
+    vulkan-headers
 )
 
 declare -a optional_services=(
