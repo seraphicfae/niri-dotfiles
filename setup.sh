@@ -275,7 +275,6 @@ declare -a optional_packages=(
     apparmor
     eden-nightly-bin
     elyprismlauncher-bin
-    firewalld
     fwupd
     gapless
     gst-plugins-base
@@ -302,7 +301,6 @@ declare -a optional_services=(
     auditd.service
     apparmor.service
     reflector.timer
-    firewalld
     fstrim.timer
     paccache.timer
     power-profiles-daemon.service
