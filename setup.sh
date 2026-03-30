@@ -273,7 +273,6 @@ EOF
 
 declare -a optional_packages=(
     apparmor
-    bun
     eden-nightly-bin
     elyprismlauncher-bin
     firewalld
@@ -287,6 +286,7 @@ declare -a optional_packages=(
     obs-studio
     pacman-contrib
     plymouth
+    pnpm
     power-profiles-daemon
     qbittorrent
     reflector
