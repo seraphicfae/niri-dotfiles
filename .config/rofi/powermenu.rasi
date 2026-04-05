@@ -1,5 +1,5 @@
 /* ──────────[ Config ]────────── */
-@import "~/.config/rofi/colors"
+@import "~/.config/rofi/colors.rasi"
 
 configuration {
     font:                        "Inter Font 12";

@@ -27,7 +27,7 @@ show_idle_bar_heads = 1
 waveform = 0
 
 [color]
-theme = 'colors'
+theme = 'matugen'
 
 [smoothing]
 monstercat = 1

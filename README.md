@@ -29,10 +29,10 @@ cd niri-dotfiles
 
 ```bash
 paru -S --needed --noconfirm \
-awww blueman breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock imagemagick \
-imv inter-font kitty libnotify ly mako matugen mpv nautilus niri-wip-git noto-fonts-cjk \
-noto-fonts-emoji papirus-icon-theme pavucontrol polkit-kde-agent qt5-wayland qt6-wayland \
-qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard xdg-desktop-portal-gnome \
+awww adw-gtk-theme blueman breeze cava fastfetch ffmpegthumbnailer gvfs-mtp hyprlock \
+imagemagick imv inter-font kitty libnotify ly mako matugen mpv nautilus niri-wip-git \
+noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol polkit-kde-agent qt5-wayland \
+qt6-wayland qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard xdg-desktop-portal-gnome \
 xdg-desktop-portal-gtk xwayland-satellite zed zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
@@ -48,9 +48,8 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
+matugen --prefer=lightness image "$HOME/Pictures/wallpaper_01.png"
 
-gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Pink-Dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'

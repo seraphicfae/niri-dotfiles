@@ -9,4 +9,4 @@ max-icon-size=96
 width=400
 height=150
 
-include=~/.config/mako/colors
+include=~/.config/mako/mako-colors

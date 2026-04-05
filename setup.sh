@@ -62,6 +62,7 @@ EOF
 
 declare -a required_packages=(
     awww
+    adw-gtk-theme
     blueman
     breeze
     cava
@@ -181,15 +182,15 @@ while true; do
                 warn "Source folder $source does not exist, skipping."
             fi
         done
-        info "Setting up GTK 4.0 theme..."
-        ln -sf "$HOME/.local/share/themes/Orchis-Pink-Dark/gtk-4.0"/* "$HOME/.config/gtk-4.0/"
-        gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Pink-Dark'
+        info "Setting up GTK 4.0..."
         gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
         gsettings set org.gnome.desktop.interface font-name 'Inter 11'
         gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
         gsettings set org.gnome.desktop.interface cursor-size 24
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-        okay "GTK 4 theme set."
+
+        matugen --prefer=lightness image "$dotfiles_directory/Pictures/wallpaper_01.png" &
+        okay "GTK 4 set!"
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
         warn "Skipping dotfile copy. Your configuration will not work."
