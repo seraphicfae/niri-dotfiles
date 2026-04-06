@@ -152,10 +152,6 @@ layout {
 
 // ────────────────[ Miscellaneous ]──────────────── \\
 spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.ogg"
-spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
-spawn-sh-at-startup "awww-daemon"
-spawn-sh-at-startup "waybar"
-spawn-sh-at-startup "mako"
 spawn-at-startup "helium-browser"
 spawn-at-startup "vesktop"
 spawn-at-startup "steam"
@@ -165,8 +161,6 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
 
 environment {
-    XDG_SESSION_TYPE "wayland"
-    XDG_CURRENT_DESKTOP "niri"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     OZONE_PLATFORM "wayland"
     QT_QPA_PLATFORM "wayland;xcb"

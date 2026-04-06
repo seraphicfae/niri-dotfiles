@@ -62,6 +62,10 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 #### Finalizing
 ```bash
 sudo systemctl enable ly@tty2.service
+systemctl --user add-wants niri.service plasma-polkit-agent.service  
+systemctl --user add-wants niri.service mako.service
+systemctl --user add-wants niri.service waybar.service
+systemctl --user add-wants niri.service awww.service
 
 chsh -s /usr/bin/zsh
 
