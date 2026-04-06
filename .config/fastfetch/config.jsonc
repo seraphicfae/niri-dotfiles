@@ -3,7 +3,7 @@
   "logo": {
     "type": "kitty",
     "source": "$HOME/.config/fastfetch/fetch.jpg",
-    "width": 32,
+    "width": 45,
     "position": "left",
     "preserveAspectRatio": true
   },
@@ -79,6 +79,45 @@
       "key": "    Terminal ",
       "keyColor": "white",
       "type": "terminal"
+    },
+    {
+      "type": "custom",
+      "format": "├──────────── Theming & User Interface ────────────┤"
+    },
+    {
+      "key": "  󰉼  Qt theme ",
+      "keyColor": "red",
+      "type": "theme",
+      "format": "{1}"
+    },
+    {
+      "key": "  󰉼  GTK theme",
+      "keyColor": "green",
+      "type": "theme",
+      "format": "{2}"
+    },
+    {
+      "key": "    Qt icons ",
+      "keyColor": "blue",
+      "type": "icons",
+      "format": "{1}"
+    },
+    {
+      "key": "    GTK icons",
+      "keyColor": "yellow",
+      "type": "icons",
+      "format": "{2}"
+    },
+    {
+      "key": "    font     ",
+      "keyColor": "cyan",
+      "type": "font",
+      "format": "{1}"
+    },
+    {
+      "key": "  󰆿  Cursor   ",
+      "keyColor": "white",
+      "type": "cursor"
     },
     {
       "type": "custom",
