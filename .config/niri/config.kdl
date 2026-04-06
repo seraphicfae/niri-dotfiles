@@ -55,31 +55,33 @@ binds {
     XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl previous"; }
 
     // Windows and Columns
-    Mod+Q            { close-window; }
-    Mod+R            { switch-preset-column-width; }
-    Mod+C            { center-column; }
-    Mod+Space        { toggle-window-floating; }
-    Mod+F            { fullscreen-window; }
-    Mod+MouseBack    { focus-column-left; }
-    Mod+MouseForward { focus-column-right; }
-    Mod+Left         { focus-column-left; }
-    Mod+Right        { focus-column-right; }
-    Mod+Down         { focus-window-down; }
-    Mod+Up           { focus-window-up; }
-    Mod+Shift+Left   { move-column-left; }
-    Mod+Shift+Right  { move-column-right; }
-    Mod+Shift+Down   { move-window-down; }
-    Mod+Shift+Up     { move-window-up; }
-    Mod+Ctrl+Left    { set-column-width "-10%"; }
-    Mod+Ctrl+Right   { set-column-width "+10%"; }
-    Mod+Ctrl+Up      { set-window-height "-10%"; }
-    Mod+Ctrl+Down    { set-window-height "+10%"; }
-    Mod+Comma        { focus-column-first; }
-    Mod+Period       { focus-column-last; }
-    Mod+Shift+Comma  { move-column-to-first; }
-    Mod+Shift+Period { move-column-to-last; }
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Q                  { close-window; }
+    Mod+R                  { switch-preset-column-width; }
+    Mod+C                  { center-column; }
+    Mod+Space              { toggle-window-floating; }
+    Mod+F                  { fullscreen-window; }
+    Mod+MouseBack          { focus-column-left; }
+    Mod+MouseForward       { focus-column-right; }
+    Mod+Shift+MouseBack    { move-column-left; }
+    Mod+Shift+MouseForward { move-column-right; }
+    Mod+Left               { focus-column-left; }
+    Mod+Right              { focus-column-right; }
+    Mod+Down               { focus-window-down; }
+    Mod+Up                 { focus-window-up; }
+    Mod+Shift+Left         { move-column-left; }
+    Mod+Shift+Right        { move-column-right; }
+    Mod+Shift+Down         { move-window-down; }
+    Mod+Shift+Up           { move-window-up; }
+    Mod+Ctrl+Left          { set-column-width "-10%"; }
+    Mod+Ctrl+Right         { set-column-width "+10%"; }
+    Mod+Ctrl+Up            { set-window-height "-10%"; }
+    Mod+Ctrl+Down          { set-window-height "+10%"; }
+    Mod+Comma              { focus-column-first; }
+    Mod+Period             { focus-column-last; }
+    Mod+Shift+Comma        { move-column-to-first; }
+    Mod+Shift+Period       { move-column-to-last; }
+    Mod+BracketLeft        { consume-or-expel-window-left; }
+    Mod+BracketRight       { consume-or-expel-window-right; }
 
     // Workspaces
     Mod+WheelScrollDown       { focus-workspace-down; }
