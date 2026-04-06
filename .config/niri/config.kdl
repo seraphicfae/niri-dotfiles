@@ -34,7 +34,6 @@ binds {
     Mod+Slash   { spawn-sh "killall waybar; waybar & disown"; }
     Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-selector"; }
     Mod+Shift+W { spawn-sh "$HOME/.local/bin/switch-wallpapers"; }
-    Mod+Shift+A { spawn-sh "$HOME/.local/bin/avatar"; }
     Mod+D       { spawn-sh "$HOME/.local/bin/launcher"; }
     Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu"; }
     Mod+Return  { spawn "kitty"; }

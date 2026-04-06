@@ -15,6 +15,9 @@ https://github.com/user-attachments/assets/f669cc6b-0aa4-4335-ac2b-7ba5d41a7f69
 > [!WARNING]
 > Don't run random scripts blindly
 
+Manual and scripted install are meant to be installed on a new system.
+I highly recommend you run the manual install on a post install arch system.
+
 ```bash
 git clone https://github.com/seraphicfae/niri-dotfiles
 cd niri-dotfiles
@@ -48,8 +51,7 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-matugen --prefer=lightness image "$HOME/Pictures/wallpaper_01.png"
-
+gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
@@ -80,3 +82,7 @@ These are required fonts you will need.
 
 **How to setup my wallpaper?** \
 `Super + W` and choose which image you want.
+
+**My Display Manager is black/can't log in** \
+This is likely due to multiple display managers active (Sddm, Greeter, etc). \
+Press `alt + ctrl + f3` to switch to a different tty, and disable your old display manager.

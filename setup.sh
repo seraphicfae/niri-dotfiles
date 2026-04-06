@@ -183,13 +183,12 @@ while true; do
             fi
         done
         info "Setting up GTK 4.0..."
+        gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
         gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
         gsettings set org.gnome.desktop.interface font-name 'Inter 11'
         gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
         gsettings set org.gnome.desktop.interface cursor-size 24
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-
-        matugen --prefer=lightness image "$dotfiles_directory/Pictures/wallpaper_01.png" &
         okay "GTK 4 set!"
         break
     elif [[ "$input" =~ ^[Nn]$ ]]; then
