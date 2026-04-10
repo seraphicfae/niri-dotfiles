@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/f669cc6b-0aa4-4335-ac2b-7ba5d41a7f69
 > Don't run random scripts blindly
 
 Manual and scripted install are meant to be installed on a new system.
-I highly recommend you run the manual install on a post install arch system.
+I recommend you do the manual install on a pre-existing arch system.
 
 ```bash
 git clone https://github.com/seraphicfae/niri-dotfiles
@@ -51,21 +51,23 @@ cp -r .local/share/* "$HOME/.local/share/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
-gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
-gsettings set org.gnome.desktop.interface cursor-size 24
+gsettings set org.gnome.desktop.interface cursor-size '24'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+sudo ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/"
 ```
 
 #### Finalizing
 ```bash
-sudo systemctl enable ly@tty2.service
-systemctl --user add-wants niri.service plasma-polkit-agent.service  
-systemctl --user add-wants niri.service mako.service
-systemctl --user add-wants niri.service waybar.service
-systemctl --user add-wants niri.service awww.service
+sudo systemctl enable ly@tty2
+systemctl --user add-wants niri.service plasma-polkit-agent  
+systemctl --user add-wants niri.service mako
+systemctl --user add-wants niri.service waybar
+systemctl --user add-wants niri.service awww-daemon
 
 chsh -s /usr/bin/zsh
 

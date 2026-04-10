@@ -156,11 +156,13 @@ check_dotfiles() {
 	echo
 	echo "━━━━━━━━━━━━━━━━━━[ Dotfiles → GTK Settings ]━━━━━━━━━━━━━━━━━━"
 
-	local icon_theme cursor_theme font
+	local gtk_theme icon_theme cursor_theme font
+	gtk_theme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null)
 	icon_theme=$(gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null)
 	cursor_theme=$(gsettings get org.gnome.desktop.interface cursor-theme 2>/dev/null)
 	font=$(gsettings get org.gnome.desktop.interface font-name 2>/dev/null)
 
+    [[ "$gtk_theme" == "'adw-gtk3-dark'" ]] && pass "GTK gtk-theme is adw-gtk3-dark" || flunk "GTK gtk-theme is not set to adw-gtk3-dark (got: $gtk_theme)"
 	[[ "$icon_theme" == "'Papirus'" ]] && pass "GTK icon-theme is Papirus" || flunk "GTK icon-theme is not set to Papirus (got: $icon_theme)"
 	[[ "$cursor_theme" == "'breeze_cursors'" ]] && pass "GTK cursor-theme is breeze_cursors" || flunk "GTK cursor-theme is not set to breeze_cursors (got: $cursor_theme)"
 	[[ "$font" == "'Inter 11'" ]] && pass "GTK font is Inter 11" || flunk "GTK font is not set to Inter 11 (got: $font)"
