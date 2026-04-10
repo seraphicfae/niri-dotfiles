@@ -173,14 +173,14 @@ check_services() {
 	echo "━━━━━━━━━━━━━━━━━━[ Services and Environment ]━━━━━━━━━━━━━━━━━━"
 
 	declare -a system_services=(
-		"ly@tty2"
+		ly@tty2
 	)
 
 	declare -a user_services=(
-		"mako"
-		"plasma-polkit-agent"
-		"waybar"
-		"awww"
+		mako
+		plasma-polkit-agent
+		waybar
+		awww-daemon
 	)
 
 	for service in "${system_services[@]}"; do

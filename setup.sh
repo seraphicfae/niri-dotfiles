@@ -212,14 +212,15 @@ cat << "EOF"
 EOF
 
 declare -a system_services=(
-	"ly@tty2"
+    ly@tty2
+    systemd-oom
 )
 
 declare -a user_services=(
-	"mako"
-	"plasma-polkit-agent"
-	"waybar"
-	"awww-daemon"
+	mako
+	plasma-polkit-agent
+	waybar
+	awww-daemon
 )
 
 while true; do
@@ -306,14 +307,14 @@ declare -a optional_packages=(
 )
 
 declare -a optional_services=(
-	auditd.service
-	apparmor.service
-	reflector.timer
-	fstrim.timer
-	paccache.timer
-	power-profiles-daemon.service
-	snapper-cleanup.timer
-	snapper-timeline.timer
+	auditd
+	apparmor
+	reflector
+	fstrim
+	paccache
+	power-profiles-daemon
+	snapper-cleanup
+	snapper-timeline
 )
 
 mapfile -t missing < <(pacman -T "${optional_packages[@]}" 2>/dev/null)
