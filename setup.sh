@@ -337,20 +337,6 @@ if ((${#missing[@]})); then
 			paru -S --needed "${missing[@]}"
 			sudo systemctl enable --now "${optional_services[@]}"
 
-			info "Setting up audit rules..."
-			sudo ln -sf \
-				/usr/share/audit-rules/10-base-config.rules \
-				/usr/share/audit-rules/11-loginuid.rules \
-				/usr/share/audit-rules/12-ignore-error.rules \
-				/usr/share/audit-rules/30-stig.rules \
-				/usr/share/audit-rules/32-power-abuse.rules \
-				/usr/share/audit-rules/42-injection.rules \
-				/usr/share/audit-rules/43-module-load.rules \
-				/etc/audit/rules.d/
-			sudo cp /usr/share/audit-rules/99-finalize.rules /etc/audit/rules.d/
-			sudo sed -i 's/^#-e 2/-e 2/' /etc/audit/rules.d/99-finalize.rules
-			sudo augenrules --load
-
 			info "Configuring Plymouth splash screen and AppArmor..."
 			sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
 			sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
