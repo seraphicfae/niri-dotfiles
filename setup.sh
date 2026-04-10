@@ -219,7 +219,7 @@ declare -a user_services=(
 	"mako"
 	"plasma-polkit-agent"
 	"waybar"
-	"awww"
+	"awww-daemon"
 )
 
 while true; do
