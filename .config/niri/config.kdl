@@ -31,7 +31,6 @@ output "HDMI-A-1" {
 // ────────────────[ Key Bindings ]──────────────── \\
 binds {
     // Applications
-    Mod+Slash   { spawn-sh "killall waybar; waybar & disown"; }
     Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-selector"; }
     Mod+Shift+W { spawn-sh "$HOME/.local/bin/switch-wallpapers"; }
     Mod+D       { spawn-sh "$HOME/.local/bin/launcher"; }
