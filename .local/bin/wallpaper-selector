@@ -15,22 +15,12 @@ selected_index=$(
 [[ -z "$selected_index" ]] && exit 0
 
 selected_path="${wallpaper_list[$selected_index]}"
-
 if [[ -f "$selected_path" ]]; then
     ln -sf "$selected_path" "$active_wallpaper"
     echo "$selected_index" > "$index_tracker"
-
     matugen --prefer=lightness image "$selected_path" &
-
-    styles=("grow" "outer" "wipe" "wave")
-    positions=("center" "top" "bottom" "left" "right" "top-left" "top-right" "bottom-left" "bottom-right")
-    waves=("20,20" "30,15" "25,25" "40,10")
-
     awww img "$active_wallpaper" \
-        --transition-type "${styles[$RANDOM % ${#styles[@]}]}" \
-        --transition-pos "${positions[$RANDOM % ${#positions[@]}]}" \
-        --transition-wave "${waves[$RANDOM % ${#waves[@]}]}" \
+        --transition-type random \
         --transition-duration "1.5" \
-        --transition-fps "60" \
-        --transition-angle "$(( RANDOM % 360 ))"
+        --transition-fps "60"
 fi
