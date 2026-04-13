@@ -206,6 +206,7 @@ window-rule {
 }
 
 window-rule {
+    match app-id="kitty|vesktop"
     background-effect {
         xray false
         blur true
