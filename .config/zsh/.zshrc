@@ -1,11 +1,5 @@
 # ────────────────[ Environment Variables ]────────────────
 export PATH="$HOME/.local/bin:$PATH"
-export npm_config_cache="$HOME/.local/share/npm"
-export BUN_INSTALL="$HOME/.local/share/bun"
-export CARGO_INSTALL_ROOT="$HOME/.local"
-export CARGO_HOME="$HOME/.local/share/cargo"
-export RUSTUP_HOME="$HOME/.local/share/rustup"
-export WINEPREFIX="$HOME/.local/share/wine"
 export DIFFPROG="helix"
 export EDITOR="helix"
 
