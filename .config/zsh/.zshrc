@@ -8,12 +8,11 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ────────────────[ Zsh Options ]────────────────
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit -d "$HOME/.cache/zcompdump"
 setopt autocd
 setopt prompt_subst
 setopt correct
-setopt hist_ignore_dups
-setopt share_history
 setopt menucomplete
 
 # ────────────────[ History ]────────────────
@@ -23,7 +22,6 @@ SAVEHIST=100000
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt inc_append_history
 setopt share_history
 
 # ────────────────[ Prompt ]────────────────
