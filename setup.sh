@@ -16,7 +16,7 @@ dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # ────────────────[ Paru Setup ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ██████╗  █████╗ ██████╗ ██╗   ██╗    ███████╗███████╗████████╗██╗   ██╗██████╗
 ██╔══██╗██╔══██╗██╔══██╗██║   ██║    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
 ██████╔╝███████║██████╔╝██║   ██║    ███████╗█████╗     ██║   ██║   ██║██████╔╝
@@ -51,7 +51,7 @@ fi
 # ────────────────[ Package Installation ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ██████╗  █████╗  ██████╗██╗  ██╗ █████╗  ██████╗ ███████╗    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗
 ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔══██╗██╔════╝ ██╔════╝    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║
 ██████╔╝███████║██║     █████╔╝ ███████║██║  ███╗█████╗      ██║██╔██╗ ██║███████╗   ██║   ███████║██║     ██║
@@ -131,7 +131,7 @@ fi
 # ────────────────[ Dotfile Installation ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ██████╗  ██████╗ ████████╗███████╗██╗██╗     ███████╗    ██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗
 ██╔══██╗██╔═══██╗╚══██╔══╝██╔════╝██║██║     ██╔════╝    ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║
 ██║  ██║██║   ██║   ██║   █████╗  ██║██║     █████╗      ██║██╔██╗ ██║███████╗   ██║   ███████║██║     ██║
@@ -204,7 +204,7 @@ done
 # ────────────────[ Services and Setup ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗███████╗███████╗
 ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██╔════╝██╔════╝
 ███████╗█████╗  ██████╔╝██║   ██║██║██║     █████╗  ███████╗
@@ -214,8 +214,8 @@ cat << "EOF"
 EOF
 
 declare -a system_services=(
-    ly@tty2
-    systemd-oom
+	ly@tty2
+	systemd-oom
 )
 
 declare -a user_services=(
@@ -273,7 +273,7 @@ done
 # ────────────────[ Skip Me ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ███████╗██╗  ██╗██╗██████╗     ███╗   ███╗███████╗
 ██╔════╝██║ ██╔╝██║██╔══██╗    ████╗ ████║██╔════╝
 ███████╗█████╔╝ ██║██████╔╝    ██╔████╔██║█████╗
@@ -332,8 +332,12 @@ if ((${#missing[@]})); then
 
 		if [[ "$input" =~ ^[Yy]$ ]]; then
 			info "Configuring /etc/pacman.conf..."
-			sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
-			sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+			if ! grep -q '^Color' /etc/pacman.conf; then
+				sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+			fi
+			if ! grep -q '^ILoveCandy' /etc/pacman.conf; then
+				sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+			fi
 			sudo pacman -Sy
 
 			info "Installing packages and starting services..."
@@ -341,14 +345,24 @@ if ((${#missing[@]})); then
 			sudo systemctl enable --now "${optional_services[@]}"
 
 			info "Configuring Plymouth splash screen and AppArmor..."
-			sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
-			sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
-			sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
+			if ! grep -q 'plymouth' /etc/mkinitcpio.conf; then
+				sudo sed -i 's/udev autodetect/udev plymouth autodetect/g' /etc/mkinitcpio.conf
+			fi
+			if ! grep -q 'quiet splash' /etc/kernel/cmdline; then
+				sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
+			fi
+			if ! grep -q 'apparmor' /etc/kernel/cmdline; then
+				sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
+			fi
 			sudo plymouth-set-default-theme -R bgrt
 
 			info "Finalizing some things..."
-			sudo sed -i 's/--latest 5/--latest 10/' /etc/xdg/reflector/reflector.conf
-			sudo sed -i 's/# --country France,Germany/--country US/' /etc/xdg/reflector/reflector.conf
+			if ! grep -q '^--latest 10' /etc/xdg/reflector/reflector.conf; then
+				sudo sed -i 's/--latest 5/--latest 10/' /etc/xdg/reflector/reflector.conf
+			fi
+			if ! grep -q '^--country' /etc/xdg/reflector/reflector.conf; then
+				sudo sed -i 's/# --country France,Germany/--country US/' /etc/xdg/reflector/reflector.conf
+			fi
 			sudo mkdir -p /root/.config/helix
 			sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
 			powerprofilesctl set performance
@@ -369,7 +383,7 @@ fi
 # ────────────────[ Reboot ]────────────────
 sleep 2
 clear
-cat << "EOF"
+cat <<"EOF"
 ██████╗  ██████╗ ███╗   ██╗███████╗██╗
 ██╔══██╗██╔═══██╗████╗  ██║██╔════╝██║
 ██║  ██║██║   ██║██╔██╗ ██║█████╗  ██║
