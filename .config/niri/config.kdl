@@ -226,7 +226,7 @@ window-rule {
 
 window-rule {
     match app-id="dev.zed.Zed|org.kde.kid3|qbittorrent"
-    open-maximized-to-edges true
+    open-maximized true
     open-on-workspace "2"
 }
 
