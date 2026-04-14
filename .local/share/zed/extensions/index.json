@@ -1,23 +1,66 @@
 {
   "extensions": {
-    "catppuccin": {
+    "astro": {
       "manifest": {
-        "id": "catppuccin",
-        "name": "Catppuccin",
-        "version": "0.2.24",
+        "id": "astro",
+        "name": "Astro",
+        "version": "0.1.9",
         "schema_version": 1,
-        "description": "🦀 Soothing pastel theme for Zed",
-        "repository": "https://github.com/catppuccin/zed",
+        "description": "Astro support.",
+        "repository": "https://github.com/zed-extensions/astro",
         "authors": [
-          "Catppuccin <releases@catppuccin.com>"
+          "Alvaro Gaona <alvgaona@gmail.com>",
+          "0xk1f0 <dev@k1f0.dev>"
+        ],
+        "lib": {
+          "kind": "Rust",
+          "version": "0.7.0"
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/astro"
+        ],
+        "grammars": {
+          "astro": {
+            "repository": "https://github.com/virchau13/tree-sitter-astro",
+            "rev": "4be180759ec13651f72bacee65fa477c64222a1a",
+            "path": null
+          }
+        },
+        "language_servers": {
+          "astro-language-server": {
+            "language": "Astro",
+            "languages": [],
+            "language_ids": {},
+            "code_action_kinds": null
+          }
+        },
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "catppuccin-blur": {
+      "manifest": {
+        "id": "catppuccin-blur",
+        "name": "Catppuccin Blur",
+        "version": "0.3.4",
+        "schema_version": 1,
+        "description": "Catppuccin themes with blur",
+        "repository": "https://github.com/jenslys/zed-catppuccin-blur",
+        "authors": [
+          "Jens Lystad <jens@lystad.io>"
         ],
         "lib": {
           "kind": null,
           "version": null
         },
         "themes": [
-          "themes/catppuccin-mauve.json",
-          "themes/catppuccin-no-italics-mauve.json"
+          "themes/catppuccin-blur.json"
         ],
         "icon_themes": [],
         "languages": [],
@@ -61,11 +104,66 @@
       },
       "dev": false
     },
+    "git-firefly": {
+      "manifest": {
+        "id": "git-firefly",
+        "name": "Git Firefly",
+        "version": "0.1.4",
+        "schema_version": 1,
+        "description": "Provides Git Syntax Highlighting",
+        "repository": "https://github.com/d1y/git_firefly",
+        "authors": [
+          "d1y <chenhonzhou@gmail.com>",
+          "Peter Tripp <petertripp@gmail.com>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/gitignore",
+          "languages/gitattributes",
+          "languages/gitrebase",
+          "languages/gitconfig"
+        ],
+        "grammars": {
+          "git_config": {
+            "repository": "https://github.com/the-mikedavis/tree-sitter-git-config",
+            "rev": "9c2a1b7894e6d9eedfe99805b829b4ecd871375e",
+            "path": null
+          },
+          "git_rebase": {
+            "repository": "https://github.com/the-mikedavis/tree-sitter-git-rebase",
+            "rev": "d8a4207ebbc47bd78bacdf48f883db58283f9fd8",
+            "path": null
+          },
+          "gitattributes": {
+            "repository": "https://github.com/tree-sitter-grammars/tree-sitter-gitattributes",
+            "rev": "41940e199ba5763abea1d21b4f717014b45f01ea",
+            "path": null
+          },
+          "gitignore": {
+            "repository": "https://github.com/shunsambongi/tree-sitter-gitignore",
+            "rev": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
+            "path": null
+          }
+        },
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
     "html": {
       "manifest": {
         "id": "html",
         "name": "HTML",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "schema_version": 1,
         "description": "HTML support.",
         "repository": "https://github.com/zed-industries/zed",
@@ -106,40 +204,117 @@
         "capabilities": []
       },
       "dev": false
+    },
+    "toml": {
+      "manifest": {
+        "id": "toml",
+        "name": "TOML",
+        "version": "1.0.2",
+        "schema_version": 1,
+        "description": "TOML support.",
+        "repository": "https://github.com/zed-extensions/toml",
+        "authors": [
+          "Max Brunsfeld <max@zed.dev>",
+          "Ammar Arif <evergreenkary@gmail.com>"
+        ],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "icon_themes": [],
+        "languages": [
+          "languages/toml"
+        ],
+        "grammars": {
+          "toml": {
+            "repository": "https://github.com/tree-sitter/tree-sitter-toml",
+            "rev": "342d9be207c2dba869b9967124c679b5e6fd0ebe",
+            "path": null
+          }
+        },
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
     }
   },
   "themes": {
-    "Catppuccin Frappé": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-mauve.json"
+    "Catppuccin Espresso (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Frappé - No Italics": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-no-italics-mauve.json"
+    "Catppuccin Espresso (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Latte": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-mauve.json"
+    "Catppuccin Espresso (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Latte - No Italics": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-no-italics-mauve.json"
+    "Catppuccin Frappé (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Macchiato": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-mauve.json"
+    "Catppuccin Frappé (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Macchiato - No Italics": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-no-italics-mauve.json"
+    "Catppuccin Frappé (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Mocha": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-mauve.json"
+    "Catppuccin Iced Latte (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     },
-    "Catppuccin Mocha - No Italics": {
-      "extension": "catppuccin",
-      "path": "themes/catppuccin-no-italics-mauve.json"
+    "Catppuccin Iced Latte (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Iced Latte (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
     }
   },
   "icon_themes": {
@@ -161,6 +336,86 @@
     }
   },
   "languages": {
+    "Astro": {
+      "extension": "astro",
+      "path": "languages/astro",
+      "matcher": {
+        "path_suffixes": [
+          "astro"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "astro"
+    },
+    "Git Attributes": {
+      "extension": "git-firefly",
+      "path": "languages/gitattributes",
+      "matcher": {
+        "path_suffixes": [
+          "gitattributes",
+          ".gitattributes"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "gitattributes"
+    },
+    "Git Config": {
+      "extension": "git-firefly",
+      "path": "languages/gitconfig",
+      "matcher": {
+        "path_suffixes": [
+          "config.worktree",
+          ".gitconfig",
+          ".gitmodules",
+          ".lfsconfig"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "git_config"
+    },
+    "Git Ignore": {
+      "extension": "git-firefly",
+      "path": "languages/gitignore",
+      "matcher": {
+        "path_suffixes": [
+          ".containerignore",
+          ".cursorignore",
+          ".dockerignore",
+          ".eslintignore",
+          ".fdignore",
+          ".gitignore",
+          ".git-blame-ignore-revs",
+          ".ignore",
+          ".npmignore",
+          ".prettierignore",
+          ".rgignore",
+          ".vscodeignore"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "gitignore"
+    },
+    "Git Rebase": {
+      "extension": "git-firefly",
+      "path": "languages/gitrebase",
+      "matcher": {
+        "path_suffixes": [
+          "git-rebase-todo"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "git_rebase"
+    },
     "HTML": {
       "extension": "html",
       "path": "languages/html",
@@ -170,10 +425,27 @@
           "htm",
           "shtml"
         ],
-        "first_line_pattern": null
+        "first_line_pattern": null,
+        "modeline_aliases": []
       },
       "hidden": false,
       "grammar": "html"
+    },
+    "TOML": {
+      "extension": "toml",
+      "path": "languages/toml",
+      "matcher": {
+        "path_suffixes": [
+          "Cargo.lock",
+          "toml",
+          "Pipfile",
+          "uv.lock"
+        ],
+        "first_line_pattern": null,
+        "modeline_aliases": []
+      },
+      "hidden": false,
+      "grammar": "toml"
     }
   }
 }

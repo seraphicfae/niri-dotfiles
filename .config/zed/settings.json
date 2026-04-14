@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update": false,
   "title_bar": {
     "show_sign_in": false
   },
@@ -25,8 +26,8 @@
   "restore_on_startup": "last_session",
   "soft_wrap": "none",
   "telemetry": {
-    "diagnostics": false,
+    "diagnostics": true,
     "metrics": true
   },
-  "theme": "Catppuccin Mocha"
+  "theme": "Catppuccin Espresso (Blur) [Light]"
 }
