@@ -203,7 +203,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="kitty|vesktop"
+    match app-id="kitty|vesktop|dev.zed.Zed"
+    draw-border-with-background false
     background-effect {
         xray false
         blur true
