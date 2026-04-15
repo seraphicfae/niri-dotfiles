@@ -62,7 +62,7 @@ check_required_packages() {
 		matugen
 		mpv
 		nautilus
-		niri-wip-git
+		niri-git
 		noto-fonts-cjk
 		noto-fonts-emoji
 		papirus-icon-theme

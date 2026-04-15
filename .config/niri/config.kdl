@@ -197,11 +197,19 @@ workspace "3"
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
+    draw-border-with-background false
+        popups {
+            opacity 0.8
+
+        background-effect {
+            xray false
+            blur true
+        }
+    }
 }
 
 window-rule {
     match app-id="kitty|vesktop|dev.zed.Zed"
-    draw-border-with-background false
     background-effect {
         xray false
         blur true
