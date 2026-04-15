@@ -80,7 +80,7 @@ binds {
     Mod+Shift+Comma        { move-column-to-first; }
     Mod+Shift+Period       { move-column-to-last; }
     Mod+BracketLeft        { consume-or-expel-window-left; }
-    Mod+BracketRight      { consume-or-expel-window-right; }
+    Mod+BracketRight       { consume-or-expel-window-right; }
 
     // Workspaces
     Mod+WheelScrollDown       { focus-workspace-down; }
@@ -160,10 +160,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
 
 environment {
-    QT_QPA_PLATFORM "wayland;xcb"
     QT_QPA_PLATFORMTHEME "qt6ct"
-    GDK_BACKEND "wayland"
-    SDL_VIDEODRIVER "wayland,x11"
 }
 
 cursor {
