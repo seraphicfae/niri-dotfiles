@@ -311,12 +311,12 @@ declare -a optional_packages=(
 declare -a optional_services=(
 	auditd
 	apparmor
-	reflector
-	fstrim
-	paccache
+	reflector.timer
+	fstrim.timer
+	paccache.timer
 	power-profiles-daemon
-	snapper-cleanup
-	snapper-timeline
+	snapper-cleanup.timer
+	snapper-timeline.timer
 )
 
 mapfile -t missing < <(pacman -T "${optional_packages[@]}" 2>/dev/null)
