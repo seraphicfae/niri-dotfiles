@@ -11,14 +11,10 @@ shutdown='󰐥'
 yes=''
 no=''
 
-selected=$(echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi -dmenu -p "Uptime: $uptime" -theme "$theme")
-
-[[ -z "$selected" ]] && exit 0
-
 confirm() {
-	echo -e "$yes\n$no" | rofi -dmenu \
+	printf '%s\n%s' "$yes" "$no" | rofi -dmenu \
 		-p 'Confirmation' \
-		-mesg 'Are you Sure?' \
+		-mesg 'Are you sure?' \
 		-theme-str 'window {location: center; anchor: center; fullscreen: false; width: 350px;}' \
 		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
 		-theme-str 'listview {columns: 2; lines: 1;}' \
@@ -27,25 +23,30 @@ confirm() {
 		-theme "$theme"
 }
 
+selected=$(printf '%s\n%s\n%s\n%s\n%s' "$lock" "$suspend" "$logout" "$reboot" "$shutdown" |
+	rofi -dmenu -p "Uptime: $uptime" -theme "$theme")
+
+[[ -z "$selected" ]] && exit 0
+
 case "$selected" in
-	$lock)
+"$lock")
+	playerctl pause
+	hyprlock
+	;;
+"$suspend")
+	[[ $(confirm) == "$yes" ]] && {
 		playerctl pause
-		hyprlock
-		;;
-	$suspend)
-		[[ $(confirm) == "$yes" ]] && {
-			playerctl pause
-			wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-			systemctl suspend
-		}
-		;;
-	$logout)
-		[[ $(confirm) == "$yes" ]] && niri msg action quit --skip-confirmation
-		;;
-	$reboot)
-		[[ $(confirm) == "$yes" ]] && systemctl reboot
-		;;
-	$shutdown)
-		[[ $(confirm) == "$yes" ]] && systemctl poweroff
-		;;
+		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+		systemctl suspend
+	}
+	;;
+"$logout")
+	[[ $(confirm) == "$yes" ]] && niri msg action quit --skip-confirmation
+	;;
+"$reboot")
+	[[ $(confirm) == "$yes" ]] && systemctl reboot
+	;;
+"$shutdown")
+	[[ $(confirm) == "$yes" ]] && systemctl poweroff
+	;;
 esac

@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
-
 wallpaper_folder="$HOME/Pictures/wallpapers"
 index_tracker="$HOME/.local/state/wallpaper_index"
 active_wallpaper="$HOME/.local/state/current_wallpaper"
 
 mapfile -t wallpaper_list < <(find "$wallpaper_folder" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' \) | sort)
+
 [[ ${#wallpaper_list[@]} -eq 0 ]] && exit 1
 
 current_index=$(<"$index_tracker")
 [[ ! "$current_index" =~ ^[0-9]+$ ]] && current_index=0
 
-next_index=$(( (current_index + 1) % ${#wallpaper_list[@]} ))
+next_index=$(((current_index + 1) % ${#wallpaper_list[@]}))
 next_wallpaper="${wallpaper_list[$next_index]}"
 
 ln -sf "$next_wallpaper" "$active_wallpaper"
-echo "$next_index" > "$index_tracker"
-matugen --prefer=lightness image "$next_wallpaper" &
+echo "$next_index" >"$index_tracker"
 
+matugen --prefer=lightness image "$next_wallpaper" &
 awww img "$active_wallpaper" \
-    --transition-type random \
-    --transition-duration "1.5" \
-    --transition-fps "60"
+	--transition-type random \
+	--transition-duration "1.5" \
+	--transition-fps "60"
