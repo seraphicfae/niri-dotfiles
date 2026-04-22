@@ -11,11 +11,6 @@ input_path = '~/.config/matugen/templates/mako-colors'
 output_path = '~/.config/mako/mako-colors'
 post_hook = 'makoctl reload'
 
-[templates.cava]
-input_path = '~/.config/matugen/templates/cava-colors.ini'
-output_path = '~/.config/cava/themes/matugen'
-post_hook = 'pgrep cava > /dev/null && pkill -USR1 cava'
-
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors'
 output_path = '~/.config/rofi/colors.rasi'
