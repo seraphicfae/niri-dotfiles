@@ -90,7 +90,7 @@ EOF
 declare -a required_packages=(
 	awww adw-gtk-theme blueman breeze fastfetch ffmpegthumbnailer
 	gvfs-mtp hyprlock imagemagick imv inter-font kitty libnotify ly mako
-	matugen mpv nautilus niri-git noto-fonts-cjk noto-fonts-emoji
+	matugen mpv nautilus niri noto-fonts-cjk noto-fonts-emoji
 	papirus-icon-theme pavucontrol polkit-kde-agent qt6-wayland
 	qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard
 	xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite
