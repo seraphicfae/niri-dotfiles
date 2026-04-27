@@ -198,6 +198,7 @@ window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
+    exclude app-id="steam"
         popups {
             opacity 0.8
         background-effect {
