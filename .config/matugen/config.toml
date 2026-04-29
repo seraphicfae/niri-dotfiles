@@ -1,20 +1,6 @@
 [config]
 backend = "oklab"
 
-[templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
-
-[templates.mako]
-input_path = '~/.config/matugen/templates/mako-colors'
-output_path = '~/.config/mako/mako-colors'
-post_hook = 'makoctl reload'
-
-[templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors'
-output_path = '~/.config/rofi/colors.rasi'
-
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
@@ -23,3 +9,17 @@ output_path = '~/.config/gtk-3.0/colors.css'
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 post_hook = 'pgrep nautilus > /dev/null && nautilus -q || true'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = "kitty +kitten themes --reload-in=all Matugen"
+
+[templates.mako]
+input_path = '~/.config/matugen/templates/mako'
+output_path = '~/.config/mako/mako-colors'
+post_hook = 'makoctl reload'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
