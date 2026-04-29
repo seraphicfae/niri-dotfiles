@@ -159,10 +159,6 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png"
 
-environment {
-    QT_QPA_PLATFORMTHEME "qt6ct"
-}
-
 cursor {
     xcursor-theme "breeze_cursors"
     xcursor-size 24
@@ -198,6 +194,9 @@ window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
+}
+
+window-rule {
     exclude app-id="steam"
         popups {
             opacity 0.8
