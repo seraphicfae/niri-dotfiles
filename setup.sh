@@ -287,8 +287,8 @@ cat <<"EOF"
 EOF
 
 declare -a optional_packages=(
-	apparmor eden-nightly-bin elyprismlauncher-bin bitwarden gapless
-	gst-plugins-base helium-browser-bin helix kid3 obs-studio
+	apparmor eden-nightly-bin elyprismlauncher-bin bitwarden gamescope
+    gapless gst-plugins-base helium-browser-bin helix kid3 obs-studio
 	pacman-contrib plymouth pnpm power-profiles-daemon qbittorrent
 	reflector rsync satty snap-pac steam vesktop-bin
 )
