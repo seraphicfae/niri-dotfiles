@@ -303,8 +303,8 @@ if ((${#missing[@]})); then
 			info "Configuring /etc/pacman.conf..."
 			grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
 			grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
+			sudo pacman -Syu
 
-			sudo pacman -Sy
 			info "Installing packages and starting services..."
 			paru -S --needed "${missing[@]}"
 			sudo systemctl enable --now "${optional_services[@]}"
@@ -315,12 +315,21 @@ if ((${#missing[@]})); then
 			grep -q 'apparmor' /etc/kernel/cmdline || sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
 			sudo plymouth-set-default-theme -R bgrt
 
-			info "Finalizing..."
+			info "Configuring reflector settings..."
 			grep -q '^--latest 10' /etc/xdg/reflector/reflector.conf || sudo sed -i 's/--latest 5/--latest 10/' /etc/xdg/reflector/reflector.conf
 			grep -q '^--country' /etc/xdg/reflector/reflector.conf || sudo sed -i 's/# --country France,Germany/--country US/' /etc/xdg/reflector/reflector.conf
 
+			info "Setting up autostart apps..."
+			mkdir -p "$HOME/.config/autostart"
+			sudo ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
+			sudo ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
+			sudo ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
+
+			info "Making helix config for root..."
 			sudo mkdir -p /root/.config/helix
 			sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
+
+			info "Finalizing..."
 			powerprofilesctl set performance
 			xdg-user-dirs-update --force
 			okay "Done!"
