@@ -13,10 +13,6 @@ ask() { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-log_file="$dotfiles_directory/$(date '+%Y-%m-%d_%H-%M-%S').log"
-exec > >(tee -a "$log_file") 2>&1
-echo "Setup started: $(date)"
-
 # ────────────────[ Warning ]────────────────
 clear
 cat <<"EOF"
@@ -188,7 +184,7 @@ while true; do
 		gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
 		gsettings set org.gnome.desktop.interface cursor-size '24'
 		gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-		sudo ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/"
+		ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/"
 		okay "GTK 4 set!"
 		break
 		;;
@@ -225,25 +221,34 @@ while true; do
 	case "${input:-y}" in
 	[Yy])
 		for service in "${system_services[@]}"; do
-			if systemctl list-unit-files "${service}.service" &>/dev/null; then
-				info "Enabling system service: ${service}..."
-				sudo systemctl enable "$service" &>/dev/null &&
-					okay "${service} enabled." ||
-					warn "Failed to enable ${service}."
-			else
-				warn "${service}.service not found."
+			if ! systemctl cat "${service}.service" &>/dev/null; then
+				warn "Unit file for ${service} not found. Is it installed?"
+				continue
 			fi
+			if systemctl is-enabled --quiet "${service}.service" 2>/dev/null; then
+				info "${service} is already enabled. Skipping..."
+				continue
+			fi
+			info "Enabling system service: ${service}..."
+			sudo systemctl enable "${service}.service" &>/dev/null &&
+				okay "${service} enabled." ||
+				warn "Failed to enable ${service}."
 		done
 
 		for service in "${user_services[@]}"; do
-			if systemctl --user list-unit-files "${service}.service" &>/dev/null; then
-				info "Linking ${service} to niri.service..."
-				systemctl --user add-wants niri.service "${service}.service" &>/dev/null &&
-					okay "${service} linked." ||
-					warn "Failed to link ${service}."
-			else
-				warn "User service ${service}.service not found."
+			if ! systemctl --user cat "${service}.service" &>/dev/null; then
+				warn "Unit file for ${service} not found. Is it installed?"
+				continue
 			fi
+			if systemctl --user show --property=Wants --value niri.service 2>/dev/null |
+				grep -q "${service}"; then
+				info "${service} is already linked to niri.service. Skipping..."
+				continue
+			fi
+			info "Linking ${service} to niri.service..."
+			systemctl --user add-wants niri.service "${service}.service" &>/dev/null &&
+				okay "${service} linked." ||
+				warn "Failed to link ${service}."
 		done
 
 		if command -v zsh &>/dev/null; then
@@ -325,13 +330,13 @@ if ((${#missing[@]})); then
 
 			info "Setting up autostart apps..."
 			mkdir -p "$HOME/.config/autostart"
-			sudo ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
-			sudo ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
-			sudo ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
+			ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
+			ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
+			ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
 
 			info "Making helix config for root..."
 			sudo mkdir -p /root/.config/helix
-			sudo ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
+			ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
 
 			info "Finalizing..."
 			powerprofilesctl set performance

@@ -7,18 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left",
+  },
   "auto_update": false,
   "title_bar": {
-    "show_sign_in": false
+    "show_sign_in": false,
   },
   "disable_ai": true,
-  "format_on_save": "off",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "autosave": {
     "after_delay": {
-      "milliseconds": 10000
-    }
+      "milliseconds": 10000,
+    },
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
@@ -27,7 +29,7 @@
   "soft_wrap": "none",
   "telemetry": {
     "diagnostics": true,
-    "metrics": true
+    "metrics": true,
   },
-  "theme": "Catppuccin Espresso (Blur)"
+  "theme": "Catppuccin Espresso (Blur)",
 }
