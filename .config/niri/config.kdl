@@ -151,9 +151,6 @@ layout {
 
 // ────────────────[ Miscellaneous ]──────────────── \\
 spawn-sh-at-startup "sleep 3 && paplay $HOME/.local/share/sounds/Windows_95.ogg"
-spawn-sh-at-startup "sleep 3 && vesktop"
-spawn-at-startup "helium-browser"
-spawn-at-startup "steam"
 
 prefer-no-csd
 
