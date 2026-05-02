@@ -166,14 +166,14 @@ while true; do
 	case "${input:-y}" in
 	[Yy])
 		for folder in "${dotfile_paths[@]}"; do
-			local src="$dotfiles_directory/$folder"
-			local dst="$HOME/$folder"
-			if [[ -d "$src" ]]; then
-				mkdir -p "$dst"
+			source="$dotfiles_directory/$folder"
+			destination="$HOME/$folder"
+			if [ -d "$source" ]; then
+				mkdir -p "$destination"
 				info "Syncing $folder..."
-				cp -rfu "$src/." "$dst/"
+				cp -rfu "$source/." "$destination/"
 			else
-				warn "Source $src does not exist, skipping."
+				warn "Source folder $source does not exist, skipping."
 			fi
 		done
 
