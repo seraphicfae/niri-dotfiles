@@ -13,6 +13,10 @@ ask() { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+log_file="$dotfiles_directory/$(date '+%Y-%m-%d_%H-%M-%S').log"
+exec > >(tee -a "$log_file") 2>&1
+echo "Setup started: $(date)"
+
 # ────────────────[ Warning ]────────────────
 clear
 cat <<"EOF"
