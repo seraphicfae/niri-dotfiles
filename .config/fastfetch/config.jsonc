@@ -85,32 +85,18 @@
       "format": "├──────────── Theming & User Interface ────────────┤"
     },
     {
-      "key": "  󰉼  Qt theme ",
+      "key": "  󰉼  Theme    ",
       "keyColor": "red",
-      "type": "theme",
-      "format": "{1}"
+      "type": "theme"
     },
     {
-      "key": "  󰉼  GTK theme",
-      "keyColor": "green",
-      "type": "theme",
-      "format": "{2}"
-    },
-    {
-      "key": "    Qt icons ",
-      "keyColor": "blue",
-      "type": "icons",
-      "format": "{1}"
-    },
-    {
-      "key": "    GTK icons",
+      "key": "    Icons    ",
       "keyColor": "yellow",
-      "type": "icons",
-      "format": "{2}"
+      "type": "icons"
     },
     {
-      "key": "    font     ",
-      "keyColor": "cyan",
+      "key": "    Font     ",
+      "keyColor": "blue",
       "type": "font",
       "format": "{1}"
     },
