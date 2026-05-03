@@ -25,7 +25,7 @@ cat <<"EOF"
 EOF
 
 while true; do
-	read -r -n 1 -p "$(ask "This script is intended for a fresh Arch Linux install. I am not responsible for any system breakage. Proceed? [y/N]")" input
+	read -r -n 1 -p "$(ask "This script is intended for a fresh Arch Linux install. Backup your configs. Proceed? [y/N]")" input
 	echo
 	case "${input:-n}" in
 	[Yy])
