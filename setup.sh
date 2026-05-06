@@ -335,8 +335,8 @@ if ((${#missing[@]})); then
 			ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
 
 			info "Making helix config for root..."
-			sudo mkdir -p /root/.config/helix
-			ln -sf "$HOME/.config/helix/config.toml" /root/.config/helix/config.toml
+			sudo mkdir -p /root/.config
+			ln -sf "$HOME/.config/helix" /root/.config
 
 			info "Finalizing..."
 			powerprofilesctl set performance
