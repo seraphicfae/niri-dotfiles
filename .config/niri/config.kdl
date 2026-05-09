@@ -29,7 +29,7 @@ output "DP-1" {
 binds {
     // Applications
     Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-picker"; }
-    Mod+Shift+W { spawn-sh "$HOME/.local/bin/cycle-wallpapers"; }
+    Mod+Shift+W { spawn-sh "$HOME/.local/bin/cycle-wallpaper"; }
     Mod+D       { spawn-sh "$HOME/.local/bin/launcher"; }
     Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu"; }
     Mod+Return  { spawn "kitty"; }
