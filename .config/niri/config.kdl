@@ -5,9 +5,6 @@ input {
             layout "us"
         }
     }
-    touchpad {
-        off
-    }
     focus-follows-mouse
     mod-key "Super"
 }
@@ -20,19 +17,19 @@ output "DP-1" {
     variable-refresh-rate
 }
 
-output "HDMI-A-1" {
-    mode "2560x1440"
-    scale 1.5
-    transform "normal"
-    position x=0 y=0
-    variable-refresh-rate
-}
+// output "HDMI-A-1" {
+//    mode "2560x1440"
+//    scale 1.5
+//    transform "normal"
+//    position x=0 y=0
+//    variable-refresh-rate
+// }
 
 // ────────────────[ Key Bindings ]──────────────── \\
 binds {
     // Applications
-    Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-selector"; }
-    Mod+Shift+W { spawn-sh "$HOME/.local/bin/switch-wallpapers"; }
+    Mod+W       { spawn-sh "$HOME/.local/bin/wallpaper-picker"; }
+    Mod+Shift+W { spawn-sh "$HOME/.local/bin/cycle-wallpapers"; }
     Mod+D       { spawn-sh "$HOME/.local/bin/launcher"; }
     Mod+Escape  { spawn-sh "$HOME/.local/bin/powermenu"; }
     Mod+Return  { spawn "kitty"; }
@@ -214,7 +211,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager"#
-    match title="Volume Control|Picture in picture|imv"
+    match title="Volume Control|Picture in picture|imv|Select Wallpaper"
     open-floating true
     default-column-width { fixed 1100; }
     default-window-height { fixed 600; }

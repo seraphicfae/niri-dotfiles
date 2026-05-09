@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+wallpaper_folder="$HOME/Pictures/wallpapers"
+index_tracker="$HOME/.local/state/wallpaper_index"
+active_wallpaper="$HOME/.local/state/current_wallpaper"
+
+selected_path=$(zenity --file-selection \
+    --title="Select Wallpaper" \
+    --filename="$wallpaper_folder/" \
+    --file-filter="Images | *.png *.jpg *.jpeg *.gif")
+
+[[ -z "$selected_path" ]] && exit 0
+[[ ! -f "$selected_path" ]] && exit 1
+
+ln -sf "$selected_path" "$active_wallpaper"
+echo "$selected_path" >"$index_tracker"
+
+matugen --prefer=lightness image "$selected_path" &
+awww img "$active_wallpaper" \
+    --transition-type random \
+    --transition-duration 1.5 \
+    --transition-fps 60

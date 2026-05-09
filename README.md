@@ -87,8 +87,8 @@ Look in `config.jsonc` and set it to your correct thermal zone.
 Ensure you have: `inter-font ttf-jetbrains-mono-nerd`
 These are required fonts you will need.
 
-**How to setup my wallpaper?** \
-`Super + W` and choose which image you want.
+**My screen is grey/there's no wallpaper!** \
+`Super + W` and choose which wallpaper you want.
 
 **My Display Manager is black/can't log in** \
 This is likely due to multiple display managers active (Sddm, Greeter, etc). \
