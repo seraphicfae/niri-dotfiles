@@ -94,7 +94,7 @@ declare -a required_packages=(
 	papirus-icon-theme pavucontrol polkit-kde-agent qt6-wayland
 	qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard
 	xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite
-	zed zsh zsh-autosuggestions zsh-syntax-highlighting
+	zed zenity zsh zsh-autosuggestions zsh-syntax-highlighting
 )
 
 mapfile -t missing < <(pacman -T "${required_packages[@]}")
