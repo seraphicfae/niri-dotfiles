@@ -316,7 +316,7 @@ if ((${#missing[@]})); then
 
 			info "Installing packages and starting services..."
 			paru -S --needed "${missing[@]}"
-			sudo systemctl enable --now "${optional_services[@]}"
+			sudo systemctl enable "${optional_services[@]}"
 
 			info "Configuring Plymouth and AppArmor..."
 			grep -q 'plymouth' /etc/mkinitcpio.conf || sudo sed -i 's/udev autodetect/udev plymouth autodetect/' /etc/mkinitcpio.conf
