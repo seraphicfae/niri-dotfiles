@@ -320,8 +320,9 @@ if ((${#missing[@]})); then
 
 			info "Configuring Plymouth and AppArmor..."
 			grep -q 'plymouth' /etc/mkinitcpio.conf || sudo sed -i 's/udev autodetect/udev plymouth autodetect/' /etc/mkinitcpio.conf
-			grep -q 'quiet splash' /etc/kernel/cmdline || sudo sed -i 's/ quiet//g; s/ splash//g; s/rw/rw quiet splash/' /etc/kernel/cmdline
-			grep -q 'apparmor' /etc/kernel/cmdline || sudo sed -i 's/$/ lsm=landlock,lockdown,yama,integrity,apparmor,bpf/' /etc/kernel/cmdline
+			sudo mkdir -p /etc/cmdline.d
+			[ -f /etc/cmdline.d/plymouth.conf ] || echo 'quiet splash' | sudo tee /etc/cmdline.d/plymouth.conf
+			[ -f /etc/cmdline.d/apparmor.conf ] || echo 'lsm=landlock,lockdown,yama,integrity,apparmor,bpf' | sudo tee /etc/cmdline.d/apparmor.conf
 			sudo plymouth-set-default-theme -R bgrt
 
 			info "Configuring reflector settings..."
