@@ -4,7 +4,6 @@ theme = "transparent"
 cursorline = true
 color-modes = true
 true-color = true
-clipboard-provider = "wayland"
 
 [editor.cursor-shape]
 insert = "bar"
