@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "session": {
+    "trust_all_worktrees": true,
+  },
   "project_panel": {
     "dock": "left",
   },
@@ -24,12 +27,20 @@
   },
   "buffer_font_size": 14,
   "ui_font_size": 16,
-  "icon_theme": "Catppuccin Mocha",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha",
+  },
   "restore_on_startup": "last_session",
   "soft_wrap": "none",
   "telemetry": {
     "diagnostics": true,
     "metrics": true,
   },
-  "theme": "Catppuccin Espresso (Blur)",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Espresso (Blur)",
+  },
 }
