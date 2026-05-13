@@ -13,6 +13,9 @@ ask() { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+log_file="${dotfiles_directory}/$(date +%Y%m%d-%H%M%S).log"
+exec > >(tee -a "$log_file") 2>&1
+
 # ────────────────[ Warning ]────────────────
 clear
 cat <<"EOF"
@@ -287,86 +290,86 @@ cat <<"EOF"
 EOF
 
 declare -a optional_packages=(
-    apparmor eden-nightly-bin elyprismlauncher-bin bitwarden gamescope
-    gapless gst-plugins-base helium-browser-bin helix kid3 obs-studio
-    pacman-contrib plymouth pnpm power-profiles-daemon qbittorrent
-    reflector rsync satty snap-pac steam vesktop-bin
+	apparmor eden-nightly-bin elyprismlauncher-bin bitwarden gamescope
+	gapless gst-plugins-base helium-browser-bin helix kid3 obs-studio
+	pacman-contrib plymouth pnpm power-profiles-daemon qbittorrent
+	reflector rsync satty snap-pac steam vesktop-bin
 )
 declare -a optional_services=(
-    auditd apparmor reflector.timer fstrim.timer paccache.timer
-    power-profiles-daemon snapper-cleanup.timer snapper-timeline.timer
-    systemd-oomd
+	auditd apparmor reflector.timer fstrim.timer paccache.timer
+	power-profiles-daemon snapper-cleanup.timer snapper-timeline.timer
+	systemd-oomd
 )
 
 mapfile -t missing < <(pacman -T "${optional_packages[@]}" 2>/dev/null)
 if ((${#missing[@]})); then
-    info "The following optional packages are missing:"
-    printf '%s\n' "${missing[@]}"
+	info "The following optional packages are missing:"
+	printf '%s\n' "${missing[@]}"
 else
-    info "All optional packages already installed."
+	info "All optional packages already installed."
 fi
 
 while true; do
-    read -r -n 1 -p "$(warn "!DO NOT ACCEPT! These changes are for me. Please know what you are doing [y/N]")" input
-    echo
-    case "${input:-n}" in
-    [Yy])
-        info "Configuring /etc/pacman.conf..."
-        grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
-        grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
-        sudo pacman -Syu
+	read -r -n 1 -p "$(warn "!DO NOT ACCEPT! These changes are for me. Please know what you are doing [y/N]")" input
+	echo
+	case "${input:-n}" in
+	[Yy])
+		info "Configuring /etc/pacman.conf..."
+		grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
+		grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
-        info "Installing packages and starting services..."
-        paru -S --needed "${optional_packages[@]}"
-        sudo systemctl enable "${optional_services[@]}"
+		info "Installing packages and starting services..."
+		paru -S --needed "${optional_packages[@]}"
+		sudo systemctl enable "${optional_services[@]}"
 
-        info "Configuring Plymouth and AppArmor..."
-        grep -q 'plymouth' /etc/mkinitcpio.conf || sudo sed -i 's/udev autodetect/udev plymouth autodetect/' /etc/mkinitcpio.conf
-        sudo mkdir -p /etc/cmdline.d
-        [ -f /etc/cmdline.d/plymouth.conf ] || echo 'quiet splash' | sudo tee /etc/cmdline.d/plymouth.conf
-        [ -f /etc/cmdline.d/apparmor.conf ] || echo 'lsm=landlock,lockdown,yama,integrity,apparmor,bpf' | sudo tee /etc/cmdline.d/apparmor.conf
-        sudo plymouth-set-default-theme -R bgrt
+		info "Configuring Plymouth and AppArmor..."
+		grep -q 'plymouth' /etc/mkinitcpio.conf || sudo sed -i 's/udev autodetect/udev plymouth autodetect/' /etc/mkinitcpio.conf
+		sudo mkdir -p /etc/cmdline.d
+		[ -f /etc/cmdline.d/plymouth.conf ] || echo 'quiet splash' | sudo tee /etc/cmdline.d/plymouth.conf
+		[ -f /etc/cmdline.d/apparmor.conf ] || echo 'lsm=landlock,lockdown,yama,integrity,apparmor,bpf' | sudo tee /etc/cmdline.d/apparmor.conf
+		sudo plymouth-set-default-theme -R bgrt
 
-        info "Configuring reflector settings..."
-        sudo tee /etc/xdg/reflector/reflector.conf > /dev/null <<-'EOF'
-        --save /etc/pacman.d/mirrorlist
-        --protocol https
-        --country US
-        --latest 10
-        --sort rate
-        EOF
+		info "Configuring reflector settings..."
+		printf '%s\n' \
+			'--save /etc/pacman.d/mirrorlist' \
+			'--protocol https' \
+			'--country US' \
+			'--latest 10' \
+			'--sort rate' |
+			sudo tee /etc/xdg/reflector/reflector.conf >/dev/null
 
-        info "Configuring DNS for Cloudflare.."
-        sudo mkdir -p /etc/systemd/resolved.conf.d && sudo tee /etc/systemd/resolved.conf.d/dns.conf > /dev/null << 'EOF'
-        [Resolve]
-        DNS=1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com
-        FallbackDNS=9.9.9.9#dns.quad9.net
-        DNSSEC=yes
-        DNSOverTLS=yes
-        EOF
+		info "Configuring DNS for Cloudflare.."
+		sudo mkdir -p /etc/systemd/resolved.conf.d
+		printf '%s\n' \
+			'[Resolve]' \
+			'DNS=1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com' \
+			'FallbackDNS=9.9.9.9#dns.quad9.net' \
+			'DNSSEC=yes' \
+			'DNSOverTLS=yes' |
+			sudo tee /etc/systemd/resolved.conf.d/dns.conf >/dev/null
 
-        info "Setting up autostart apps..."
-        mkdir -p "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
+		info "Setting up autostart apps..."
+		mkdir -p "$HOME/.config/autostart"
+		ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
+		ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
+		ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
 
-        info "Making helix config for root..."
-        sudo mkdir -p /root/.config
-        sudo cp -r "$HOME/.config/helix" /root/.config
+		info "Making helix config for root..."
+		sudo mkdir -p /root/.config
+		sudo cp -r "$HOME/.config/helix" /root/.config
 
-        info "Finalizing..."
-        powerprofilesctl set performance
-        xdg-user-dirs-update --force
-        okay "Done!"
-        break
-        ;;
-    [Nn])
-        okay "Skipping optional tweaks and packages."
-        break
-        ;;
-    *) echo "Please enter either [Y] or [N]." ;;
-    esac
+		info "Finalizing..."
+		powerprofilesctl set performance
+		xdg-user-dirs-update --force
+		okay "Done!"
+		break
+		;;
+	[Nn])
+		okay "Skipping optional tweaks and packages."
+		break
+		;;
+	*) echo "Please enter either [Y] or [N]." ;;
+	esac
 done
 
 # ────────────────[ Reboot ]────────────────
