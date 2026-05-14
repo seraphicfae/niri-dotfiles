@@ -16,33 +16,6 @@ dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 log_file="${dotfiles_directory}/$(date +%Y%m%d-%H%M%S).log"
 exec > >(tee -a "$log_file") 2>&1
 
-# ────────────────[ Warning ]────────────────
-clear
-cat <<"EOF"
- ██████╗ ██████╗ ███╗   ██╗███████╗██╗██████╗ ███╗   ███╗
-██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔══██╗████╗ ████║
-██║     ██║   ██║██╔██╗ ██║█████╗  ██║██████╔╝██╔████╔██║
-██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██╔══██╗██║╚██╔╝██║
-╚██████╗╚██████╔╝██║ ╚████║██║     ██║██║  ██║██║ ╚═╝ ██║
- ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝
-EOF
-
-while true; do
-	read -r -n 1 -p "$(ask "This script is intended for a fresh Arch Linux install. Backup your configs. Proceed? [y/N]")" input
-	echo
-	case "${input:-n}" in
-	[Yy])
-		okay "Moving on..."
-		break
-		;;
-	[Nn])
-		fail "Exiting..."
-		exit 1
-		;;
-	*) echo "Please enter either [Y] or [N]." ;;
-	esac
-done
-
 # ────────────────[ Paru Setup ]────────────────
 sleep 2
 clear
