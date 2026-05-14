@@ -193,6 +193,7 @@ window-rule {
 window-rule {
     exclude app-id="steam"
         popups {
+            geometry-corner-radius 15
             opacity 0.8
         background-effect {
             xray false
@@ -210,7 +211,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"org\.gtk\.FileChooserDialog|blueman-manager"#
+    match app-id="org.gtk.FileChooserDialog|blueman-manager|satty"
     match title="Volume Control|Picture in picture|imv|Select Wallpaper"
     open-floating true
     default-column-width { fixed 1100; }
@@ -238,11 +239,6 @@ window-rule {
 window-rule {
     match app-id="com.github.neithern.g4music"
     open-on-workspace "3"
-}
-
-window-rule {
-    match title="Pictures"
-    block-out-from "screen-capture"
 }
 
 // ────────────────[ Layer Rules ]──────────────── \\
