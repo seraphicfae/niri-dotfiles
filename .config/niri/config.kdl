@@ -188,13 +188,13 @@ window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
-}
-
-window-rule {
-    exclude app-id="steam"
-        popups {
-            geometry-corner-radius 15
-            opacity 0.8
+    background-effect {
+        xray false
+        blur true
+    }
+    popups {
+        geometry-corner-radius 15
+        opacity 0.8
         background-effect {
             xray false
             blur true
@@ -203,15 +203,12 @@ window-rule {
 }
 
 window-rule {
-    match app-id="kitty|vesktop|dev.zed.Zed"
-    background-effect {
-        xray false
-        blur true
-    }
+    opacity 0.85
+    exclude app-id="kitty|vesktop|dev.zed.Zed|helium|steam"
 }
 
 window-rule {
-    match app-id="org.gtk.FileChooserDialog|blueman-manager|satty"
+    match app-id="blueman-manager|satty"
     match title="Volume Control|Picture in picture|imv|Select Wallpaper"
     open-floating true
     default-column-width { fixed 1100; }
