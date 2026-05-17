@@ -204,7 +204,7 @@ window-rule {
 
 window-rule {
     opacity 0.85
-    exclude app-id="kitty|vesktop|dev.zed.Zed|helium|steam"
+    exclude app-id="kitty|vesktop|dev.zed.Zed|helium|steam|mpv"
 }
 
 window-rule {
