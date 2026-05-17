@@ -264,9 +264,9 @@ EOF
 
 declare -a optional_packages=(
 	apparmor eden-nightly-bin elyprismlauncher-bin bitwarden gamescope
-	gapless gst-plugins-base helium-browser-bin helix kid3 obs-studio
-	pacman-contrib plymouth pnpm power-profiles-daemon qbittorrent
-	reflector rsync satty snap-pac steam vesktop-bin
+	gapless gst-plugins-base gst-plugins-good helium-browser-bin helix
+	kid3 obs-studio pacman-contrib plymouth pnpm power-profiles-daemon
+    qbittorrent reflector rsync satty snap-pac steam vesktop-bin
 )
 declare -a optional_services=(
 	auditd apparmor reflector.timer fstrim.timer paccache.timer
