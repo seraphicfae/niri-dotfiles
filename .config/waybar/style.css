@@ -1,0 +1,113 @@
+/* ──────────[ Global Settings ]────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 15px;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.5);
+    color: #fff;
+}
+
+/* ──────────[ Left Modules ]────────── */
+#workspaces {
+    background: #211719;
+    margin: 5px;
+    padding: 0px 5px;
+    border-radius: 24px;
+}
+
+#workspaces button {
+    min-width: 28px;
+    min-height: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 4px 4px;
+    background-color: #3d3032;
+    color: transparent;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#workspaces button.active {
+    min-width: 52px;
+    background-color: #f0c0cb;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#workspaces button:hover {
+    background-color: #f0c0cb;
+}
+
+#workspaces button.urgent {
+    background-color: #ba1a1a;
+}
+
+#system-info {
+    background: #211719;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 100px;
+}
+
+#system-info > label,
+#system-info > widget > label {
+    margin: 0 5px;
+}
+
+#system-info > :first-child {
+    margin-left: 0;
+}
+
+#system-info > :last-child {
+    margin-right: 0;
+}
+
+/* ──────────[ Center Modules ]────────── */
+
+/* ──────────[ Right Modules ]────────── */
+#tray {
+    background: #211719;
+    margin: 5px 10px;
+    border-radius: 15px;
+    padding: 0 10px;
+}
+
+#backlight {
+    margin: 0px 0px 0px 8px;
+}
+
+#wireplumber.sink-muted {
+    background: transparent;
+    color: rgba(30, 30, 46, 0.5);
+    margin-left: 0px;
+}
+
+#wireplumber.source.source-muted {
+    background: transparent;
+    color: rgba(30, 30, 46, 0.5);
+    margin-left: 0px;
+}
+
+#clock {
+    background-color: #211719;
+    border-radius: 0px 0px 0px 24px;
+    padding: 0px 8px 0px 13px;
+    margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+/* ──────────[ Misc ]────────── */
+tooltip {
+    background: #211719;
+    border: 2px solid #f0c0cb;
+}
+
+#custom-separator {
+    color: #999;
+}

@@ -1,0 +1,12 @@
+font=Inter Regular 12
+border-radius=6
+border-size=2
+default-timeout=5000
+format=<b>%a</b>\n%s\n%b
+padding=12
+margin=8
+max-icon-size=96
+width=400
+height=150
+
+include=~/.config/mako/mako-colors

@@ -1,0 +1,118 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty",
+    "source": "$HOME/.config/fastfetch/fetch.jpg",
+    "width": 45,
+    "position": "left",
+    "preserveAspectRatio": true
+  },
+  "display": {
+    "separator": " ➜ ",
+    "color": {
+        "separator": "red"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "┌────────────── Hardware Information ──────────────┐"
+    },
+    {
+      "key": "    CPU      ",
+      "keyColor": "red",
+      "type": "cpu"
+    },
+    {
+      "key": "  󰢮  GPU      ",
+      "keyColor": "green",
+      "type": "gpu"
+    },
+    {
+      "key": "    Memory   ",
+      "keyColor": "blue",
+      "type": "memory",
+      "format": "{1} / {2}"
+    },
+    {
+      "key": "  󰋊  Disk     ",
+      "keyColor": "yellow",
+      "type": "disk",
+      "format": "{1} / {2}"
+    },
+    {
+      "key": "  󰍹  Monitor  ",
+      "keyColor": "cyan",
+      "type": "display",
+      "format": "{1}x{2} @ {3}hz"
+    },
+    {
+      "type": "custom",
+      "format": "├────────────── Software Information ──────────────┤"
+    },
+    {
+      "key": "    OS       ",
+      "keyColor": "red",
+      "type": "os"
+    },
+    {
+      "key": "    Kernel   ",
+      "keyColor": "green",
+      "type": "kernel"
+    },
+    {
+      "key": "  󰏖  Packages ",
+      "keyColor": "blue",
+      "type": "packages"
+    },
+    {
+      "key": "    WM       ",
+      "keyColor": "yellow",
+      "type": "wm"
+    },
+    {
+      "key": "    Shell    ",
+      "keyColor": "cyan",
+      "type": "shell"
+    },
+    {
+      "key": "    Terminal ",
+      "keyColor": "white",
+      "type": "terminal"
+    },
+    {
+      "type": "custom",
+      "format": "├──────────── Theming & User Interface ────────────┤"
+    },
+    {
+      "key": "  󰉼  Theme    ",
+      "keyColor": "red",
+      "type": "theme"
+    },
+    {
+      "key": "    Icons    ",
+      "keyColor": "yellow",
+      "type": "icons"
+    },
+    {
+      "key": "    Font     ",
+      "keyColor": "blue",
+      "type": "font",
+      "format": "{1}"
+    },
+    {
+      "key": "  󰆿  Cursor   ",
+      "keyColor": "white",
+      "type": "cursor"
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────────────────────┘"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 18,
+      "symbol": "circle"
+    }
+  ]
+}

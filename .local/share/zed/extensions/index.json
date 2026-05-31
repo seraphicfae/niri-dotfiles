@@ -1,0 +1,149 @@
+{
+  "extensions": {
+    "catppuccin-blur": {
+      "manifest": {
+        "id": "catppuccin-blur",
+        "name": "Catppuccin Blur",
+        "version": "0.3.4",
+        "schema_version": 1,
+        "description": "Catppuccin themes with blur",
+        "repository": "https://github.com/jenslys/zed-catppuccin-blur",
+        "authors": ["Jens Lystad <jens@lystad.io>"],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": ["themes/catppuccin-blur.json"],
+        "icon_themes": [],
+        "languages": [],
+        "grammars": {},
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    },
+    "catppuccin-icons": {
+      "manifest": {
+        "id": "catppuccin-icons",
+        "name": "Catppuccin Icons",
+        "version": "1.23.1",
+        "schema_version": 1,
+        "description": "🦊 Soothing pastel icons for Zed",
+        "repository": "https://github.com/catppuccin/zed-icons",
+        "authors": ["Catppuccin <releases@catppuccin.com>"],
+        "lib": {
+          "kind": null,
+          "version": null
+        },
+        "themes": [],
+        "icon_themes": ["icon_themes/catppuccin-icons.json"],
+        "languages": [],
+        "grammars": {},
+        "language_servers": {},
+        "context_servers": {},
+        "agent_servers": {},
+        "slash_commands": {},
+        "snippets": null,
+        "capabilities": []
+      },
+      "dev": false
+    }
+  },
+  "themes": {
+    "Catppuccin Espresso (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Espresso (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Espresso (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Frappé (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Frappé (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Frappé (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Iced Latte (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Iced Latte (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Iced Latte (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Latte (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Macchiato (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur)": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur) [Heavy]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    },
+    "Catppuccin Mocha (Blur) [Light]": {
+      "extension": "catppuccin-blur",
+      "path": "themes/catppuccin-blur.json"
+    }
+  },
+  "icon_themes": {
+    "Catppuccin Frappé": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Latte": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Macchiato": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    },
+    "Catppuccin Mocha": {
+      "extension": "catppuccin-icons",
+      "path": "icon_themes/catppuccin-icons.json"
+    }
+  },
+  "languages": {}
+}
