@@ -205,7 +205,7 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty"
+    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|Bitwarden"
 }
 
 window-rule {
@@ -228,15 +228,16 @@ window-rule {
 }
 
 window-rule {
-    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher" title="^Steam$|^PineconeMC 11.0.2$"
+    match app-id="steam|org.prismlauncher.PrismLauncher" title="^Steam$|^Prism Launcher 11.0.2$"
     open-maximized true
     open-on-workspace "3"
 }
 
 window-rule {
-    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher"
-    exclude title="^Steam$|^PineconeMC 11.0.2$"
+    match app-id="steam|org.prismlauncher.PrismLauncher"
+    exclude title="^Steam$|^Prism Launcher 11.0.2$"
     open-floating true
+    open-on-workspace "3"
 }
 
 // ────────────────[ Layer Rules ]──────────────── \\
