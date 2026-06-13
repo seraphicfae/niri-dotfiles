@@ -1,5 +1,5 @@
 {
-  "layer": "bottom",
+  "layer": "top",
   "modules-left": ["niri/workspaces", "custom/separator", "group/system-info"],
   "modules-center": ["mpris"],
   "modules-right": [

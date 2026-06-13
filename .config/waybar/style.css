@@ -28,11 +28,14 @@ window#waybar {
     background-color: #3d3032;
     color: transparent;
     border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button.active {
     min-width: 52px;
     background-color: #f0c0cb;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #workspaces button:hover {
