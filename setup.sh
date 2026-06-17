@@ -262,10 +262,9 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor eden-nightly-bin elyprismlauncher-bin gamescope gapless gnome-keyring
-    gst-plugins-base gst-plugins-good gvfs-mtp helium-browser-bin helix kid3
-    obs-studio pacman-contrib plymouth pnpm qbittorrent reflector rsync satty
-    snap-pac steam vesktop-bin
+    apparmor elyprismlauncher-bin gamescope gapless gnome-keyring gst-plugins-base
+    gst-plugins-good gvfs-mtp helium-browser-bin helix kid3 obs-studio pacman-contrib
+    plymouth pnpm qbittorrent reflector rsync satty snap-pac steam vesktop-bin
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer

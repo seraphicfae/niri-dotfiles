@@ -116,7 +116,6 @@ binds {
 // ────────────────[ Layout ]──────────────── \\
 layout {
     gaps 8
-    center-focused-column "never"
     background-color "transparent"
 
     preset-column-widths {
@@ -203,9 +202,11 @@ window-rule {
     }
 }
 
+
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|Bitwarden|eden"
+    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|Ryujinx"
+    exclude title="Bitwarden"
 }
 
 window-rule {
@@ -241,8 +242,7 @@ window-rule {
 }
 
 window-rule {
-    match title=r#"Bitwarden"#
-    match app-id=r#"Bitwarden"#
+    match title="Bitwarden"
     block-out-from "screen-capture"
 }
 
