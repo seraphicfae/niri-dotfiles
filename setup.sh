@@ -262,9 +262,12 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor elyprismlauncher-bin gamescope gapless gnome-keyring gst-plugins-base
-    gst-plugins-good gvfs-mtp helium-browser-bin helix kid3 obs-studio pacman-contrib
-    plymouth pnpm qbittorrent reflector rsync satty snap-pac steam vesktop-bin
+    apparmor gamescope gapless gnome-keyring gst-plugins-base
+    gst-plugins-good gvfs-mtp helix kid3 obs-studio pacman-contrib
+    plymouth pnpm qbittorrent reflector rsync satty snap-pac
+)
+declare -a appman_packages=(
+    elyprismlauncher gapless helium ryujinx-canary steam vesktop
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -291,8 +294,13 @@ while true; do
         grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
         grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
+        info "Downloading and running the AppMan script.."
+        curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
+        appman -i "${appman_packages[@]}"
+        appman nolibfuse vesktop
+
         info "Installing packages and starting services..."
-        paru -S --needed "${packages[@]}"
+        sudo pacman -S "${packages[@]}"
         sudo systemctl enable "${services[@]}"
         systemctl --user add-wants niri.service "${user_services[@]}"
 
@@ -325,13 +333,14 @@ while true; do
 
         info "Setting up autostart apps..."
         mkdir -p "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/steam.desktop "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/helium.desktop "$HOME/.config/autostart"
-        ln -sf /usr/share/applications/vesktop.desktop "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/applications/steam-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix config for root..."
         sudo mkdir -p /root/.config
         sudo cp -r "$HOME/.config/helix" /root/.config
+        sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
         info "Updating XDG user dirs and applying GTK4 File Chooser settings..."
         xdg-user-dirs-update --force
