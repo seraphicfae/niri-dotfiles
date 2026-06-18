@@ -31,7 +31,7 @@ cd niri-dotfiles
 ### Dependencies
 
 ```bash
-paru -S --needed --noconfirm \
+paru -S \
 awww adw-gtk-theme blueman breeze fastfetch ffmpegthumbnailer hyprlock \
 imagemagick imv inter-font kitty libnotify ly mako matugen mpv nautilus \
 niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol \
