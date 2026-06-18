@@ -297,6 +297,7 @@ while true; do
         info "Downloading and running the AppMan script.."
         curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
         appman -i "${appman_packages[@]}"
+        appman --icons --all
         appman nolibfuse vesktop
 
         info "Installing packages and starting services..."
