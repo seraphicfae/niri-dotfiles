@@ -31,13 +31,13 @@ cd niri-dotfiles
 ### Dependencies
 
 ```bash
-paru -S \
-awww adw-gtk-theme blueman breeze fastfetch ffmpegthumbnailer hyprlock \
-imagemagick imv inter-font kitty libnotify ly mako matugen mpv nautilus \
-niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol \
-qt6-wayland qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar \
-wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
-xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
+sudo pacman -S \
+awww adw-gtk-theme blueman breeze-cursors breeze-icons fastfetch ffmpegthumbnailer \
+hyprlock imagemagick imv inter-font kitty kvantum libnotify ly mako matugen mpv \
+nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol \
+qt6-wayland qt6ct rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard \
+xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zenity \
+zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 #### Steps

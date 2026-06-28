@@ -16,41 +16,6 @@ dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 log_file="${dotfiles_directory}/$(date +%Y%m%d%H%M%S).log"
 exec > >(tee -a "$log_file") 2>&1
 
-# ────────────────[ Paru Setup ]────────────────
-sleep 2
-clear
-cat <<"EOF"
-██████╗  █████╗ ██████╗ ██╗   ██╗    ███████╗███████╗████████╗██╗   ██╗██████╗
-██╔══██╗██╔══██╗██╔══██╗██║   ██║    ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
-██████╔╝███████║██████╔╝██║   ██║    ███████╗█████╗     ██║   ██║   ██║██████╔╝
-██╔═══╝ ██╔══██║██╔══██╗██║   ██║    ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝
-██║     ██║  ██║██║  ██║╚██████╔╝    ███████║███████╗   ██║   ╚██████╔╝██║
-╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝     ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝
-EOF
-
-if ! command -v paru &>/dev/null; then
-    while true; do
-        read -r -n 1 -p "$(ask "Install Paru? (Required) [Y/n]")" input
-        echo
-        case "${input:-y}" in
-        [Yy])
-            git clone https://aur.archlinux.org/paru.git
-            (cd paru && makepkg -si)
-            rm -rf paru
-            okay "Paru installed successfully."
-            break
-            ;;
-        [Nn])
-            fail "Paru is required for this setup. Exiting..."
-            exit 1
-            ;;
-        *) echo "Please enter either [Y] or [N]." ;;
-        esac
-    done
-else
-    okay "Paru is already installed. Skipping..."
-fi
-
 # ────────────────[ Package Installation ]────────────────
 sleep 2
 clear
@@ -64,12 +29,12 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    awww adw-gtk-theme blueman breeze fastfetch ffmpegthumbnailer hyprlock
-    imagemagick imv inter-font kitty libnotify ly mako matugen mpv nautilus
-    niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol
-    qt6-wayland qt6ct-kde rofi starship ttf-jetbrains-mono-nerd waybar
-    wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk
-    xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
+    awww adw-gtk-theme blueman breeze-cursors breeze-icons fastfetch ffmpegthumbnailer
+    hyprlock imagemagick imv inter-font kitty kvantum libnotify ly mako matugen mpv
+    nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol
+    qt6-wayland qt6ct rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zenity
+    zsh-autosuggestions zsh-syntax-highlighting
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
@@ -82,7 +47,7 @@ if ((${#packages[@]})); then
         echo
         case "${input:-y}" in
         [Yy])
-            paru -S "${packages[@]}"
+            sudo pacman -S "${packages[@]}"
             okay "Packages installed."
             break
             ;;
