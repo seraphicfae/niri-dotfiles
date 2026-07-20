@@ -35,10 +35,11 @@ binds {
     Mod+Escape  { spawn "powermenu"; }
     Mod+Return  { spawn "kitty"; }
     Mod+Shift+F { spawn "nautilus"; }
-    Mod+B       { spawn "helium-browser"; }
+    Mod+B       { spawn "helium"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "g4music"; }
+    Mod+M       { spawn "gapless"; }
+    Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
@@ -55,6 +56,7 @@ binds {
     Mod+Q                  { close-window; }
     Mod+Space              { toggle-window-floating; }
     Mod+F                  { fullscreen-window; }
+    Mod+L                  { maximize-window-to-edges; }
     Mod+R                  { switch-preset-column-width; }
     Mod+C                  { center-column; }
     Mod+MouseBack          { focus-column-left; }
@@ -202,7 +204,6 @@ window-rule {
     }
 }
 
-
 window-rule {
     opacity 0.9
     exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|Ryujinx"
@@ -229,14 +230,14 @@ window-rule {
 }
 
 window-rule {
-    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher" title="^Steam$|^PineconeMC 11.0.2$"
+    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher" title="^Steam$|^PineconeMC 11.0.3$"
     open-maximized true
     open-on-workspace "3"
 }
 
 window-rule {
     match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher"
-    exclude title="^Steam$|^PineconeMC 11.0.2$"
+    exclude title="^Steam$|^PineconeMC 11.0.3$"
     open-floating true
     open-on-workspace "3"
 }
