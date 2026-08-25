@@ -308,7 +308,7 @@ while true; do
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
-        info "Copying Helix and QT config for root..."
+        info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
