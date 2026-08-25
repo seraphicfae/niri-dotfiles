@@ -29,12 +29,12 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    awww adw-gtk-theme blueman breeze-cursors breeze-icons fastfetch ffmpegthumbnailer
-    hyprlock imagemagick imv inter-font kitty kvantum libnotify ly mako matugen mpv
-    nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme pavucontrol
-    qt6-wayland qt6ct rofi starship ttf-jetbrains-mono-nerd waybar wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed zenity
-    zsh-autosuggestions zsh-syntax-highlighting
+    adw-gtk-theme awww blueman breeze fastfetch ffmpegthumbnailer hyprlock
+    imagemagick imv inter-font kitty libnotify ly mako matugen mpv
+    nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
+    pavucontrol qt6-wayland rofi starshi ttf-jetbrains-mono-nerd waybar
+    wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+    xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
@@ -48,6 +48,11 @@ if ((${#packages[@]})); then
         case "${input:-y}" in
         [Yy])
             sudo pacman -S "${packages[@]}"
+            git clone https://aur.archlinux.org/qt6ct-kde
+            cd qt6ct-kde
+            makepkg -si
+            cd dotfiles_directory
+            sudo pacman -Rns $(pacman -Qtdq)
             okay "Packages installed."
             break
             ;;
@@ -307,7 +312,6 @@ while true; do
         sudo mkdir -p /root/.config
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
-        sudo cp -r "$HOME/.config/Kvantum" /root/.config
 
         info "Updating XDG user dirs and applying GTK4 File Chooser settings..."
         xdg-user-dirs-update --force
