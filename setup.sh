@@ -32,7 +32,7 @@ declare -a packages=(
     adw-gtk-theme awww blueman breeze fastfetch ffmpegthumbnailer hyprlock
     imagemagick imv inter-font kitty libnotify ly mako matugen mpv
     nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
-    pavucontrol qt6-wayland rofi starshi ttf-jetbrains-mono-nerd waybar
+    pavucontrol qt6-wayland rofi starship ttf-jetbrains-mono-nerd waybar
     wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk
     xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
 )
