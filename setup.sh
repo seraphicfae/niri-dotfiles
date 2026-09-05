@@ -232,8 +232,8 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor fwupd gamescope gnome-keyring gvfs-mtp helix
-    kid3 obs-studio pacman-contrib plymouth pnpm qbittorrent
+    apparmor flatpak fwupd gamescope gnome-keyring gvfs-mtp
+    helix kid3 obs-studio pacman-contrib plymouth pnpm qbittorrent
     reflector rsync satty snap-pac
 )
 declare -a appman_packages=(
