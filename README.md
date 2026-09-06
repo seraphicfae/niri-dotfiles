@@ -1,4 +1,4 @@
-# My Niri dotfiles
+# My niri dotfiles
 
 Thanks to:
 - <u>[Catppuccin](https://github.com/catppuccin)</u> for the amazing themes
