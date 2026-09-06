@@ -237,7 +237,10 @@ declare -a packages=(
     reflector rsync satty snap-pac
 )
 declare -a appman_packages=(
-    elyprismlauncher gapless helium ryujinx-canary steam vesktop
+    elyprismlauncher helium ryujinx-canary steam vesktop
+)
+declare -a flatpak_packages=(
+    moe.kopuz.kopuz
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -271,6 +274,7 @@ while true; do
         appman nolibfuse vesktop
 
         info "Installing packages and starting services..."
+        sudo flatpak install flathub "${flatpak_packages[@]}"
         sudo pacman -S "${packages[@]}"
         sudo systemctl enable "${services[@]}"
         systemctl --user add-wants niri.service "${user_services[@]}"
