@@ -236,13 +236,16 @@ declare -a packages=(
     helix kid3 obs-studio pacman-contrib plymouth pnpm
     qbittorrent reflector rsync satty snap-pac
 )
-declare -a appman_packages=(
+declare -a am_packages=(
     elyprismlauncher helium ryujinx-canary vesktop
 )
-declare -a flatpak_packages=(
+declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer org.freedesktop.Platform.GL.mesa-git/x86_64/25.08
-    org.freedesktop.Platform.GL32.mesa-git/x86_64/25.08
+    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer org.freedesktop.Platform.GL.mesa-git//25.08
+    org.freedesktop.Platform.GL32.mesa-git//25.08
+)
+declare -a flathub_beta_packages=(
+    org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -271,14 +274,15 @@ while true; do
 
         info "Downloading and running the AppMan script..."
         curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
-        am -i "${appman_packages[@]}"
+        am -i "${am_packages[@]}"
         am --icons --all
         am nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+        flatpak install flathub "${flatpak_packages[@]}"
+        flatpak install flathub-beta "${flatpak_beta_packages[@]}"
         systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
-        flatpak install "${flatpak_packages[@]}"
 
         info "Installing packages and starting services..."
         sudo pacman -S "${packages[@]}"
