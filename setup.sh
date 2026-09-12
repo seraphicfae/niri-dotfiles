@@ -270,16 +270,15 @@ while true; do
 
         info "Downloading and running the AppMan script..."
         curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
-        source ~/.bashrc
-        appman -i "${appman_packages[@]}"
-        appman --icons --all
-        appman nolibfuse vesktop
+        sudo am -i "${appman_packages[@]}"
+        sudo am --icons --all
+        sudo am nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
-        flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+        sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
         RUNTIME_BRANCH="$(flatpak info --show-runtime com.valvesoftware.Steam//stable | cut -d/ -f3)" && flatpak install flathub-beta org.freedesktop.Platform.{GL,GL32}.mesa-git//"$RUNTIME_BRANCH"
         systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
-        flatpak install "${flatpak_packages[@]}"
+        sudo flatpak install "${flatpak_packages[@]}"
 
         info "Installing packages and starting services..."
         sudo pacman -S "${packages[@]}"
