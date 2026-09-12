@@ -271,7 +271,7 @@ while true; do
         grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
         grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
-        info "Downloading and running the AppMan script..."
+        info "Downloading and running the AM script..."
         curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
         am -i "${am_packages[@]}"
         am --icons --all
@@ -317,9 +317,9 @@ while true; do
 
         info "Setting up autostart apps..."
         mkdir -p "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
+        ln -sf "/usr/share/local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/usr/share/local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
