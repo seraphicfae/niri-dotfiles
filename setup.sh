@@ -270,9 +270,9 @@ while true; do
 
         info "Downloading and running the AppMan script..."
         curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
-        sudo am -i "${appman_packages[@]}"
-        sudo am --icons --all
-        sudo am nolibfuse vesktop
+        am -i "${appman_packages[@]}"
+        am --icons --all
+        am nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
