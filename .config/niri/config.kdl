@@ -38,7 +38,7 @@ binds {
     Mod+B       { spawn "helium"; }
     Mod+E       { spawn "zeditor"; }
     Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "gapless"; }
+    Mod+M       { spawn "io.github.screwys.Rufin"; }
     Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
@@ -206,7 +206,7 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|Ryujinx"
+    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|org.gnome.Boxes"
     exclude title="Bitwarden"
 }
 
