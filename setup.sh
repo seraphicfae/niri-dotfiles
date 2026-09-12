@@ -232,12 +232,16 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor flatpak fwupd gamescope gnome-keyring gvfs-mtp
-    helix kid3 obs-studio pacman-contrib plymouth pnpm qbittorrent
-    reflector rsync satty snap-pac
+    apparmor gamemode flatpak fwupd gnome-keyring gvfs-mtp
+    helix kid3 obs-studio pacman-contrib plymouth pnpm
+    qbittorrent reflector rsync satty snap-pac
 )
 declare -a appman_packages=(
-    elyprismlauncher gapless helium ryujinx-canary steam vesktop
+    elyprismlauncher helium ryujinx-canary vesktop
+)
+declare -a flatpak_packages=(
+    com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
+    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -269,6 +273,12 @@ while true; do
         appman -i "${appman_packages[@]}"
         appman --icons --all
         appman nolibfuse vesktop
+
+        info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
+        flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+        RUNTIME_BRANCH="$(flatpak info --show-runtime com.valvesoftware.Steam//stable | cut -d/ -f3)" && flatpak install flathub-beta org.freedesktop.Platform.{GL,GL32}.mesa-git//"$RUNTIME_BRANCH"
+        systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
+        flatpak install "${flatpak_packages[@]}"
 
         info "Installing packages and starting services..."
         sudo pacman -S "${packages[@]}"
@@ -304,7 +314,7 @@ while true; do
 
         info "Setting up autostart apps..."
         mkdir -p "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/applications/steam-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
