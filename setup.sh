@@ -241,7 +241,8 @@ declare -a appman_packages=(
 )
 declare -a flatpak_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer
+    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer org.freedesktop.Platform.GL.mesa-git/x86_64/25.08
+    org.freedesktop.Platform.GL32.mesa-git/x86_64/25.08
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -276,7 +277,6 @@ while true; do
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-        RUNTIME_BRANCH="$(flatpak info --show-runtime com.valvesoftware.Steam//stable | cut -d/ -f3)" && flatpak install flathub-beta org.freedesktop.Platform.{GL,GL32}.mesa-git//"$RUNTIME_BRANCH"
         systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
         flatpak install "${flatpak_packages[@]}"
 
