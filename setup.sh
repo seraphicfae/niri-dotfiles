@@ -234,14 +234,14 @@ EOF
 declare -a packages=(
     apparmor gamemode flatpak fwupd gnome-keyring gvfs-mtp
     helix kid3 obs-studio pacman-contrib plymouth pnpm
-    qbittorrent reflector rsync satty snap-pac
+    qbittorrent reflector rustup rsync satty snap-pac
 )
 declare -a am_packages=(
     elyprismlauncher helium ryujinx-canary vesktop
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes org.gnome.gitlab.YaLTeR.VideoTrimmer
+    org.gnome.Boxes
 )
 declare -a flathub_beta_packages=(
     org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
@@ -271,11 +271,15 @@ while true; do
         grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
         grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
-        info "Downloading and running the AM script..."
-        curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
-        am -i "${am_packages[@]}"
-        am --icons --all
-        am nolibfuse vesktop
+        if command -v am &>/dev/null; then
+            info "AM is already installed."
+        else
+            info "Downloading and running the AM script..."
+            curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
+            am -i "${am_packages[@]}"
+            am --icons --all
+            am nolibfuse vesktop
+        fi
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
