@@ -230,14 +230,14 @@ window-rule {
 }
 
 window-rule {
-    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher" title="^Steam$|^PineconeMC 11.0.3$"
+    match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher" title="^Steam$|^PineconeMC"
     open-maximized true
     open-on-workspace "3"
 }
 
 window-rule {
     match app-id="steam|io.github.elyprismlauncher.ElyPrismLauncher"
-    exclude title="^Steam$|^PineconeMC 11.0.3$"
+    exclude title="^Steam$|^PineconeMC"
     open-floating true
     open-on-workspace "3"
 }
