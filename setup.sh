@@ -237,11 +237,11 @@ declare -a packages=(
     qbittorrent reflector rustup rsync satty snap-pac
 )
 declare -a am_packages=(
-    elyprismlauncher helium ryujinx-canary vesktop
+    helium ryujinx-canary vesktop
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes
+    org.gnome.Boxes https://elyprismlauncher.github.io/flatpak/elyprismlauncher.flatpakref
 )
 declare -a flathub_beta_packages=(
     org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
