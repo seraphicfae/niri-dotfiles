@@ -241,7 +241,7 @@ declare -a am_packages=(
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes https://elyprismlauncher.github.io/flatpak/elyprismlauncher.flatpakref
+    org.gnome.Boxes
 )
 declare -a flathub_beta_packages=(
     org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
@@ -285,6 +285,7 @@ while true; do
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
         flatpak install -y flathub "${flathub_packages[@]}"
         flatpak install -y flathub-beta "${flathub_beta_packages[@]}"
+        flatpak install -y https://elyprismlauncher.github.io/flatpak/elyprismlauncher.flatpakref
         systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
 
         info "Installing packages and starting services..."
