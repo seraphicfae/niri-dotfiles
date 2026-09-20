@@ -274,18 +274,17 @@ while true; do
         if command -v am &>/dev/null; then
             info "AM is already installed."
         else
-            info "Downloading and running the AM script..."
+            info "Downloading the AM script..."
             curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
-            am -i "${am_packages[@]}"
-            am --icons --all
-            am nolibfuse vesktop
         fi
+        am -i "${am_packages[@]}"
+        am --icons --all
+        am nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
         flatpak install -y flathub "${flathub_packages[@]}"
         flatpak install -y flathub-beta "${flathub_beta_packages[@]}"
-        flatpak install -y https://elyprismlauncher.github.io/flatpak/elyprismlauncher.flatpakref
         systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
 
         info "Installing packages and starting services..."
@@ -323,8 +322,8 @@ while true; do
         info "Setting up autostart apps..."
         mkdir -p "$HOME/.config/autostart"
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
-        ln -sf "/usr/share/local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "/usr/share/local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/usr/local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/usr/local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
