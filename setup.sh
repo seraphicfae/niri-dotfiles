@@ -236,8 +236,8 @@ declare -a packages=(
     helix kid3 obs-studio pacman-contrib plymouth pnpm
     qbittorrent reflector rustup rsync satty snap-pac
 )
-declare -a am_packages=(
-    helium ryujinx-canary vesktop
+declare -a appman_packages=(
+    helium ryujinx-canary vesktop elyprismlauncher
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
@@ -271,15 +271,16 @@ while true; do
         grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
         grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
-        if command -v am &>/dev/null; then
-            info "AM is already installed."
+        if command -v appman &>/dev/null; then
+            info "AppMan is already installed."
         else
-            info "Downloading the AM script..."
-            curl -s -Lo ./AM-INSTALLER https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER && chmod a+x ./AM-INSTALLER && ./AM-INSTALLER && rm ./AM-INSTALLER
+            info "Downloading the AppMan script..."
+            curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman" && chmod +x "$HOME/.local/bin/appman"
         fi
-        am -i "${am_packages[@]}"
-        am --icons --all
-        am nolibfuse vesktop
+        source "$HOME/.config/zsh/.zshrc"
+        appman -i "${appman_packages[@]}"
+        appman --icons --all
+        appman nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -322,8 +323,8 @@ while true; do
         info "Setting up autostart apps..."
         mkdir -p "$HOME/.config/autostart"
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
-        ln -sf "/usr/local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "/usr/local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
