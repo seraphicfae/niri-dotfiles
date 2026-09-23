@@ -237,11 +237,11 @@ declare -a packages=(
     qbittorrent reflector rustup rsync satty snap-pac
 )
 declare -a appman_packages=(
-    helium ryujinx-canary vesktop elyprismlauncher
+    helium ryujinx-canary elyprismlauncher
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes
+    org.gnome.Boxes dev.vencord.Vesktop
 )
 declare -a flathub_beta_packages=(
     org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
@@ -280,7 +280,6 @@ while true; do
         source "$HOME/.config/zsh/.zshrc"
         appman -i "${appman_packages[@]}"
         appman --icons --all
-        appman nolibfuse vesktop
 
         info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
         flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
@@ -324,7 +323,7 @@ while true; do
         mkdir -p "$HOME/.config/autostart"
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/var/lib/flatpak/exports/share/applications/dev.vencord.Vesktop.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
