@@ -37,7 +37,7 @@ binds {
     Mod+Shift+F { spawn "nautilus"; }
     Mod+B       { spawn "helium"; }
     Mod+E       { spawn "zeditor"; }
-    Mod+V       { spawn "dev.vencord.Vesktop"; }
+    Mod+V       { spawn "vesktop"; }
     Mod+M       { spawn "io.github.screwys.Rufin"; }
     Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
