@@ -241,10 +241,6 @@ declare -a appman_packages=(
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
-    org.gnome.Boxes
-)
-declare -a flathub_beta_packages=(
-    org.freedesktop.Platform.GL.mesa-git//25.08 org.freedesktop.Platform.GL32.mesa-git//25.08
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -271,6 +267,7 @@ while true; do
         grep -q '^Color' /etc/pacman.conf || sudo sed -i 's/^#Color/Color/' /etc/pacman.conf
         grep -q '^ILoveCandy' /etc/pacman.conf || sudo sed -i '/^Color/a ILoveCandy' /etc/pacman.conf
 
+        info "Setting up AppMan and its packages"
         if command -v appman &>/dev/null; then
             info "AppMan is already installed."
         else
@@ -282,14 +279,9 @@ while true; do
         appman --icons --all
         appman nolibfuse vesktop
 
-        info "Installing flatpaks, setting mesa-git repo, and configuring envs..."
-        flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-        flatpak install -y flathub "${flathub_packages[@]}"
-        flatpak install -y flathub-beta "${flathub_beta_packages[@]}"
-        systemctl --user set-environment FLATPAK_GL_DRIVERS=mesa-git
-
-        info "Installing packages and starting services..."
+        info "Installing packages/flatpaks and starting services..."
         sudo pacman -S "${packages[@]}"
+        flatpak install -y flathub "${flathub_packages[@]}"
         sudo systemctl enable "${services[@]}"
         systemctl --user add-wants niri.service "${user_services[@]}"
 
