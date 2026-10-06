@@ -234,7 +234,7 @@ EOF
 declare -a packages=(
     apparmor gamemode flatpak fwupd gnome-keyring gvfs-mtp
     helix kid3 obs-studio pacman-contrib plymouth pnpm
-    qbittorrent reflector rustup rsync snap-pac
+    power-profiles-daemon qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
     helium ryujinx-canary vesktop elyprismlauncher
@@ -245,6 +245,7 @@ declare -a flathub_packages=(
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
     snapper-cleanup.timer snapper-timeline.timer systemd-oomd
+    power-profiles-daemon
 )
 declare -a user_services=(
     gnome-keyring-daemon.service plasma-polkit-agent.service
