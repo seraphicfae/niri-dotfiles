@@ -61,6 +61,9 @@ enable_ddcutil = true
 [dock]
 enabled = false
 
+[hooks]
+wallpaper_changed = "nautilus -q"
+
 [lockscreen]
 transition_duration = 500
 
@@ -101,6 +104,9 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+[osd.kinds]
+media = false
+
 [shell]
 font_family = "Inter"
 launch_apps_as_systemd_services = true
@@ -123,13 +129,13 @@ directory = "~/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
 
     [wallpaper.last]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
 
 [widget.workspaces]
 active_pill_size = 2.5
