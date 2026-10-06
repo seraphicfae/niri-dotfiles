@@ -55,6 +55,9 @@ widget_spacing = 18
     opacity = 1.0
     padding = 6.0
 
+[brightness]
+enable_ddcutil = true
+
 [dock]
 enabled = false
 
@@ -111,7 +114,7 @@ screen_time_enabled = true
 source = "wallpaper"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "kitty", "starship" ]
+    builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
 
 [wallpaper]
 directory = "~/Pictures/wallpapers"
@@ -120,14 +123,14 @@ directory = "~/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_14.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
 
     [wallpaper.last]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_14.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_14.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_04.jpg"
 
 [widget.workspaces]
 active_pill_size = 2.5
-inactive_pill_size = 1.5
+scale = 1.25
