@@ -28,18 +28,20 @@ output "DP-1" {
 
 // ────────────────[ Key Bindings ]──────────────── \\
 binds {
-    // Applications
-    Mod+W       { spawn "wallpaper-picker"; }
-    Mod+Shift+W { spawn "cycle-wallpaper"; }
-    Mod+D       { spawn "launcher"; }
-    Mod+Escape  { spawn "powermenu"; }
-    Mod+Return  { spawn "kitty"; }
-    Mod+Shift+F { spawn "nautilus"; }
-    Mod+B       { spawn "helium"; }
-    Mod+E       { spawn "zeditor"; }
-    Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "io.github.screwys.Rufin"; }
-    Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
+    // General
+    Mod+W           { spawn-sh "noctalia msg panel-open wallpaper"; }
+    Mod+Shift+W     { spawn-sh "noctalia msg wallpaper-random"; }
+    Mod+D           { spawn-sh "noctalia msg panel-open launcher"; }
+    Mod+Escape      { spawn-sh "noctalia msg panel-open session "; }
+    Print           { spawn-sh "noctalia msg screenshot-fullscreen"; }
+    Mod+Print       { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Return      { spawn "kitty"; }
+    Mod+Shift+F     { spawn "nautilus"; }
+    Mod+B           { spawn "helium"; }
+    Mod+E           { spawn "zeditor"; }
+    Mod+V           { spawn "vesktop"; }
+    Mod+M           { spawn "io.github.screwys.Rufin"; }
+    Mod+Slash       { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }
@@ -108,11 +110,6 @@ binds {
     Mod+Shift+9               { move-column-to-workspace 9; }
     Mod+Shift+0               { move-column-to-workspace 10; }
     Mod+A                     { toggle-overview; }
-
-    // Screenshots
-    Print           { screenshot-screen; }
-    Mod+Print       { screenshot; }
-    Mod+Shift+Print { screenshot-window; }
 }
 
 // ────────────────[ Layout ]──────────────── \\
@@ -206,13 +203,12 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|satty|org.gnome.Boxes"
+    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv"
     exclude title="Bitwarden"
 }
 
 window-rule {
-    match app-id="blueman-manager|satty|imv"
-    match title="Volume Control|Picture in picture|Select Wallpaper"
+    match app-id="imv"
     open-floating true
     default-column-width { fixed 1000; }
     default-window-height { fixed 600; }
@@ -249,26 +245,8 @@ window-rule {
 
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
-    match namespace="awww-daemon"
+    match namespace="noctalia"
     place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="waybar"
-    background-effect {
-        xray false
-        blur true
-    }
-}
-
-layer-rule {
-    match namespace="rofi"
-    geometry-corner-radius 15
-    opacity 0.9
-    background-effect {
-        xray false
-        blur true
-    }
 }
 
 // ────────────────[ Animations ]──────────────── \\

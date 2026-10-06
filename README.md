@@ -32,12 +32,12 @@ cd niri-dotfiles
 
 ```bash
 sudo pacman -S \
-adw-gtk-theme awww blueman breeze fastfetch ffmpegthumbnailer hyprlock \
-imagemagick imv inter-font kitty libnotify ly mako matugen mpv \
-nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
-pavucontrol qt6-wayland rofi starship ttf-jetbrains-mono-nerd waybar \
-wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
-xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
+adw-gtk-theme breeze fastfetch ffmpegthumbnailer imagemagick \
+imv inter-font kitty libnotify ly mpv nautilus niri noto-fonts-cjk \
+noto-fonts-emoji papirus-icon-theme qt6-wayland starship \
+ttf-jetbrains-mono-nerd wl-clipboard xdg-desktop-portal-gnome \
+xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions \
+zsh-syntax-highlighting
 ```
 
 #### Steps
@@ -46,9 +46,9 @@ cd niri-dotfiles
 
 cp -r .config/* "$HOME/.config/"
 
-cp -r .local/bin/* "$HOME/.local/bin/"
-
 cp -r .local/share/* "$HOME/.local/share/"
+
+cp -r .local/state/* "$HOME/.local/state/"
 
 cp -r Pictures/ "$HOME/Pictures"
 
@@ -65,9 +65,7 @@ ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/
 #### Finalizing
 ```bash
 sudo systemctl enable ly@tty2
-systemctl --user add-wants niri.service mako
-systemctl --user add-wants niri.service waybar
-systemctl --user add-wants niri.service awww-daemon
+systemctl --user add-wants niri.service noctalia
 
 chsh -s /usr/bin/zsh
 
@@ -79,15 +77,12 @@ reboot
 ---
 
 ## FAQ / Common Issues
-**My temperature module doesn’t appear in waybar?** \
-Look in `config.jsonc` and set it to your correct thermal zone.
-
 **My fonts/icons look weird/don't show** \
 Ensure you have: `inter-font ttf-jetbrains-mono-nerd`
 These are required fonts you will need.
 
 **My screen is grey/there's no wallpaper!** \
-`Super + W` and choose which wallpaper you want.
+`Super + W` and choose which wallpaper you want!
 
 **My Display Manager is black/can't log in** \
 This is likely due to multiple display managers active (Sddm, Greeter, etc). \

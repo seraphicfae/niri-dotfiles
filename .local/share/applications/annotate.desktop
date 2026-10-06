@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Annotate
+Exec=/usr/bin/noctalia msg annotate %F
+Terminal=false
+Icon=x-content-image-picturecd
+Type=Application
+StartupWMClass=annotate
+Comment=Vesktop is a custom Discord desktop app

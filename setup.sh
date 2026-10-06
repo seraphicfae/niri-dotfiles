@@ -29,12 +29,12 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    adw-gtk-theme awww blueman breeze fastfetch ffmpegthumbnailer hyprlock
-    imagemagick imv inter-font kitty libnotify ly mako matugen mpv
-    nautilus niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
-    pavucontrol qt6-wayland rofi starship ttf-jetbrains-mono-nerd waybar
-    wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk
-    xwayland-satellite zed zenity zsh-autosuggestions zsh-syntax-highlighting
+    adw-gtk-theme breeze fastfetch ffmpegthumbnailer imagemagick
+    imv inter-font kitty libnotify ly mpv nautilus niri noto-fonts-cjk
+    noto-fonts-emoji papirus-icon-theme qt6-wayland starship
+    ttf-jetbrains-mono-nerd wl-clipboard xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
@@ -156,7 +156,7 @@ declare -a services=(
     ly@tty2
 )
 declare -a user_services=(
-    mako waybar awww-daemon
+    noctalia
 )
 
 while true; do
@@ -234,7 +234,7 @@ EOF
 declare -a packages=(
     apparmor gamemode flatpak fwupd gnome-keyring gvfs-mtp
     helix kid3 obs-studio pacman-contrib plymouth pnpm
-    qbittorrent reflector rustup rsync satty snap-pac
+    qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
     helium ryujinx-canary vesktop elyprismlauncher
@@ -306,8 +306,8 @@ while true; do
         sudo mkdir -p /etc/systemd/resolved.conf.d
         printf '%s\n' \
             '[Resolve]' \
-            'DNS=1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com' \
-            'FallbackDNS=9.9.9.9#dns.quad9.net' \
+            'DNS=1.1.1.1' \
+            'FallbackDNS=9.9.9.9' \
             'DNSSEC=yes' \
             'DNSOverTLS=yes' |
             sudo tee /etc/systemd/resolved.conf.d/dns.conf >/dev/null
