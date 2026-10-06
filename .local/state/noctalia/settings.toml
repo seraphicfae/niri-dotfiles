@@ -2,7 +2,7 @@ config_version = 14
 
 [bar.default]
 center = [ "group:g3" ]
-end = [ "tray", "network", "group:g1", "group:g2" ]
+end = [ "tray", "group:g2", "group:g1" ]
 margin_ends = 0
 radius_top_left = 0
 radius_top_right = 0
@@ -10,28 +10,6 @@ scale = 1.1000000089406967
 start = [ "workspaces", "group:g4", "notifications", "clipboard" ]
 thickness = 35
 widget_spacing = 18
-
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "brightness", "battery" ]
-    opacity = 1.0
-    padding = 6.0
-
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g2"
-    members = [ "bluetooth", "volume", "clock" ]
-    opacity = 1.0
-    padding = 6.0
 
     [[bar.default.capsule_group]]
     accordion = false
@@ -52,6 +30,28 @@ widget_spacing = 18
     fill = "surface_variant"
     id = "g4"
     members = [ "ram", "cpu", "temp" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "bluetooth", "network", "clock" ]
+    opacity = 1.0
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    border_width = 1.0
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "brightness", "battery", "volume" ]
     opacity = 1.0
     padding = 6.0
 
@@ -108,6 +108,7 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
 media = false
 
 [shell]
+avatar_path = "/home/meimei/Pictures/pfps/2b8daae114b9548270e25b1c15ac470b.webp"
 font_family = "Inter"
 launch_apps_as_systemd_services = true
 screen_time_enabled = true
@@ -121,6 +122,7 @@ source = "wallpaper"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
+    enable_community_templates = false
 
 [wallpaper]
 directory = "~/Pictures/wallpapers"
@@ -129,13 +131,13 @@ directory = "~/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
 
     [wallpaper.last]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_02.jpg"
+    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
 
 [widget.workspaces]
 active_pill_size = 2.5
