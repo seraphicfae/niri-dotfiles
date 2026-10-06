@@ -58,19 +58,26 @@ widget_spacing = 18
 [brightness]
 enable_ddcutil = true
 
+[calendar.reminders]
+enabled = false
+use_event_reminders = false
+
 [dock]
 enabled = false
 
 [hooks]
 wallpaper_changed = "nautilus -q"
 
+[location]
+auto_locate = true
+
 [lockscreen]
 transition_duration = 500
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1" ]
+widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -81,7 +88,7 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
     box_height = 196.0
     box_width = 810.0
     cx = 960.0
-    cy = 898.0
+    cy = 906.0
     output = "DP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -104,6 +111,20 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 540.0
+    output = "DP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+
 [osd.kinds]
 media = false
 
@@ -112,13 +133,18 @@ avatar_path = "/home/meimei/Pictures/pfps/2b8daae114b9548270e25b1c15ac470b.webp"
 font_family = "Inter"
 launch_apps_as_systemd_services = true
 screen_time_enabled = true
+show_location = false
 
     [shell.screenshot]
     directory = "~/Pictures/screenshots"
     show_cursor = true
 
 [theme]
+builtin = "Noctalia"
+community_palette = "ADW"
+mode = "dark"
 source = "wallpaper"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
@@ -142,3 +168,4 @@ directory = "~/Pictures/wallpapers"
 [widget.workspaces]
 active_pill_size = 2.5
 scale = 1.25
+show_labels = false
