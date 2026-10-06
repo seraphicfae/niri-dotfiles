@@ -77,7 +77,7 @@ transition_duration = 500
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [ "lockscreen-login-box@DP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -88,7 +88,7 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-widget-000000000000000
     box_height = 196.0
     box_width = 810.0
     cx = 960.0
-    cy = 906.0
+    cy = 910.0
     output = "DP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -110,20 +110,6 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-widget-000000000000000
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 0.0
-    box_width = 0.0
-    cx = 960.0
-    cy = 540.0
-    output = "DP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "fancy_audio_visualizer"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = false
 
 [osd.kinds]
 media = false
