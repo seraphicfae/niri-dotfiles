@@ -32,12 +32,12 @@ cd niri-dotfiles
 
 ```bash
 sudo pacman -S \
-adw-gtk-theme breeze fastfetch ffmpegthumbnailer imagemagick \
-imv inter-font kitty libnotify ly mpv nautilus niri noto-fonts-cjk \
-noto-fonts-emoji papirus-icon-theme qt6-wayland starship \
-ttf-jetbrains-mono-nerd wl-clipboard xdg-desktop-portal-gnome \
-xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions \
-zsh-syntax-highlighting
+adw-gtk-theme breeze ddcutil fastfetch ffmpegthumbnailer \
+imagemagick imv inter-font kitty libnotify ly mpv niri \
+noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
+qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard \
+xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite \
+zed zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 #### Steps
