@@ -6,64 +6,57 @@ end = [ "tray", "group:g2", "group:g1" ]
 margin_ends = 0
 radius_top_left = 0
 radius_top_right = 0
-scale = 1.1000000089406967
+scale = 1.1
 start = [ "workspaces", "group:g4", "notifications", "clipboard" ]
 thickness = 35
 widget_spacing = 18
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g3"
-    members = [ "media", "audio_visualizer" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+border_width = 1
+enabled = true
+fill = "surface_variant"
+id = "g3"
+members = [ "media", "audio_visualizer" ]
+opacity = 1
+padding = 6
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g4"
-    members = [ "ram", "cpu", "temp" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+border_width = 1
+enabled = true
+fill = "surface_variant"
+id = "g4"
+members = [ "ram", "cpu", "temp" ]
+opacity = 1
+padding = 6
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "bluetooth", "network", "clock" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+border_width = 1
+enabled = true
+fill = "surface_variant"
+id = "g1"
+members = [ "bluetooth", "network", "clock" ]
+opacity = 1
+padding = 6
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    border_width = 1.0
-    enabled = true
-    fill = "surface_variant"
-    id = "g2"
-    members = [ "brightness", "battery", "volume" ]
-    opacity = 1.0
-    padding = 6.0
+[[bar.default.capsule_group]]
+accordion = false
+accordion_direction = "end"
+border_width = 1
+enabled = true
+fill = "surface_variant"
+id = "g2"
+members = [ "brightness", "battery", "volume" ]
+opacity = 1
+padding = 6
 
 [brightness]
 enable_ddcutil = true
-
-[calendar.reminders]
-enabled = false
-use_event_reminders = false
-
-[dock]
-enabled = false
 
 [hooks]
 wallpaper_changed = "nautilus -q"
@@ -73,43 +66,6 @@ auto_locate = true
 
 [lockscreen]
 transition_duration = 500
-
-[lockscreen_widgets]
-enabled = true
-schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1" ]
-
-    [lockscreen_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
-
-    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 960.0
-    cy = 910.0
-    output = "DP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
 
 [osd.kinds]
 media = false
@@ -121,9 +77,9 @@ launch_apps_as_systemd_services = true
 screen_time_enabled = true
 show_location = false
 
-    [shell.screenshot]
-    directory = "~/Pictures/screenshots"
-    show_cursor = true
+[shell.screenshot]
+directory = "~/Pictures/screenshots"
+show_cursor = true
 
 [theme]
 builtin = "Noctalia"
@@ -132,24 +88,24 @@ mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
-    [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
-    enable_community_templates = false
+[theme.templates]
+builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
+enable_community_templates = false
 
 [wallpaper]
 directory = "~/Pictures/wallpapers"
 
-    [wallpaper.automation]
-    enabled = true
+[wallpaper.automation]
+enabled = true
 
-    [wallpaper.default]
-    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
+[wallpaper.default]
+path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
-    [wallpaper.last]
-    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
+[wallpaper.last]
+path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
-    [wallpaper.monitors.DP-1]
-    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
+[wallpaper.monitors.DP-1]
+path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
 [widget.workspaces]
 active_pill_size = 2.5
