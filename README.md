@@ -77,9 +77,8 @@ reboot
 ---
 
 ## FAQ / Common Issues
-**My fonts/icons look weird/don't show** \
-Ensure you have: `inter-font ttf-jetbrains-mono-nerd`
-These are required fonts you will need.
+**The screen recording keybind isn't working!** \
+Install wl-screenrec via cargo or the AUR.
 
 **My screen is grey/there's no wallpaper!** \
 `Super + W` and choose which wallpaper you want!
