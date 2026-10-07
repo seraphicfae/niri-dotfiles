@@ -115,7 +115,7 @@ widget_order = [ "lockscreen-login-box@DP-1" ]
 media = false
 
 [shell]
-avatar_path = "/home/meimei/Pictures/pfps/2b8daae114b9548270e25b1c15ac470b.webp"
+avatar_path = "~/Pictures/pfps/2b8daae114b9548270e25b1c15ac470b.webp"
 font_family = "Inter"
 launch_apps_as_systemd_services = true
 screen_time_enabled = true
@@ -143,13 +143,13 @@ directory = "~/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
+    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
     [wallpaper.last]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
+    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/meimei/Pictures/wallpapers/wallpaper_01.jpg"
+    path = "~/Pictures/wallpapers/wallpaper_01.jpg"
 
 [widget.workspaces]
 active_pill_size = 2.5
