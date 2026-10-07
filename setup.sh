@@ -233,8 +233,8 @@ EOF
 
 declare -a packages=(
     apparmor gamemode flatpak fwupd gnome-keyring gvfs-mtp
-    helix kid3 obs-studio pacman-contrib plymouth pnpm
-    power-profiles-daemon qbittorrent reflector rustup rsync snap-pac
+    helix kid3 pacman-contrib plymouth pnpm power-profiles-daemon
+    qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
     helium ryujinx-canary vesktop elyprismlauncher

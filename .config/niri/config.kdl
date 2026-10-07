@@ -35,6 +35,7 @@ binds {
     Mod+Escape      { spawn-sh "noctalia msg panel-open session "; }
     Print           { spawn-sh "noctalia msg screenshot-fullscreen"; }
     Mod+Print       { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Ctrl+R      { spawn "record"; }
     Mod+Return      { spawn "kitty"; }
     Mod+Shift+F     { spawn "nautilus"; }
     Mod+B           { spawn "helium"; }

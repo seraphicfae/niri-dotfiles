@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# extremely simple screen recorder
+
+file="$HOME/Videos/recording_$(date +%Y-%m-%d_%H-%M-%S).mp4"
+audio_device="$(pactl get-default-sink).monitor"
+
+if pgrep -x wl-screenrec > /dev/null; then
+    pkill -INT -x wl-screenrec
+    exit 0
+fi
+
+notify-send  -a "System" "Recording started"
+wl-screenrec --filename $file \
+             --audio \
+             --audio-device $audio_device \
+             --max-fps 60 \
+             --codec hevc \
+             --low-power=off \
+
+if [ $? -ne 1 ]; then
+    notify-send -a "System" "Recording saved"
+fi
+
+if [ $? -ne 0 ]; then
+    notify-send -a "System" "Screen Recording Failed"
+fi
