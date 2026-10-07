@@ -4,7 +4,7 @@
 
 ## Showcase
 
-[![video](https://seraphicfae.dev/_astro/niri-dotfiles.CYARmVlj_vi0pT.webp)](https://seraphicfae.dev/_astro/niri-showcase.8rsYjD3O.webm)
+https://github.com/user-attachments/assets/9dc9ab6c-8d8a-4e98-a2fc-0bb286a86cf4
 
 ---
 
