@@ -1,13 +1,9 @@
-# My niri dotfiles
-
-Thanks to:
-- <u>[Catppuccin](https://github.com/catppuccin)</u> for the amazing themes
-- <u>[Adi1090x](https://github.com/adi1090x/rofi/)</u> for the base rofi config
+# My niri dotfiles with Noctalia shell
 
 ---
 
 ## Showcase
-https://github.com/user-attachments/assets/ff2ca8f8-5f03-4c02-9119-728a27b24416
+![video](https://seraphicfae.dev/_astro/niri-showcase.8rsYjD3O.webm)
 
 ---
 
