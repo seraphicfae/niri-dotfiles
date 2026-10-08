@@ -237,10 +237,10 @@ declare -a packages=(
     qbittorrent reflector rustup rsync seahorse snap-pac
 )
 declare -a appman_packages=(
-    helium ryujinx-canary vesktop elyprismlauncher
+    helium ryujinx-canary vesktop elyprismlauncher gapless
 )
 declare -a flathub_packages=(
-    com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
+    com.github.tchx84.Flatseal com.valvesoftware.Steam
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
