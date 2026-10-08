@@ -105,11 +105,7 @@ directory = "~/Pictures/screenshots"
 show_cursor = true
 
 [theme]
-builtin = "Noctalia"
-community_palette = "ADW"
-mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "m3-content"
 
 [theme.templates]
 builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
