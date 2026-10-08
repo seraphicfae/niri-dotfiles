@@ -1,5 +1,10 @@
 config_version = 14
 
+[backdrop]
+blur_intensity = 0.40
+enabled = true
+tint_intensity = 0.0
+
 [bar.default]
 center = [ "group:g3" ]
 end = [ "tray", "group:g2", "group:g1" ]

@@ -204,7 +204,7 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv"
+    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|org.gnome.Boxes"
     exclude title="Bitwarden"
 }
 
@@ -246,7 +246,7 @@ window-rule {
 
 // ────────────────[ Layer Rules ]──────────────── \\
 layer-rule {
-    match namespace="noctalia"
+    match namespace="noctalia-backdrop"
     place-within-backdrop true
 }
 
