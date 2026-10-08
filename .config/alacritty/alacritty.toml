@@ -1,0 +1,17 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/noctalia.toml"
+]
+
+[window]
+padding = { x = 10, y = 0 }
+
+[font]
+size = 11
+normal = { family = "JetbrainsMono Nerd Font", style = "normal" }
+bold = { family = "JetbrainsMono Nerd Font", style = "bold" }
+italic = { family = "JetbrainsMono Nerd Font", style = "italic" }
+bold_italic = { family = "JetbrainsMono Nerd Font", style = "bold_italic" }
+
+[cursor]
+style = { shape = "Underline", blinking = "Off" }

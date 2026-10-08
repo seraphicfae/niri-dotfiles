@@ -29,20 +29,20 @@ output "DP-1" {
 // ────────────────[ Key Bindings ]──────────────── \\
 binds {
     // General
-    Mod+W           { spawn-sh "noctalia msg panel-open wallpaper"; }
-    Mod+Shift+W     { spawn-sh "noctalia msg wallpaper-random"; }
-    Mod+D           { spawn-sh "noctalia msg panel-open launcher"; }
-    Mod+Escape      { spawn-sh "noctalia msg panel-open session "; }
-    Print           { spawn-sh "noctalia msg screenshot-fullscreen"; }
-    Mod+Print       { spawn-sh "noctalia msg screenshot-region"; }
-    Mod+Ctrl+R      { spawn "record"; }
-    Mod+Return      { spawn "kitty"; }
-    Mod+Shift+F     { spawn "nautilus"; }
-    Mod+B           { spawn "helium"; }
-    Mod+E           { spawn "zeditor"; }
-    Mod+V           { spawn "vesktop"; }
-    Mod+M           { spawn "io.github.screwys.Rufin"; }
-    Mod+Slash       { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
+    Mod+W       { spawn-sh "noctalia msg panel-open wallpaper"; }
+    Mod+Shift+W { spawn-sh "noctalia msg wallpaper-random"; }
+    Mod+D       { spawn-sh "noctalia msg panel-open launcher"; }
+    Mod+Escape  { spawn-sh "noctalia msg panel-open session "; }
+    Print       { spawn-sh "noctalia msg screenshot-fullscreen"; }
+    Mod+Print   { spawn-sh "noctalia msg screenshot-region"; }
+    Mod+Ctrl+R  { spawn "record"; }
+    Mod+Return  { spawn "alacritty"; }
+    Mod+Shift+F { spawn "nautilus"; }
+    Mod+B       { spawn "helium"; }
+    Mod+E       { spawn "zeditor"; }
+    Mod+V       { spawn "vesktop"; }
+    Mod+M       { spawn "gapless"; }
+    Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl set +5%"; }

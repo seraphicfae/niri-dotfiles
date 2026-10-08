@@ -108,7 +108,7 @@ show_cursor = true
 source = "wallpaper"
 
 [theme.templates]
-builtin_ids = [ "gtk3", "gtk4", "helix", "kitty", "starship" ]
+builtin_ids = [ "alacritty", "gtk3", "gtk4", "helix", "starship" ]
 enable_community_templates = false
 
 [wallpaper]
