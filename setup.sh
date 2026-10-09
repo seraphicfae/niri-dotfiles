@@ -233,8 +233,8 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor gamemode flatpak fwupd gvfs-mtp helix kid3
-    oo7 pacman-contrib plymouth pnpm power-profiles-daemon
+    apparmor gamemode gnome-keyring flatpak fwupd gvfs-mtp
+    helix kid3 pacman-contrib plymouth pnpm power-profiles-daemon
     qbittorrent reflector rustup rsync seahorse snap-pac
 )
 declare -a appman_packages=(
@@ -249,7 +249,7 @@ declare -a services=(
     power-profiles-daemon
 )
 declare -a user_services=(
-    oo7-daemon.service plasma-polkit-agent.service
+    gnome-keyring-daemon.service plasma-polkit-agent.service
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}" 2>/dev/null)
