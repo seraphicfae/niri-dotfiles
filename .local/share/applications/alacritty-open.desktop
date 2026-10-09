@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Alacritty directory launcher
+GenericName=Terminal Emulator
+Comment=Open directories with Alacritty
+TryExec=alacritty
+Exec=alacritty --working-directory %U
+Icon=Alacritty
+Terminal=false
+Categories=System;TerminalEmulator;
