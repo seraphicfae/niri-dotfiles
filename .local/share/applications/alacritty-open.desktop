@@ -1,13 +1,12 @@
 [Desktop Entry]
-Version=1.0
 Type=Application
+Version=1.0
 Name=Alacritty
 GenericName=Terminal Emulator
-Comment=Open directories in Alacritty
-TryExec=alacritty
-Exec=alacritty --working-directory %U
-Icon=Alacritty
-Terminal=false
-Categories=System;TerminalEmulator;
-MimeType=inode/directory;
 NoDisplay=true
+Comment=Open directories in Alacritty
+Icon=Alacritty
+Exec=alacritty --working-directory %U
+Terminal=false
+MimeType=inode/directory;
+Categories=System;TerminalEmulator;
