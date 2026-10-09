@@ -14,7 +14,7 @@ ask() { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 log_file="${dotfiles_directory}/$(date +%Y%m%d%H%M%S).log"
-PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 exec > >(tee -a "$log_file") 2>&1
 
 # ────────────────[ Package Installation ]────────────────
