@@ -49,17 +49,15 @@ open for over a year. I encourge the reader of this to make the maintainer more 
 
 ```bash
 sudo pacman -S \
-alacritty adw-gtk-theme breeze ddcutil fastfetch ffmpegthumbnailer \
-imagemagick imv inter-font libnotify ly mpv niri noctalia \
-noto-fonts-cjk noto-fonts-emoji papirus-icon-theme qt6-wayland \
-starship ttf-jetbrains-mono-nerd wl-clipboard xdg-desktop-portal-gnome \
-xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions \
-zsh-syntax-highlighting
+alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch \
+ffmpegthumbnailer imagemagick imv inter-font libnotify ly mpv \
+niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
+qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard \
+xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite \
+zed zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 ```bash
-sudo pacman -S git base-devel
-
 git clone https://aur.archlinux.org/qt6ct-kde
 cd qt6ct-kde
 makepkg -si

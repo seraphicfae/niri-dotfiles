@@ -30,12 +30,12 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    alacritty adw-gtk-theme breeze ddcutil fastfetch ffmpegthumbnailer
-    imagemagick imv inter-font libnotify ly mpv niri noctalia
-    noto-fonts-cjk noto-fonts-emoji papirus-icon-theme qt6-wayland
-    starship ttf-jetbrains-mono-nerd wl-clipboard xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions
-    zsh-syntax-highlighting
+    alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch
+    ffmpegthumbnailer imagemagick imv inter-font libnotify ly mpv
+    niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
+    qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite
+    zed zsh-autosuggestions zsh-syntax-highlighting
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
