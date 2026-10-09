@@ -275,7 +275,7 @@ while true; do
             info "Downloading the AppMan script..."
             curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman" && chmod +x "$HOME/.local/bin/appman"
         fi
-        mkdir "$HOME/.config/appman"
+        mkdir -p "$HOME/.config/appman"
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
         "$HOME/.local/bin/appman" -i "${appman_packages[@]}"
         "$HOME/.local/bin/appman" --icons --all
