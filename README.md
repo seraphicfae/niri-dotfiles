@@ -74,6 +74,11 @@ reboot
 ---
 
 ## FAQ / Common Issues
+
+**Note for Cachyos** \
+Due to CachyOS using a mix of custom repos for packages, \
+it's likely to not work well with the script. Use at your own risk. \
+
 **The screen recording keybind isn't working!** \
 Install wl-screenrec via cargo or the AUR.
 
