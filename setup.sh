@@ -316,9 +316,11 @@ while true; do
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
-        info "Applying GTK4 File Chooser settings..."
+        info "Applying GTK4 File Chooser settings and creating template file..."
         gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
         gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
+        mkdir -p "$HOME/Templates"
+        touch "$HOME/Templates/new"
         okay "Done!"
         break
         ;;
