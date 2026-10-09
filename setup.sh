@@ -165,35 +165,14 @@ while true; do
     echo
     case "${input:-y}" in
     [Yy])
+        info "Starting to enable ${services[@]}"
         for service in "${services[@]}"; do
-            if ! systemctl cat "${service}.service" &>/dev/null; then
-                warn "Unit file for ${service} not found. Is it installed?"
-                continue
-            fi
-            if systemctl is-enabled --quiet "${service}.service" 2>/dev/null; then
-                info "${service} is already enabled. Skipping..."
-                continue
-            fi
-            info "Enabling system service: ${service}..."
-            sudo systemctl enable "${service}.service" &>/dev/null &&
-                okay "${service} enabled." ||
-                warn "Failed to enable ${service}."
+            sudo systemctl enable "${service}.service" && okay "${service} enabled."
         done
 
-        for service in "${user_services[@]}"; do
-            if ! systemctl --user cat "${service}.service" &>/dev/null; then
-                warn "Unit file for ${service} not found. Is it installed?"
-                continue
-            fi
-            if systemctl --user show --property=Wants --value niri.service 2>/dev/null |
-                grep -q "${service}"; then
-                info "${service} is already linked to niri.service. Skipping..."
-                continue
-            fi
-            info "Linking ${service} to niri.service..."
-            systemctl --user add-wants niri.service "${service}.service" &>/dev/null &&
-                okay "${service} linked." ||
-                warn "Failed to link ${service}."
+        info "Linking ${user_services[@]} to niri.service "
+        for user_service in "${user_services[@]}"; do
+            systemctl --user add-wants niri.service "${user_service}.service" && okay "${user_service} linked."
         done
 
         if command -v zsh &>/dev/null; then
