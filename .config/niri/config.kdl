@@ -183,6 +183,8 @@ workspace "1"
 workspace "2"
 workspace "3"
 
+include "noctalia.kdl"
+
 // ────────────────[ Window Rules ]──────────────── \\
 window-rule {
     geometry-corner-radius 10
@@ -305,8 +307,6 @@ recent-windows {
     open-delay-ms 0
 
     highlight {
-        active-color "#ffc0cb"
-        urgent-color "#ff9999ff"
         padding 10
         corner-radius 0
     }
