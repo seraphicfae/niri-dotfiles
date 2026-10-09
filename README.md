@@ -23,6 +23,24 @@ cd niri-dotfiles
 
 ---
 
+## Goals and scope of my dotfiles
+
+- Avoid writing to root and opt for local/user changes (besides packages).
+- Intentionally stay minimal and let the user customize their choices.
+- Follow XDG Base directory specification, and use systemd whenever possible.
+- Sensible configs for apps, niri, and related tooling (scripts).
+- Avoid the AUR whenever possible, and as much as possible.
+
+Even though these are my dotfiles, I try to keep out changes that would only 
+make sense on my machine, and may break configs for others. I created the SKIP ME
+section in setup.sh for this very reason. I do not want my dotfiles to be intrusive
+on user's home directory. While you can install these on a prebuilt system, if you blindly 
+paste commands, you could break your system. This is a problem with every dotfile,
+but I try to minimize this issue when possible. I also avoid installing paru/yay because most users
+don't read PKGBUILDs and blindly run untrusted scripts on their system. Qt6ct-kde is the
+exception to this. I want Kcolorscheme with Qt6, but the [pull request in Qt6ct](https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9) has remained
+open for over a year. I encourge the reader of this to make the maintainer more aware of this feature.
+
 ## Manual Install: (Advanced users)
 
 ### Dependencies
