@@ -1,8 +1,11 @@
 [Desktop Entry]
-Name=Annotate
-Exec=/usr/bin/noctalia msg annotate %F
-Terminal=false
-Icon=x-content-image-picturecd
 Type=Application
-StartupWMClass=annotate
-Comment=Noctlia's built in annotation tool
+Version=1.0
+Name=Annotate
+Icon=noctalia
+Exec=noctalia msg annotate %F
+Comment=Draw on the screen over running apps, or annotate an image file
+Terminal=false
+MimeType=image/x-farbfeld;image/tiff;image/tiff-fx;image/png;image/x-png;image/jpeg;image/jpg;image/pjpeg;image/svg+xml;image/gif;image/bmp;image/x-bmp;image/heif;image/avif;image/jxl;image/webp;image/qoi
+Categories=Utility;Graphics;
+Keywords=snapshot;annotation;editing;
