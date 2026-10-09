@@ -55,6 +55,14 @@ xdg-desktop-portal-gtk xwayland-satellite zed zsh-autosuggestions \
 zsh-syntax-highlighting
 ```
 
+```bash
+sudo pacman -S git base-devel
+
+git clone https://aur.archlinux.org/qt6ct-kde
+cd qt6ct-kde
+makepkg -si
+```
+
 #### Steps
 ```bash
 cd niri-dotfiles
