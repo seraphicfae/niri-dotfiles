@@ -10,3 +10,4 @@ Icon=Alacritty
 Terminal=false
 Categories=System;TerminalEmulator;
 MimeType=inode/directory;
+NoDisplay=true
