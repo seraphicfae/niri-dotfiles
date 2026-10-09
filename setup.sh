@@ -278,9 +278,9 @@ while true; do
         fi
         mkdir -p "$HOME/.config/appman"
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
-        "$HOME/.local/bin/appman" -i "${appman_packages[@]}"
-        "$HOME/.local/bin/appman" --icons --all
-        "$HOME/.local/bin/appman" nolibfuse vesktop
+        appman -i "${appman_packages[@]}"
+        appman --icons --all
+        appman nolibfuse vesktop
 
         info "Installing packages/flatpaks and starting services..."
         sudo pacman -S "${packages[@]}"
