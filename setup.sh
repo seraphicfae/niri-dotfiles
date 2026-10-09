@@ -14,6 +14,7 @@ ask() { printf "\e[1;35m[  ??  ] %s \e[0m " "$@"; }
 dotfiles_directory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 log_file="${dotfiles_directory}/$(date +%Y%m%d%H%M%S).log"
+PATH="$HOME/.local/bin:$PATH"
 exec > >(tee -a "$log_file") 2>&1
 
 # ────────────────[ Package Installation ]────────────────
@@ -325,8 +326,7 @@ while true; do
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
-        info "Updating XDG user dirs and applying GTK4 File Chooser settings..."
-        xdg-user-dirs-update --force
+        info "Applying GTK4 File Chooser settings..."
         gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
         gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
         okay "Done!"
