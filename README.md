@@ -41,6 +41,8 @@ don't read PKGBUILDs and blindly run untrusted scripts on their system. Qt6ct-kd
 exception to this. I want Kcolorscheme with Qt6, but the [pull request in Qt6ct](https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9) has remained
 open for over a year. I encourge the reader of this to make the maintainer more aware of this feature.
 
+---
+
 ## Manual Install: (Advanced users)
 
 ### Dependencies
