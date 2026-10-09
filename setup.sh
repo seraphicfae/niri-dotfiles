@@ -276,6 +276,7 @@ while true; do
             curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman" && chmod +x "$HOME/.local/bin/appman"
         fi
         source "$HOME/.config/zsh/.zshrc"
+        mkdir "$HOME/.config/appman"
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
         appman -i "${appman_packages[@]}"
         appman --icons --all
