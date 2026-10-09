@@ -51,7 +51,7 @@ if ((${#packages[@]})); then
             git clone https://aur.archlinux.org/qt6ct-kde
             cd qt6ct-kde
             makepkg -si
-            cd dotfiles_directory
+            cd "$dotfiles_directory"
             sudo pacman -Rns $(pacman -Qtdq)
             okay "Packages installed."
             break
@@ -275,12 +275,11 @@ while true; do
             info "Downloading the AppMan script..."
             curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman" && chmod +x "$HOME/.local/bin/appman"
         fi
-        source "$HOME/.config/zsh/.zshrc"
         mkdir "$HOME/.config/appman"
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
-        appman -i "${appman_packages[@]}"
-        appman --icons --all
-        appman nolibfuse vesktop
+        "$HOME/.local/bin/appman" -i "${appman_packages[@]}"
+        "$HOME/.local/bin/appman" --icons --all
+        "$HOME/.local/bin/appman" nolibfuse vesktop
 
         info "Installing packages/flatpaks and starting services..."
         sudo pacman -S "${packages[@]}"
