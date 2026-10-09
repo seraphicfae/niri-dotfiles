@@ -316,7 +316,7 @@ while true; do
             "file://"$HOME"/Videos Videos" |
             tee "$HOME/.config/gtk-3.0/bookmarks" >/dev/null
 
-        info "Configuring DNS for Cloudflare.."
+        info "Configuring DNS for Cloudflare..."
         sudo mkdir -p /etc/systemd/resolved.conf.d
         printf '%s\n' \
             '[Resolve]' \
