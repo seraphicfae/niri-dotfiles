@@ -50,11 +50,10 @@ open for over a year. I encourge the reader of this to make the maintainer more 
 ```bash
 sudo pacman -S \
 alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch \
-ffmpegthumbnailer imagemagick imv inter-font libnotify ly mpv \
+ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly mpv \
 niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
 qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard \
-xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite \
-zed zsh-autosuggestions zsh-syntax-highlighting
+xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed
 ```
 
 ```bash
@@ -90,9 +89,7 @@ ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/
 sudo systemctl enable ly@tty2
 systemctl --user add-wants niri.service noctalia
 
-chsh -s /usr/bin/zsh
-
-echo 'export ZDOTDIR="$HOME/.config/zsh"' > "$HOME/.zshenv"
+chsh -s /usr/bin/fish
 
 reboot
 ```

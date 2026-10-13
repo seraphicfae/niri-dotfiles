@@ -31,11 +31,10 @@ EOF
 
 declare -a packages=(
     alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch
-    ffmpegthumbnailer imagemagick imv inter-font libnotify ly mpv
+    ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly mpv
     niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
     qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite
-    zed zsh-autosuggestions zsh-syntax-highlighting
+    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
@@ -175,17 +174,16 @@ while true; do
             systemctl --user add-wants niri.service "${user_service}.service" && okay "${user_service} linked."
         done
 
-        if command -v zsh &>/dev/null; then
-            if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
-                info "Setting Zsh as default shell..."
-                chsh -s /usr/bin/zsh "$USER"
-                okay "Zsh set."
+        if command -v fish &>/dev/null; then
+            if [[ "$SHELL" != "/usr/bin/fish" ]]; then
+                info "Setting Fish as default shell..."
+                chsh -s /usr/bin/fish "$USER"
+                okay "Fish set."
             else
-                info "Zsh is already default."
+                info "Fish is already default."
             fi
-            echo 'export ZDOTDIR="$HOME/.config/zsh"' >"$HOME/.zshenv"
         else
-            warn "Zsh not found."
+            warn "Fish not found."
         fi
 
         okay "Services and environment configuration complete!"
@@ -316,11 +314,13 @@ while true; do
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
-        info "Applying GTK4 File Chooser settings and creating template file..."
+        info "Applying GTK4 File Chooser settings, creating template file, and making SSH follow xdg base directory..."
         gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
         gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
+        alias ssh='ssh -F ~/.local/share/ssh/config'
+        funcsave ssh
         okay "Done!"
         break
         ;;
