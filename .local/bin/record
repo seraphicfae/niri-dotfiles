@@ -9,7 +9,7 @@ if pgrep -x wl-screenrec > /dev/null; then
     exit 0
 fi
 
-notify-send  -a "System" "Recording started"
+notify-send  -a "System" "Recording started" $file
 wl-screenrec --filename $file \
              --audio \
              --audio-device $audio_device \
@@ -18,9 +18,9 @@ wl-screenrec --filename $file \
              --low-power=off \
 
 if [ $? -ne 1 ]; then
-    notify-send -a "System" "Recording saved"
+    notify-send -a "System" "Recording saved" $file
 fi
 
 if [ $? -ne 0 ]; then
-    notify-send -a "System" "Screen Recording Failed"
+    notify-send -a "System" "Screen Recording Failed" $file
 fi
