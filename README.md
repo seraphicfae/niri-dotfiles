@@ -11,6 +11,7 @@ https://github.com/user-attachments/assets/9dc9ab6c-8d8a-4e98-a2fc-0bb286a86cf4
 ## Quick Install:
 > [!WARNING]
 > Don't run random scripts blindly
+> Always verify PKGBUILDs and bash scripts
 
 Manual and scripted install are meant to be installed on a new system.
 I recommend you do the manual install on a pre-existing arch system.
@@ -37,9 +38,10 @@ section in setup.sh for this very reason. I do not want my dotfiles to be intrus
 on user's home directory. While you can install these on a prebuilt system, if you blindly 
 paste commands, you could break your system. This is a problem with every dotfile,
 but I try to minimize this issue when possible. I also avoid installing paru/yay because most users
-don't read PKGBUILDs and blindly run untrusted scripts on their system. Qt6ct-kde is the
-exception to this. I want Kcolorscheme with Qt6, but the [pull request in Qt6ct](https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9) has remained
+don't read PKGBUILDs and blindly run untrusted scripts on their system. I wish for a PR to introduce
+Kcolorscheme within Qt6ct to be merged, but the [pull request in Qt6ct](https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9) has remained
 open for over a year. I encourge the reader of this to make the maintainer more aware of this feature.
+Please do not harass the maintainers and developers. Instead, upvote or bump the PR. 
 
 ---
 
@@ -57,8 +59,7 @@ xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed
 ```
 
 ```bash
-git clone https://aur.archlinux.org/qt6ct-kde
-cd qt6ct-kde
+cd qtengine
 makepkg -si
 ```
 

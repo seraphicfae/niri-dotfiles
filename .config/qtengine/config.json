@@ -1,0 +1,22 @@
+{
+  "theme": {
+    "colorScheme": "~/.local/share/color-schemes/noctalia.colors",
+    "iconTheme": "Papirus-Dark",
+    "style": "breeze",
+    "font": {
+      "family": "Inter",
+      "size": 11,
+      "weight": -1
+    },
+    "fontFixed": {
+      "family": "Inter",
+      "size": 11,
+      "weight": -1
+    }
+  },
+  "misc": {
+    "menusHaveIcons": true,
+    "singleClickActivate": false,
+    "shortcutsForContextMenus": true
+  }
+}
