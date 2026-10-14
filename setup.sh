@@ -48,7 +48,7 @@ if ((${#packages[@]})); then
         case "${input:-y}" in
         [Yy])
             sudo pacman -S "${packages[@]}"
-            cd ../qtengine
+            cd "$dotfiles_directory"/qtengine
             makepkg -si
             cd "$dotfiles_directory"
             sudo pacman -Rns $(pacman -Qtdq) qtengine-debug
