@@ -87,11 +87,10 @@ ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/
 #### Finalizing
 ```bash
 sudo systemctl enable ly@tty2
+
 systemctl --user add-wants niri.service noctalia
 
 chsh -s /usr/bin/fish
-
-reboot
 ```
 
 ---
@@ -101,6 +100,9 @@ reboot
 **Note for Cachyos** \
 Due to CachyOS using a mix of custom repos for packages, \
 it's likely to not work well with the script. Use at your own risk.
+
+**Qt themes are broken!** \
+Install `qt6ct-kde` and configure it.
 
 **The screen recording keybind isn't working!** \
 Install wl-screenrec via cargo or the AUR.
