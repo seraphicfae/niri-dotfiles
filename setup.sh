@@ -48,10 +48,11 @@ if ((${#packages[@]})); then
         case "${input:-y}" in
         [Yy])
             sudo pacman -S "${packages[@]}"
-            cd "$dotfiles_directory"/qtengine
+            git clone https://aur.archlinux.org/qt6ct-kde
+            cd "$dotfiles_directory"/qt6ct
             makepkg -si
             cd "$dotfiles_directory"
-            sudo pacman -Rns $(pacman -Qtdq) qtengine-debug
+            sudo pacman -Rns $(pacman -Qtdq) qt6ct-debug
             okay "Packages installed."
             break
             ;;

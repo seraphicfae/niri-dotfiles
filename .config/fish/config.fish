@@ -19,7 +19,7 @@ set -gx NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -gx TERMINAL alacritty
 set -gx EDITOR helix
 
-set -gx QT_QPA_PLATFORMTHEME qtengine
+set -gx QT_QPA_PLATFORMTHEME qt6ct
 set -gx XCURSOR_THEME breeze_cursors
 set -gx XCURSOR_SIZE 24
 
