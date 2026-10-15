@@ -318,7 +318,7 @@ while true; do
         gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
-        alias ssh='ssh -F ~/.local/share/ssh/config'
+        alias ssh='ssh -F ~/.config/ssh/config'
         funcsave ssh
         okay "Done!"
         break
