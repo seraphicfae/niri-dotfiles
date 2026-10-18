@@ -322,7 +322,7 @@ while true; do
         sudo btrfs subvolume create "$HOME/.cache"
         sudo chown $USER:$USER "$HOME/.cache"
 
-        info "Creating template file and making ssh alias..."
+        info "Creating template file and making an ssh alias..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
         alias ssh='ssh -F ~/.config/ssh/config'
