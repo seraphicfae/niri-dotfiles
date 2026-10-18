@@ -261,7 +261,7 @@ while true; do
         appman --icons --all
         appman nolibfuse vesktop
 
-        info "Installing packages/flatpaks and starting services..."
+        info "Installing arch packages, flatpaks and starting systemd services..."
         sudo pacman -S "${packages[@]}"
         flatpak install -y flathub "${flathub_packages[@]}"
         sudo systemctl enable "${services[@]}"
