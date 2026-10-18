@@ -316,6 +316,11 @@ while true; do
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
+        info "Setting up ~/.cache as a BTRFS subvolume..."
+        bash
+        sudo btrfs subvolume create /home/meimei/.cache
+        sudo chown $USER:$USER /home/meimei/.cache
+
         info "Creating template file, and making SSH follow xdg base directory..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
