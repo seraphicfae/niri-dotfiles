@@ -128,6 +128,8 @@ while true; do
         gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
         gsettings set org.gnome.desktop.interface cursor-size '24'
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+        gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
+        gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
         ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/"
         okay "GTK 4 set!"
         break
@@ -314,9 +316,7 @@ while true; do
         sudo cp -r "$HOME/.config/helix" /root/.config
         sudo cp -r "$HOME/.config/qt6ct" /root/.config
 
-        info "Applying GTK4 File Chooser settings, creating template file, and making SSH follow xdg base directory..."
-        gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
-        gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
+        info "Creating template file, and making SSH follow xdg base directory..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
         alias ssh='ssh -F ~/.config/ssh/config'

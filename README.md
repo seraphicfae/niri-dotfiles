@@ -78,6 +78,8 @@ gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
 gsettings set org.gnome.desktop.interface cursor-size '24'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gtk.gtk4.Settings.FileChooser show-hidden true
+gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 
 ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/"
 ```
