@@ -318,8 +318,9 @@ while true; do
 
         info "Setting up ~/.cache as a BTRFS subvolume..."
         bash
-        sudo btrfs subvolume create /home/meimei/.cache
-        sudo chown $USER:$USER /home/meimei/.cache
+        rm -rf "$HOME/.cache"
+        sudo btrfs subvolume create "$HOME/.cache"
+        sudo chown $USER:$USER "$HOME/.cache"
 
         info "Creating template file, and making SSH follow xdg base directory..."
         mkdir -p "$HOME/Templates"
