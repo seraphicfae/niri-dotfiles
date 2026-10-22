@@ -212,7 +212,7 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor gamemode gnome-keyring flatpak fwupd helix
+    apparmor chipass gamemode gnome-keyring flatpak fwupd helix
     kid3 pacman-contrib plymouth pnpm power-profiles-daemon
     qbittorrent reflector rustup rsync snap-pac
 )
