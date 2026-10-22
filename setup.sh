@@ -214,7 +214,7 @@ EOF
 declare -a packages=(
     apparmor gamemode gnome-keyring flatpak fwupd gvfs-mtp
     helix kid3 pacman-contrib plymouth pnpm power-profiles-daemon
-    qbittorrent reflector rustup rsync seahorse snap-pac
+    qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
     helium ryujinx-canary vesktop elyprismlauncher gapless
@@ -259,7 +259,6 @@ while true; do
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
         appman -i "${appman_packages[@]}"
         appman --icons --all
-        appman nolibfuse vesktop
 
         info "Installing arch packages, flatpaks and starting systemd services..."
         sudo pacman -S "${packages[@]}"
