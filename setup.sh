@@ -220,7 +220,8 @@ declare -a appman_packages=(
     helium ryujinx-canary elyprismlauncher
 )
 declare -a flathub_packages=(
-    com.discordapp.Discord com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
+    com.discordapp.Discord com.github.tchx84.Flatseal com.valvesoftware.Steam
+    io.github.screwys.Rufin org.localsend.localsend_app
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
