@@ -217,10 +217,10 @@ declare -a packages=(
     qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
-    helium ryujinx-canary elyprismlauncher gapless
+    helium ryujinx-canary elyprismlauncher
 )
 declare -a flathub_packages=(
-    com.github.tchx84.Flatseal com.valvesoftware.Steam com.discordapp.Discord
+    com.discordapp.Discord com.github.tchx84.Flatseal com.valvesoftware.Steam io.github.screwys.Rufin
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
