@@ -40,8 +40,8 @@ binds {
     Mod+Shift+F { spawn "nautilus"; }
     Mod+B       { spawn "helium"; }
     Mod+E       { spawn "zeditor"; }
-    Mod+V       { spawn "vesktop"; }
-    Mod+M       { spawn "gapless"; }
+    Mod+V       { spawn "com.discordapp.Discord"; }
+    Mod+M       { spawn "io.github.screwys.Rufin"; }
     Mod+Slash   { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
 
     // Laptop Multimedia keys: Volume, LCD Brightness and Player Control
@@ -206,8 +206,7 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="kitty|vesktop|zed|helium|steam|mpv|imv|org.gnome.Boxes"
-    exclude title="Bitwarden"
+    exclude app-id="discord|helium|imv|mpv|org.gnome.Boxes|steam"
 }
 
 window-rule {
@@ -218,12 +217,12 @@ window-rule {
 }
 
 window-rule {
-    match app-id="helium|vesktop"
+    match app-id="discord|helium"
     open-on-workspace "1"
 }
 
 window-rule {
-    match app-id="zed|kid3|qbittorrent"
+    match app-id="dev.zed.Zed|org.kde.kid3|org.qbittorrent.qBittorrent"
     open-maximized true
     open-on-workspace "2"
 }
@@ -242,7 +241,7 @@ window-rule {
 }
 
 window-rule {
-    match title="Bitwarden"
+    match app-id="org.chipass.ChiPass"
     block-out-from "screen-capture"
 }
 
