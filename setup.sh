@@ -217,10 +217,10 @@ declare -a packages=(
     qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
-    helium ryujinx-canary vesktop elyprismlauncher gapless
+    helium ryujinx-canary elyprismlauncher gapless
 )
 declare -a flathub_packages=(
-    com.github.tchx84.Flatseal com.valvesoftware.Steam
+    com.github.tchx84.Flatseal com.valvesoftware.Steam com.discordapp.Discord
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
@@ -308,7 +308,7 @@ while true; do
         mkdir -p "$HOME/.config/autostart"
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "$HOME/.local/share/applications/vesktop-AM.desktop" "$HOME/.config/autostart"
+        ln -sf "/var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
