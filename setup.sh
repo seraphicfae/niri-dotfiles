@@ -212,15 +212,15 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    apparmor chipass gamemode gnome-keyring flatpak fwupd helix
-    kid3 pacman-contrib plymouth pnpm power-profiles-daemon
+    apparmor chipass discord gamemode gnome-keyring flatpak fwupd
+    helix kid3 pacman-contrib plymouth pnpm power-profiles-daemon
     qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
     helium ryujinx-canary elyprismlauncher
 )
 declare -a flathub_packages=(
-    com.discordapp.Discord com.github.tchx84.Flatseal com.valvesoftware.Steam
+    com.github.tchx84.Flatseal com.valvesoftware.Steam
     io.github.screwys.Rufin org.localsend.localsend_app
 )
 declare -a services=(
@@ -309,7 +309,7 @@ while true; do
         mkdir -p "$HOME/.config/autostart"
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
-        ln -sf "/var/lib/flatpak/exports/share/applications/com.discordapp.Discord.desktop" "$HOME/.config/autostart"
+        ln -sf "/usr/share/applications/discord.desktop" "$HOME/.config/autostart"
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
@@ -321,6 +321,10 @@ while true; do
         rm -rf "$HOME/.cache"
         sudo btrfs subvolume create "$HOME/.cache"
         sudo chown $USER:$USER "$HOME/.cache"
+
+        info "Downloading Vencord installer..."
+        curl -L https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux -o "$HOME/.local/bin/vencordinstaller"
+        chmod +x "$HOME/.local/bin/vencordinstaller"
 
         info "Creating template file and making an ssh alias..."
         mkdir -p "$HOME/Templates"
