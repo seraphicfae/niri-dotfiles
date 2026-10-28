@@ -34,7 +34,7 @@ declare -a packages=(
     ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly mpv
     niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
     qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard
-    xdg-desktop-portal-gnome xdg-desktop-portal-gtk xwayland-satellite zed
+    xdg-desktop-portal-gnome xwayland-satellite zed
 )
 
 mapfile -t packages < <(pacman -T "${packages[@]}")
