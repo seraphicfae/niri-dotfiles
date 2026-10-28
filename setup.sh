@@ -326,12 +326,13 @@ while true; do
         curl -L https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux -o "$HOME/.local/bin/vencordinstaller"
         chmod +x "$HOME/.local/bin/vencordinstaller"
 
-        info "Creating template file, making an ssh alias, and making annotator show on the app menu..."
+        info "Creating template file, making an ssh alias, and setting no display to various apps..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
         alias ssh='ssh -F ~/.config/ssh/config'
         funcsave ssh
         sudo desktop-file-edit --set-key NoDisplay --set-value false /usr/share/applications/dev.noctalia.Noctalia.Annotator.desktop
+        sudo desktop-file-edit --set-key NoDisplay --set-value true /usr/share/applications/dev.noctalia.Noctalia.desktop
         okay "Done!"
         break
         ;;
