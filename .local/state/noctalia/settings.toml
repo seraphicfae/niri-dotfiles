@@ -1,9 +1,9 @@
-config_version = 14
+config_version = 16
 
 [backdrop]
-blur_intensity = 0.40
+blur_intensity = 0.4
 enabled = true
-tint_intensity = 0.0
+tint_intensity = 0
 
 [bar.default]
 center = [ "group:g3" ]
@@ -21,7 +21,7 @@ accordion = false
 accordion_direction = "end"
 border_width = 1
 enabled = true
-fill = "surface_variant"
+fill = "surface_container"
 id = "g3"
 members = [ "media", "audio_visualizer" ]
 opacity = 1
@@ -32,7 +32,7 @@ accordion = false
 accordion_direction = "end"
 border_width = 1
 enabled = true
-fill = "surface_variant"
+fill = "surface_container"
 id = "g4"
 members = [ "ram", "cpu", "temp" ]
 opacity = 1
@@ -43,7 +43,7 @@ accordion = false
 accordion_direction = "end"
 border_width = 1
 enabled = true
-fill = "surface_variant"
+fill = "surface_container"
 id = "g1"
 members = [ "bluetooth", "network", "clock" ]
 opacity = 1
@@ -54,7 +54,7 @@ accordion = false
 accordion_direction = "end"
 border_width = 1
 enabled = true
-fill = "surface_variant"
+fill = "surface_container"
 id = "g2"
 members = [ "brightness", "battery", "volume" ]
 opacity = 1
@@ -72,17 +72,17 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 [idle.behavior.lock]
 action = "lock"
 enabled = true
-timeout = 600.0
+timeout = 600
 
 [idle.behavior.lock-and-suspend]
 action = "lock_and_suspend"
 enabled = false
-timeout = 900.0
+timeout = 900
 
 [idle.behavior.screen-off]
 action = "screen_off"
 enabled = true
-timeout = 660.0
+timeout = 660
 
 [location]
 auto_locate = true
@@ -102,16 +102,19 @@ show_location = false
 
 [shell.launcher]
 categories = false
+layout = "simple"
 
 [shell.screenshot]
 directory = "~/Pictures/screenshots"
 show_cursor = true
 
 [theme]
+mode = "dark"
 source = "wallpaper"
+wallpaper_scheme = "m3-content"
 
 [theme.templates]
-builtin_ids = [ "alacritty", "gtk3", "gtk4", "helix", "kcolorscheme", "niri", "starship" ]
+builtin_ids = [ "alacritty", "btop", "gtk3", "gtk4", "helix", "kcolorscheme", "niri", "starship" ]
 enable_community_templates = false
 
 [wallpaper]
@@ -121,13 +124,10 @@ directory = "~/Pictures/wallpapers"
 enabled = true
 
 [wallpaper.default]
-path = "~/Pictures/wallpapers/wallpaper_01.jpg"
+path = "~/Pictures/wallpapers/wallpaper_01.jxl"
 
 [wallpaper.last]
-path = "~/Pictures/wallpapers/wallpaper_01.jpg"
-
-[wallpaper.monitors.DP-1]
-path = "~/Pictures/wallpapers/wallpaper_01.jpg"
+path = "~/Pictures/wallpapers/wallpaper_01.jxl"
 
 [widget.workspaces]
 active_pill_size = 2.5
