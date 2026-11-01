@@ -1,0 +1,77 @@
+{
+  "materialWallpapers": {
+    "": {
+      "shared": {
+        "preset": "dune",
+        "seed": "#d0bcff"
+      }
+    }
+  },
+  "materialWallpaperProfiles": {
+    "dank": null,
+    "bloom": null,
+    "garden": null,
+    "orbit": null,
+    "petal": null
+  },
+  "wallpaperPath": "~/Pictures/wallpapers/wallpaper_01.jpg",
+  "lockScreenAutoPositions": {
+    "DP-1": {
+      "width": 1920,
+      "height": 1080,
+      "positions": {
+        "lock_clock": {
+          "x": 48,
+          "y": 435
+        }
+      }
+    }
+  },
+  "wallpaperTransition": "random",
+  "wallpaperCyclingEnabled": true,
+  "wallpaperCyclingInterval": 14400,
+  "recentColors": [
+    "#1c2024"
+  ],
+  "brightnessExponentialDevices": {
+    "ddc:i2c-6": true
+  },
+  "brightnessUserSetValues": {
+    "ddc:i2c-6": 100
+  },
+  "enabledGpuPciIds": [
+    "1002:73ff"
+  ],
+  "lastPlayerIdentity": "Helium",
+  "launcherLastQuery": "q",
+  "launcherQueryHistory": [
+    "q",
+    "qt",
+    "settings",
+    "pine",
+    "syst",
+    "sys",
+    "discord",
+    "btr",
+    "sett",
+    "setting",
+    "color",
+    "cb",
+    "cp",
+    "clip",
+    "power",
+    "record",
+    "mim",
+    "set",
+    "heli",
+    "monit",
+    "gtk",
+    "qb",
+    "qt6",
+    "kid",
+    "kde",
+    "alac",
+    "hell"
+  ],
+  "configVersion": 7
+}
