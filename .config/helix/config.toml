@@ -1,4 +1,4 @@
-theme = "noctalia"
+theme = "term16_dark"
 
 [editor]
 cursorline = true

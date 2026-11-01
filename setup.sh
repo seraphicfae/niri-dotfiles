@@ -30,9 +30,9 @@ cat <<"EOF"
 EOF
 
 declare -a packages=(
-    alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch
-    ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly mpv
-    niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
+    alacritty adw-gtk-theme base-devel breeze ddcutil dms fastfetch
+    ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly
+    matugen mpv niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme
     qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard
     xdg-desktop-portal-gnome xwayland-satellite zed
 )
@@ -158,7 +158,7 @@ declare -a services=(
     ly@tty2
 )
 declare -a user_services=(
-    noctalia
+    dms
 )
 
 while true; do

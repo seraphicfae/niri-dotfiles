@@ -47,9 +47,9 @@ but I try to minimize this issue when possible.
 
 ```bash
 sudo pacman -S \
-alacritty adw-gtk-theme base-devel breeze ddcutil fastfetch \
-ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly mpv \
-niri noctalia noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
+alacritty adw-gtk-theme base-devel breeze ddcutil dms fastfetch \
+ffmpegthumbnailer fish imagemagick imv inter-font libnotify ly \
+matugen mpv niri noto-fonts-cjk noto-fonts-emoji papirus-icon-theme \
 qt6-wayland starship ttf-jetbrains-mono-nerd wl-clipboard \
 xdg-desktop-portal-gnome xwayland-satellite zed
 ```
@@ -88,7 +88,7 @@ ln -sf /usr/share/themes/adw-gtk3/gtk-4.0/libadwaita.css "$HOME/.config/gtk-4.0/
 ```bash
 sudo systemctl enable ly@tty2
 
-systemctl --user add-wants niri.service noctalia
+systemctl --user add-wants niri.service dms.service
 
 chsh -s /usr/bin/fish
 ```
