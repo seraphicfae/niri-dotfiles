@@ -288,10 +288,10 @@ while true; do
         printf '%s\n' \
             "file://"$HOME"/Documents Documents" \
             "file://"$HOME"/Downloads Downloads" \
+            "file://"$HOME"/Games Games" \
             "file://"$HOME"/Music Music" \
             "file://"$HOME"/Pictures Pictures" \
             "file://"$HOME"/Projects Projects" \
-            "file://"$HOME"/Switch Switch" \
             "file://"$HOME"/Videos Videos" |
             tee "$HOME/.config/gtk-3.0/bookmarks" >/dev/null
 
