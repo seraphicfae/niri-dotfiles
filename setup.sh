@@ -338,13 +338,11 @@ while true; do
             chmod +x "$HOME/.local/bin/vencordinstaller"
         fi
 
-        info "Creating template file, making an ssh alias, and editing desktop files..."
+        info "Creating template file and making an ssh alias..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
         alias ssh='ssh -F ~/.config/ssh/config'
         funcsave ssh
-        sudo desktop-file-edit --set-key NoDisplay --set-value false /usr/share/applications/dev.noctalia.Noctalia.Annotator.desktop
-        sudo desktop-file-edit --set-key NoDisplay --set-value true /usr/share/applications/dev.noctalia.Noctalia.desktop
         okay "Done!"
         break
         ;;
