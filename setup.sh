@@ -48,7 +48,14 @@ if ((${#packages[@]})); then
         case "${input:-y}" in
         [Yy])
             sudo pacman -S "${packages[@]}"
-            git clone https://aur.archlinux.org/qt6ct-kde
+            git clone https://aur.archlinux.org/qtengine
+            sed -i \
+              -e '/kconfigwidgets5/d' \
+              -e '/kiconthemes5/d' \
+              -e '/qt5-base/d' \
+              -e '/-DQT5_PLUGINDIR/d' \
+              -e '/-DCMAKE_BUILD_TYPE=Release/a\    -DBUILD_QT5=OFF' \
+              "$dotfiles_directory/qtengine/PKGBUILD"
             cd "$dotfiles_directory"/qt6ct
             makepkg -si
             cd "$dotfiles_directory"
@@ -314,7 +321,7 @@ while true; do
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
         sudo cp -r "$HOME/.config/helix" /root/.config
-        sudo cp -r "$HOME/.config/qt6ct" /root/.config
+        sudo cp -r "$HOME/.config/qtengine" /root/.config
 
         info "Setting up ~/.cache as a BTRFS subvolume..."
         bash
