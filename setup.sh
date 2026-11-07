@@ -329,9 +329,13 @@ while true; do
         sudo btrfs subvolume create "$HOME/.cache"
         sudo chown $USER:$USER "$HOME/.cache"
 
-        info "Downloading Vencord installer..."
-        curl -L https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux -o "$HOME/.local/bin/vencordinstaller"
-        chmod +x "$HOME/.local/bin/vencordinstaller"
+        if command -v vencordinstaller &>/dev/null; then
+            info "Vencord installer is already downloaded."
+        else
+            info "Downloading Vencord installer..."
+            curl -L https://github.com/Vendicated/VencordInstaller/releases/latest/download/VencordInstallerCli-Linux -o "$HOME/.local/bin/vencordinstaller"
+            chmod +x "$HOME/.local/bin/vencordinstaller"
+        fi
 
         info "Creating template file, making an ssh alias, and editing desktop files..."
         mkdir -p "$HOME/Templates"
