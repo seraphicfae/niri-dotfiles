@@ -261,7 +261,8 @@ while true; do
             info "AppMan is already installed."
         else
             info "Downloading the AppMan script..."
-            curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman" && chmod +x "$HOME/.local/bin/appman"
+            curl -L https://raw.githubusercontent.com/ivan-hc/AM/refs/heads/main/APP-MANAGER -o "$HOME/.local/bin/appman"
+            chmod +x "$HOME/.local/bin/appman"
         fi
         mkdir -p "$HOME/.config/appman"
         [ -f "$HOME/.config/appman/appman-config" ] || echo "$HOME/.local/share/AM/apps" | tee "$HOME/.config/appman/appman-config"
