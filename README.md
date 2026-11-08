@@ -55,8 +55,8 @@ xdg-desktop-portal-gnome xwayland-satellite zed
 ```
 
 ```bash
-git clone https://aur.archlinux.org/qt6ct-kde
-cd qt6ct-kde
+git clone https://aur.archlinux.org/qtengine
+cd qtengine
 makepkg -si
 ```
 
@@ -102,7 +102,7 @@ Due to CachyOS using a mix of custom repos for packages, \
 it's likely to not work well with the script. Use at your own risk.
 
 **Qt themes are broken!** \
-Install `qt6ct-kde` and configure it.
+Install `qtengine` and configure it.
 
 **The screen recording keybind isn't working!** \
 Install wl-screenrec via cargo or the AUR.
