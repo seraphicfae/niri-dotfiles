@@ -175,7 +175,7 @@
       "islandRouteLauncher": "follow",
       "islandRoutePowerMenu": "follow",
       "islandMediaClockVisible": true,
-      "islandDashTabs": false,
+      "islandDashTabs": true,
       "islandMediaAutoSwitch": true,
       "islandNotificationPopups": false,
       "islandSystemOsd": true,
