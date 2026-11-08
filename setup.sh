@@ -224,7 +224,7 @@ declare -a packages=(
     qbittorrent reflector rustup rsync snap-pac
 )
 declare -a appman_packages=(
-    helium ryujinx-canary elyprismlauncher
+    helium eglantine elyprismlauncher
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam
