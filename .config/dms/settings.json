@@ -10,6 +10,7 @@
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
+      "middleClickAction": "close",
       "taskbarAlign": "center",
       "widgetExpansion": "popout",
       "iconSize": 40,
@@ -84,10 +85,6 @@
       "showOnLastDisplay": true,
       "leftWidgets": [
         "workspaceSwitcher",
-        {
-          "id": "music",
-          "enabled": true
-        },
         "clipboard"
       ],
       "centerWidgets": [],
@@ -171,9 +168,32 @@
       "maximizeWidgetText": false,
       "island": true,
       "islandOuterGap": 4,
-      "islandReserveThickness": 40,
+      "islandReserveThickness": 34,
       "islandCompactThickness": 38,
-      "islandSatelliteBackground": true
+      "islandSatelliteBackground": true,
+      "islandNotch": false,
+      "islandRouteLauncher": "follow",
+      "islandRoutePowerMenu": "follow",
+      "islandMediaClockVisible": true,
+      "islandDashTabs": false,
+      "islandMediaAutoSwitch": true,
+      "islandNotificationPopups": false,
+      "islandSystemOsd": true,
+      "islandNotificationExpand": false,
+      "hoverPopouts": false,
+      "islandFloating": false,
+      "islandRouteDash": "island",
+      "islandRouteMedia": "island",
+      "islandRouteWeather": "island",
+      "islandRouteWallpaper": "island",
+      "islandInteractionMode": "click",
+      "maximizeDetection": true,
+      "islandMediaLyrics": true,
+      "islandHomeClockDisplay": "both",
+      "islandSatellitesEnabled": true,
+      "islandSatellitePosition": "edges",
+      "islandSatelliteGothCorners": true,
+      "islandSatelliteFollowInterfaceStyle": true
     },
     {
       "id": "dot1793550830481",
@@ -711,5 +731,8 @@
   "niriOverviewLauncherStyle": "full",
   "dankLauncherV2ShowFooter": true,
   "launcherStyle": "spotlight",
-  "osdCapsLockEnabled": true
+  "osdCapsLockEnabled": true,
+  "iconThemePerMode": false,
+  "matugenTemplateAlacritty": true,
+  "matugenTemplateKcolorscheme": true
 }
