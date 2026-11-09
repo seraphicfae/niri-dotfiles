@@ -338,9 +338,10 @@ while true; do
             chmod +x "$HOME/.local/bin/vencordinstaller"
         fi
 
-        info "Creating template file and making an ssh alias..."
+        info "Creating template file, symlinkng KColorScheme as kdeglobals, and making an ssh alias..."
         mkdir -p "$HOME/Templates"
         touch "$HOME/Templates/new"
+        ln -sf "$HOME/.local/share/color-schemes/DankMatugenDark.colors" "$HOME/.config/kdeglobals"
         alias ssh='ssh -F ~/.config/ssh/config'
         funcsave ssh
         okay "Done!"
