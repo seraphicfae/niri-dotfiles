@@ -318,6 +318,7 @@ while true; do
         ln -sf "/var/lib/flatpak/exports/share/applications/com.valvesoftware.Steam.desktop" "$HOME/.config/autostart"
         ln -sf "$HOME/.local/share/applications/helium-AM.desktop" "$HOME/.config/autostart"
         ln -sf "/usr/share/applications/discord.desktop" "$HOME/.config/autostart"
+        sudo desktop-file-edit --set-key Exec --set-value '/usr/bin/discord discord://-/channels/@me' /usr/share/applications/discord.desktop
 
         info "Copying Helix and Qt config for root..."
         sudo mkdir -p /root/.config
