@@ -6,16 +6,15 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Wallpaper: Next" { spawn "dms" "ipc" "call" "wallpaper" "next"; }
     Mod+W hotkey-overlay-title="Wallpaper Browser" { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
     Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "screenshot" "full"; }
-    XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume Up (5%)" { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
     XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume Down (5%)" { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
     XF86AudioMute allow-when-locked=true hotkey-overlay-title="Volume Mute Toggle" { spawn "dms" "ipc" "call" "audio" "mute"; }
     XF86AudioNext allow-when-locked=true hotkey-overlay-title="Media: Next Track" { spawn "dms" "ipc" "call" "mpris" "next"; }
     XF86AudioPause allow-when-locked=true hotkey-overlay-title="Media: Play/Pause" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPlay allow-when-locked=true hotkey-overlay-title="Media: Play/Pause" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPrev allow-when-locked=true hotkey-overlay-title="Media: Previous Track" { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume Up (5%)" { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
     XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness Down (5%)" { spawn "dms" "ipc" "call" "brightness" "decrement" "5"; }
     XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness Up (5%)" { spawn "dms" "ipc" "call" "brightness" "increment" "5"; }
-    Mod+Slash { spawn-sh "niri msg action power-off-monitors && niri msg action power-on-monitors"; }
     Mod+0 { focus-workspace 10; }
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -74,6 +73,6 @@ binds {
     Mod+M { spawn "io.github.screwys.Rufin"; }
     Mod+Return { spawn "alacritty"; }
     Mod+Shift+F { spawn "nautilus"; }
-    Mod+V { spawn "discord"; }
+    Mod+V { spawn "discord" "discord://-/channels/@me"; }
     Mod+A { toggle-overview; }
 }
