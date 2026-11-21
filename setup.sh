@@ -56,10 +56,9 @@ if ((${#packages[@]})); then
               -e '/-DQT5_PLUGINDIR/d' \
               -e '/-DCMAKE_BUILD_TYPE=Release/a\    -DBUILD_QT5=OFF' \
               "$dotfiles_directory/qtengine/PKGBUILD"
-            cd "$dotfiles_directory"/qt6ct
+            cd "$dotfiles_directory"/qtengine
             makepkg -si
             cd "$dotfiles_directory"
-            sudo pacman -Rns $(pacman -Qtdq) qt6ct-debug
             okay "Packages installed."
             break
             ;;
