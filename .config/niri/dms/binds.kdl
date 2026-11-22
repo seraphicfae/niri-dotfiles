@@ -70,7 +70,7 @@ binds {
     Mod+B { spawn "helium"; }
     Mod+Ctrl+R { spawn "record"; }
     Mod+E { spawn "zeditor"; }
-    Mod+M { spawn "io.github.screwys.Rufin"; }
+    Mod+M { spawn "app.rufin.rufin"; }
     Mod+Return { spawn "alacritty"; }
     Mod+Shift+F { spawn "nautilus"; }
     Mod+V { spawn "discord" "discord://-/channels/@me"; }
