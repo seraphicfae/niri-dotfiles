@@ -69,7 +69,7 @@ window-rule {
 
 window-rule {
     opacity 0.9
-    exclude app-id="discord|helium|imv|mpv|org.gnome.Boxes|steam"
+    exclude app-id="io.github.zortos293.lichii|discord|helium|imv|mpv|org.gnome.Boxes|steam"
 }
 
 window-rule {
