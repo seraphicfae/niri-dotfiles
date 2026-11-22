@@ -227,7 +227,7 @@ declare -a appman_packages=(
 )
 declare -a flathub_packages=(
     com.github.tchx84.Flatseal com.valvesoftware.Steam
-    io.github.screwys.Rufin org.localsend.localsend_app
+    app.rufin.rufin org.localsend.localsend_app
 )
 declare -a services=(
     auditd apparmor reflector.timer fstrim.timer paccache.timer
